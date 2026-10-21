@@ -1,0 +1,1590 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>意大利语入门课本</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: volume gemello del libro di cinese. Indice fisso a sinistra, colonna di lettura, sigilli per regole, dialoghi ed esercizi; colori dei nomi per genere al posto dei toni. */
+:root{
+  --paper:#f2f4ef; --sheet:#fbfcf9; --ink:#1b2326; --muted:#5a6661; --line:#d3dad2; --grid:#c9d3cb;
+  --seal:#b8321f; --seal-ink:#fff8f2; --jade:#2f6b5c; --tint:#e7ece5; --ok:#2e7d4f; --ok-bg:#e3f1e8; --bad:#b33a2a; --bad-bg:#f8e5e1;
+  --masc:#2f55b5; --fem:#c2321f; --warn:#c27a0a;
+  --f-body:"Source Serif 4","Noto Serif SC","Songti SC","SimSun",Georgia,serif;
+  --f-han:"Noto Serif SC","Songti SC","SimSun","PingFang SC","Microsoft YaHei",serif;
+  --f-ui:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#121816; --sheet:#182120; --ink:#e3e9e4; --muted:#9aa8a1; --line:#2c3835; --grid:#33423e;
+  --seal:#e0553d; --seal-ink:#1a0f0c; --jade:#7cc1ad; --tint:#1f2a28; --ok:#6fcf97; --ok-bg:#16302a; --bad:#f08a78; --bad-bg:#3a1f1b;
+  --masc:#8aa8ff; --fem:#ff7a63; --warn:#f2b24c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#121816; --sheet:#182120; --ink:#e3e9e4; --muted:#9aa8a1; --line:#2c3835; --grid:#33423e;
+  --seal:#e0553d; --seal-ink:#1a0f0c; --jade:#7cc1ad; --tint:#1f2a28; --ok:#6fcf97; --ok-bg:#16302a; --bad:#f08a78; --bad-bg:#3a1f1b;
+  --masc:#8aa8ff; --fem:#ff7a63; --warn:#f2b24c; color-scheme:dark}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.75;padding-inline:16px;padding-block:0 64px}
+[lang="it"],.it,.it-l{font-family:"Source Serif 4",Georgia,serif}
+a{color:var(--jade)}
+h1,h2,h3{text-wrap:balance;line-height:1.3;margin:0}
+p{margin:0}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--jade);outline-offset:2px}
+b,strong{font-weight:700}
+.m{color:var(--masc);font-weight:600}.f{color:var(--fem);font-weight:600}
+.st{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;font-weight:700}
+
+.book{max-width:1180px;margin:0 auto;display:grid;gap:48px;grid-template-columns:1fr}
+@media (min-width:1000px){.book{grid-template-columns:250px minmax(0,1fr)}}
+main{min-width:0;max-width:760px;display:flex;flex-direction:column;gap:72px}
+
+.toc{font-family:var(--f-ui);font-size:14px;padding-top:24px}
+@media (max-width:999px){.toc{padding-top:56px}}
+@media (min-width:1000px){.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;max-height:100vh;overflow:auto;padding-bottom:24px}}
+.toc summary{cursor:pointer;font-weight:600;letter-spacing:.08em;font-size:13px;color:var(--muted);padding:6px 0}
+.toc ol{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:2px}
+.toc .part{font-size:12px;letter-spacing:.06em;color:var(--muted);margin-top:14px;padding:0 8px}
+.toc a{display:flex;justify-content:space-between;gap:8px;text-decoration:none;color:var(--ink);padding:5px 8px;border-radius:4px}
+.toc a:hover{background:var(--tint)}
+.toc .sc{color:var(--muted);font-variant-numeric:tabular-nums;font-size:12px;white-space:nowrap}
+.toc .sc.done{color:var(--ok)}
+
+.cover{padding-top:56px;display:grid;gap:26px}
+.cover-flag{display:flex;gap:10px;align-items:flex-end}
+.cover-flag span{font-family:"Source Serif 4",Georgia,serif;font-weight:700;font-style:italic;font-size:clamp(54px,12vw,92px);line-height:.9;color:var(--ink)}
+.cover-flag i{display:block;width:clamp(30px,6vw,46px);height:clamp(54px,12vw,86px);border-radius:2px}
+.cover h1{font-size:clamp(30px,5.4vw,46px);font-weight:700}
+.cover .sub{font-size:19px;color:var(--muted);max-width:40em}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--f-ui);font-size:14px;color:var(--muted);align-items:baseline}
+.legend b{font-family:var(--f-body);font-size:17px}
+.note{font-family:var(--f-ui);font-size:14px;color:var(--muted);border:1px dashed var(--line);padding:10px 14px;border-radius:4px}
+
+section.lesson{display:flex;flex-direction:column;gap:22px;scroll-margin-top:16px}
+.kicker{font-family:var(--f-ui);font-size:13px;letter-spacing:.08em;color:var(--seal);font-weight:600;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.kicker .itk{font-family:"Source Serif 4",Georgia,serif;font-style:italic;letter-spacing:0;font-size:15px}
+section.lesson>h2{font-size:clamp(26px,4.2vw,36px);font-weight:700}
+section.lesson>h2 small{display:block;font-family:"Source Serif 4",Georgia,serif;font-style:italic;font-weight:400;font-size:.55em;color:var(--muted);margin-top:4px}
+h3{font-size:22px;font-weight:600;margin-top:12px}
+h4{font-family:var(--f-ui);font-size:14px;letter-spacing:.04em;color:var(--muted);margin:6px 0 -8px;font-weight:600}
+.lead{font-size:19px;color:var(--muted)}
+ul.plain{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:6px}
+.partttl{font-family:var(--f-ui);font-size:13px;letter-spacing:.1em;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-bottom:-48px}
+
+.rule{position:relative;background:var(--sheet);border:1px solid var(--line);border-radius:3px;padding:26px 20px 18px;display:flex;flex-direction:column;gap:10px}
+.rule::before{content:attr(data-seal);position:absolute;top:-13px;left:16px;background:var(--seal);color:var(--seal-ink);font-family:var(--f-han);font-size:13px;font-weight:600;padding:3px 8px;letter-spacing:.15em;border-radius:2px}
+.rule h3{margin:0;font-size:20px}
+.formula{font-family:var(--f-ui);font-weight:500;font-size:16px;background:var(--tint);padding:8px 12px;border-radius:3px;overflow-x:auto}
+.warn{border-left:3px solid var(--warn);padding:4px 0 4px 14px}
+.warn strong{font-family:var(--f-ui);font-size:13px;letter-spacing:.06em;color:var(--warn);display:block}
+.speech{position:relative;border:1px solid var(--jade);border-radius:3px;padding:26px 20px 18px;display:flex;flex-direction:column;gap:10px;background:var(--sheet)}
+.speech::before{content:attr(data-seal);position:absolute;top:-13px;left:16px;background:var(--jade);color:var(--sheet);font-family:var(--f-han);font-size:13px;font-weight:600;padding:3px 8px;letter-spacing:.15em;border-radius:2px}
+.speech h3{margin:0;font-size:20px}
+
+.exs{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.ex{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 18px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.ex-body{min-width:0;display:flex;flex-direction:column;gap:1px}
+.it-l{font-size:20px;font-weight:500;line-height:1.4}
+.tr{color:var(--muted);font-size:16px}
+.ex.now{background:var(--tint);box-shadow:-10px 0 0 var(--tint),10px 0 0 var(--tint)}
+body.no-tr .tr{display:none!important}
+.say{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--sheet);cursor:pointer;flex:none;color:var(--ink)}
+.say:hover{border-color:var(--jade);color:var(--jade)}
+.say svg{width:16px;height:16px}
+.say.sm{width:28px;height:28px}
+.w{cursor:pointer;border-radius:3px;padding:0 1px;transition:background .12s}
+.w:hover,.w:focus-visible{background:var(--tint)}
+
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:3px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;font-size:16px}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-ui);font-size:13px;letter-spacing:.04em;color:var(--muted);font-weight:600;background:var(--tint)}
+tr:last-child td{border-bottom:0}
+td.big{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:19px;white-space:nowrap}
+td.itc{font-family:"Source Serif 4",Georgia,serif;font-size:18px}
+.grp td{background:var(--tint);font-family:var(--f-ui);font-size:13px;color:var(--muted);font-weight:600;padding:5px 12px}
+.conj td:first-child{color:var(--muted);font-family:var(--f-ui);font-size:14px;white-space:nowrap}
+.conj td{font-family:"Source Serif 4",Georgia,serif;font-size:18px}
+.conj .end{color:var(--seal);font-weight:700}
+
+/* dialoghi */
+.dialog{background:var(--sheet);border:1px solid var(--line);border-radius:3px;padding:18px 20px 10px;display:flex;flex-direction:column;gap:12px}
+.dl-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.dl-head h3{margin:0;font-size:22px}
+.dl-head h3 i{color:var(--seal);font-size:17px;margin-left:6px;font-weight:400}
+.dl-ctrl{display:flex;gap:8px;flex-wrap:wrap}
+.dl-ctrl .btn{display:inline-flex;align-items:center;gap:6px}
+.dl-ctrl svg,.lsp svg,.qtag svg{width:15px;height:15px}
+.dl-ctrl .dl-role[aria-pressed="true"]{border-color:var(--seal);color:var(--seal);background:var(--bad-bg)}
+.dl-lines{display:flex;flex-direction:column}
+.dl{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:start;padding:10px 6px;border-top:1px solid var(--line);border-radius:3px}
+.dl.now{background:var(--tint)}
+.dl .who{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;font-family:var(--f-ui);font-weight:700;font-size:14px;background:var(--tint);color:var(--jade);margin-top:2px}
+.dl.whoB .who{background:var(--seal);color:var(--seal-ink)}
+.dl-body{min-width:0}
+.dl-turn{display:none;font-size:17px;flex-direction:column;align-items:flex-start;gap:8px}
+.dialog.role .dl.whoB:not(.open) .dl-text,.dialog.role .dl.whoB:not(.open) .say{display:none}
+.dialog.role .dl.whoB:not(.open) .dl-turn{display:flex}
+.dl .say{margin-top:2px}
+
+/* esercizi */
+.drill{background:var(--sheet);border:1px solid var(--line);border-radius:3px;padding:26px 20px 20px;position:relative;display:flex;flex-direction:column;gap:20px}
+.drill::before{content:"练习 Esercizi";position:absolute;top:-13px;left:16px;background:var(--jade);color:var(--sheet);font-family:var(--f-han);font-size:13px;font-weight:600;padding:3px 8px;letter-spacing:.08em;border-radius:2px}
+.dhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-ui);font-size:14px;color:var(--muted)}
+.score{font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink)}
+.q{display:flex;flex-direction:column;gap:10px;padding-top:16px;border-top:1px solid var(--line)}
+.q:first-of-type{border-top:0;padding-top:0}
+.qt{display:flex;gap:10px}
+.qn{font-family:var(--f-ui);font-weight:600;color:var(--seal);min-width:1.6em;font-variant-numeric:tabular-nums}
+.qtag{display:inline-flex;align-items:center;gap:4px;font-family:var(--f-ui);font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);border-radius:3px;padding:0 6px;margin-right:8px;vertical-align:1px;line-height:1.6}
+.qtag.say-t{color:var(--seal);border-color:var(--seal)}
+.qtag.ear-t{color:var(--jade);border-color:var(--jade)}
+.opts{display:flex;flex-wrap:wrap;gap:8px;padding-left:calc(1.6em + 10px)}
+.opt{border:1px solid var(--line);background:var(--paper);padding:7px 14px;border-radius:4px;cursor:pointer;font-size:17px;text-align:left}
+.opt[lang="it"]{font-size:18px}
+.opt:hover:not(:disabled){border-color:var(--jade)}
+.opt:disabled{cursor:default}
+.opt.right{background:var(--ok-bg);border-color:var(--ok);color:var(--ok);font-weight:600}
+.opt.wrong{background:var(--bad-bg);border-color:var(--bad);color:var(--bad);text-decoration:line-through}
+.expl{padding-left:calc(1.6em + 10px);font-size:16px;color:var(--muted)}
+.expl b.ok{color:var(--ok)} .expl b.no{color:var(--bad)}
+.zp{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;color:var(--ink);font-size:18px;vertical-align:middle}
+.zp .it-l{font-size:19px}
+.sayans{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.sayn{font-size:15px}
+.sgq{font-family:var(--f-ui);font-size:14px;color:var(--muted);align-self:center}
+.lsh{font-family:var(--f-ui);font-size:13px;color:var(--muted);align-self:center}
+.lsp{display:inline-flex;align-items:center;gap:6px}
+.ordline,.ordpool{display:flex;flex-wrap:wrap;gap:8px;margin-left:calc(1.6em + 10px);min-height:48px;padding:6px;border-radius:4px}
+.ordline{border:1.5px dashed var(--grid);background:var(--paper)}
+.tok{font-family:"Source Serif 4",Georgia,serif;font-size:18px;padding:5px 12px;border:1px solid var(--line);background:var(--sheet);border-radius:4px;cursor:pointer}
+.tok:hover{border-color:var(--jade)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-left:calc(1.6em + 10px)}
+.btn{font-family:var(--f-ui);font-size:14px;font-weight:500;padding:8px 14px;border-radius:4px;border:1px solid var(--line);background:var(--paper);cursor:pointer}
+.btn.pri{background:var(--jade);color:var(--sheet);border-color:var(--jade)}
+.btn:hover{filter:brightness(1.05)}
+.btn:disabled{opacity:.5;cursor:default}
+
+/* flashcard */
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg .btn[aria-pressed="true"]{background:var(--jade);color:var(--sheet);border-color:var(--jade)}
+.fc{display:grid;gap:18px}
+.fc-card{background:var(--sheet);border:1px solid var(--line);border-radius:3px;padding:24px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;min-height:250px;justify-content:center}
+.fc-word{font-family:"Source Serif 4",Georgia,serif;font-size:clamp(34px,9vw,52px);font-weight:600;line-height:1.15}
+.fc-word .art{font-weight:400;opacity:.75}
+.fc-zh{font-size:24px;font-weight:600}
+.fc-g{font-family:var(--f-ui);font-size:13px;color:var(--muted)}
+.fc-ear{display:grid;place-items:center;width:110px;height:110px;border-radius:50%;border:2px solid var(--jade);background:var(--paper);color:var(--jade);cursor:pointer}
+.fc-ear svg{width:44px;height:44px}
+.fc-ear:hover{background:var(--tint)}
+.fc-hint{color:var(--muted);font-family:var(--f-ui);font-size:14px}
+.fc-box{color:var(--muted);font-family:var(--f-ui);font-size:12px;letter-spacing:.06em}
+.boxes{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;font-family:var(--f-ui);font-size:12px;color:var(--muted);text-align:center}
+.boxes div{display:flex;flex-direction:column;gap:4px}
+.boxes .bar{height:44px;background:var(--tint);border-radius:2px;display:flex;align-items:flex-end;overflow:hidden}
+.boxes .bar i{display:block;width:100%;background:var(--jade)}
+.boxes b{font-variant-numeric:tabular-nums;color:var(--ink)}
+.confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-family:var(--f-ui);font-size:14px}
+
+/* barra in alto e tooltip */
+.topbar{position:fixed;z-index:50;top:calc(env(safe-area-inset-top,0px) + 10px);right:calc(env(safe-area-inset-right,0px) + 10px);display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:calc(100vw - 20px)}
+.tb{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:40px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);font-family:var(--f-ui);font-size:13px;font-weight:600;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.10)}
+#tbtr[aria-pressed="false"]{color:var(--muted)}
+#tbslow[aria-pressed="true"]{border-color:var(--jade);color:var(--jade)}
+.tb-top{border-color:var(--seal);color:var(--seal)}
+.tb-top:hover{background:var(--seal);color:var(--seal-ink)}
+.tb svg{width:15px;height:15px}
+.tip{position:fixed;z-index:60;max-width:min(280px,calc(100vw - 16px));display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 14px;background:var(--ink);color:var(--paper);border-radius:6px;box-shadow:0 4px 16px rgba(0,0,0,.2);pointer-events:none;text-align:center;font-family:var(--f-ui)}
+.tip-w{font-family:"Source Serif 4",Georgia,serif;font-size:22px;font-weight:600;line-height:1.2}
+.tip-m{font-size:15px;font-family:var(--f-han)}
+#reading.hide-it .it-l,#reading.hide-it .ex .say{visibility:hidden}
+.plan td:first-child{font-family:var(--f-ui);font-weight:600;white-space:nowrap}
+footer{font-family:var(--f-ui);font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+[hidden]{display:none!important}img{max-width:100%}
+</style>
+</head>
+<body>
+
+<div class="topbar" role="toolbar" aria-label="听力设置">
+  <button class="tb" id="tbtr" type="button" aria-pressed="true" title="显示或隐藏中文翻译">译文 <span id="tbtrl">显示</span></button>
+  <button class="tb" id="tbslow" type="button" aria-pressed="false" title="语速">语速 <span id="tbslowl">正常</span></button>
+  <button class="tb tb-top" id="totop" type="button" aria-label="回到顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>顶部</button>
+</div>
+<div class="book">
+<nav class="toc" aria-label="目录">
+  <details id="tocd">
+    <summary>目录 · Indice</summary>
+    <ol>
+      <li><a href="#metodo">学习方法</a></li>
+      <li class="part">第一部分 · 发音</li>
+      <li><a href="#l1"><span>1 · 字母与发音</span><span class="sc" data-sc="l1"></span></a></li>
+      <li><a href="#l2"><span>2 · 重音、语调与问候</span><span class="sc" data-sc="l2"></span></a></li>
+      <li class="part">第二部分 · 基础会话</li>
+      <li><a href="#l3"><span>3 · 自我介绍：essere</span><span class="sc" data-sc="l3"></span></a></li>
+      <li><a href="#l4"><span>4 · 名词的性、数和冠词</span><span class="sc" data-sc="l4"></span></a></li>
+      <li><a href="#l5"><span>5 · 你好吗？avere 和形容词</span><span class="sc" data-sc="l5"></span></a></li>
+      <li><a href="#l6"><span>6 · 规则动词现在时</span><span class="sc" data-sc="l6"></span></a></li>
+      <li><a href="#l7"><span>7 · 提问</span><span class="sc" data-sc="l7"></span></a></li>
+      <li><a href="#l8"><span>8 · 在咖啡馆：数字和价格</span><span class="sc" data-sc="l8"></span></a></li>
+      <li class="part">第三部分 · 进阶会话</li>
+      <li><a href="#l9"><span>9 · 打电话：地点和介词</span><span class="sc" data-sc="l9"></span></a></li>
+      <li><a href="#l10"><span>10 · 约朋友：情态动词</span><span class="sc" data-sc="l10"></span></a></li>
+      <li><a href="#l11"><span>11 · 时间和日常生活</span><span class="sc" data-sc="l11"></span></a></li>
+      <li><a href="#l12"><span>12 · 讲过去的事：近过去时</span><span class="sc" data-sc="l12"></span></a></li>
+      <li><a href="#l13"><span>13 · 喜欢和比较</span><span class="sc" data-sc="l13"></span></a></li>
+      <li><a href="#l14"><span>14 · 买东西：代词</span><span class="sc" data-sc="l14"></span></a></li>
+      <li><a href="#l15"><span>15 · 计划未来：将来时</span><span class="sc" data-sc="l15"></span></a></li>
+      <li><a href="#l16"><span>16 · 听力：李薇在罗马</span><span class="sc" data-sc="l16"></span></a></li>
+      <li class="part">附录</li>
+      <li><a href="#frasi">A · 常用句</a></li>
+      <li><a href="#flash">B · 单词卡</a></li>
+      <li><a href="#vocab">C · 词汇表</a></li>
+    </ol>
+  </details>
+</nav>
+
+<main>
+<header class="cover">
+  <div class="cover-flag" aria-hidden="true"><i style="background:#2e8b57"></i><i style="background:#f4f1ec;border:1px solid var(--line)"></i><i style="background:#c8322a"></i><span>Ciao!</span></div>
+  <h1>意大利语入门课本</h1>
+  <p class="sub">给中文母语者的意大利语口语课。十六课，从发音开始，到能讲述自己的生活。每课都有可以听、可以跟读、可以分角色练习的对话，还有自动批改的练习。</p>
+  <div class="legend"><span>名词颜色：</span><b class="m">阳性 il libro</b><b class="f">阴性 la casa</b><span>· 下划线 = 重音：<b><span class="st">ca</span>sa</b></span></div>
+  <p class="note" id="ttsnote">点 ▶ 听整句；点任何一个意大利语单词，可以单独听这个词，并看到它的中文意思。右上角可以隐藏中文翻译（只用耳朵练习）和放慢语速。声音来自你设备上的意大利语语音。</p>
+</header>
+
+<section class="lesson" id="metodo">
+  <div class="kicker"><span>开始之前</span><span class="itk">Il metodo</span></div>
+  <h2>学习方法：先用耳朵，再用嘴巴</h2>
+  <p class="lead">意大利语对中国人来说有两个好消息：字母怎么写就怎么读，而且没有声调。难点在别的地方：名词分阴阳性，动词要跟着人称变化，还有中文里没有的浊音和大舌音 r。这本书就是围绕这些难点设计的。</p>
+  <div class="rule" data-seal="原则">
+    <h3>五个原则</h3>
+    <ul class="plain">
+      <li><b>先听再看。</b>每段对话先隐藏翻译听一遍，猜大意，再看文字。</li>
+      <li><b>从第一天开始大声说。</b>心里默念练不到嘴巴的肌肉。每个「说一说」练习都要真的说出来。</li>
+      <li><b>跟读（shadowing）。</b>点 ▶，紧跟着声音重复，模仿它的节奏和语调。意大利语的「音乐感」主要靠重音和语调。</li>
+      <li><b>名词连着冠词一起记。</b>不要只记 <i class="it">libro</i>，要记 <i class="it">il libro</i>。就像中文的量词，冠词告诉你这个词的性。</li>
+      <li><b>先学整句，再学语法。</b><i class="it">Non capisco</i>（我听不懂）比十个单独的单词更有用。附录 A 的常用句要背下来。</li>
+    </ul>
+  </div>
+  <div class="rule" data-seal="对话">
+    <h3>怎么用每课的对话</h3>
+    <ul class="plain">
+      <li><b>1. 听。</b>点右上角「译文」隐藏中文，再点「全部播放」，试着听懂大意。</li>
+      <li><b>2. 看和跟读。</b>显示译文，每句点 ▶ 跟着读。</li>
+      <li><b>3. 分角色。</b>点「我来说 B」：对话会停在你的句子上，你先大声说出来，再听标准版本。</li>
+      <li><b>4. 练习。</b>听力选择、选择回答、「说一说」。</li>
+    </ul>
+  </div>
+  <h3>每天 20 分钟</h3>
+  <div class="tw"><table class="plan">
+    <tr><th>分钟</th><th>内容</th></tr>
+    <tr><td>4</td><td>单词卡「听」模式：听单词，说出意思（附录 B）。</td></tr>
+    <tr><td>6</td><td>本课对话：听、跟读、分角色练习。</td></tr>
+    <tr><td>6</td><td>一条语法规则和它的练习。</td></tr>
+    <tr><td>4</td><td>自言自语：用意大利语大声描述你正在做的事，句子再简单也可以（<i class="it">Bevo un caffè. Sono stanco.</i>）。</td></tr>
+  </table></div>
+  <h3>十六周计划</h3>
+  <div class="tw"><table class="plan">
+    <tr><th>周</th><th>目标</th></tr>
+    <tr><td>1</td><td>第 1 课：字母和发音，重点练浊音、r 和双辅音。</td></tr>
+    <tr><td>2</td><td>第 2 课：重音、语调和问候。背熟常用句的前 10 句。</td></tr>
+    <tr><td>3</td><td>第 3 课：用 <i class="it">essere</i> 介绍自己。</td></tr>
+    <tr><td>4</td><td>第 4 课：名词的性和数，冠词。</td></tr>
+    <tr><td>5</td><td>第 5 课：<i class="it">avere</i>、形容词、说自己的状态。</td></tr>
+    <tr><td>6</td><td>第 6 课：规则动词，谈工作和学习。</td></tr>
+    <tr><td>7</td><td>第 7 课：提问。目标：完整的认识新朋友的对话。</td></tr>
+    <tr><td>8</td><td>第 8 课：在咖啡馆点东西、问价格。复习第一、二部分全部对话。</td></tr>
+    <tr><td>9</td><td>第 9 课：打电话，说自己在哪里。</td></tr>
+    <tr><td>10</td><td>第 10 课：约朋友、提建议、请求帮助。</td></tr>
+    <tr><td>11</td><td>第 11 课：时间、日期和日常作息。</td></tr>
+    <tr><td>12</td><td>第 12 课：讲过去的事情。</td></tr>
+    <tr><td>13</td><td>第 13 课：说喜好、做比较、发表看法。</td></tr>
+    <tr><td>14</td><td>第 14 课：在商店买东西，用代词避免重复。</td></tr>
+    <tr><td>15</td><td>第 15 课：谈计划和未来。</td></tr>
+    <tr><td>16</td><td>第 16 课：听一段完整的故事，然后讲你自己的故事。可以开始 A2 水平的会话课了。</td></tr>
+  </table></div>
+</section>
+
+<div class="partttl">第一部分 · 发音</div>
+
+<!-- L1 -->
+<section class="lesson" id="l1">
+  <div class="kicker"><span>第一课</span><span class="itk">Lezione 1</span></div>
+  <h2>字母与发音<small>L'alfabeto e i suoni</small></h2>
+  <p class="lead">意大利语基本上「怎么写就怎么读」：几乎每个字母都发音，规则很少有例外。学会这一课的规则，你就能读出任何意大利语单词，哪怕还不知道它的意思。</p>
+  <h3>字母表</h3>
+  <p>意大利语字母表只有 21 个字母。J、K、W、X、Y 只出现在外来词里。点 ▶ 听字母的名字。</p>
+  <div class="tw"><table id="alfabeto"></table></div>
+
+  <h3>五个元音：短、纯、不滑动</h3>
+  <div class="rule" data-seal="规则">
+    <p>意大利语的元音发音时嘴型从头到尾不变。中国学生最常见的问题是把 <b>o</b> 读成「欧 ou」，把 <b>e</b> 读成「诶 ei」。</p>
+    <div class="tw"><table>
+      <tr><th>元音</th><th>怎么发</th><th>例词</th></tr>
+      <tr><td class="big">a</td><td>和拼音 a 一样，嘴张大</td><td class="itc">casa 家</td></tr>
+      <tr><td class="big">e</td><td>像拼音 ei 的开头，但不要滑到 i；不是拼音的 e（鹅）</td><td class="itc">bene 好</td></tr>
+      <tr><td class="big">i</td><td>和拼音 i 一样</td><td class="itc">vino 葡萄酒</td></tr>
+      <tr><td class="big">o</td><td>嘴唇圆，像拼音 o，不要滑到 u</td><td class="itc">sole 太阳</td></tr>
+      <tr><td class="big">u</td><td>和拼音 u 一样</td><td class="itc">luna 月亮</td></tr>
+    </table></div>
+    <div class="exs">
+      <div data-it="casa, bene, vino, sole, luna" data-zh="家、好、葡萄酒、太阳、月亮"></div>
+    </div>
+  </div>
+
+  <h3>清音和浊音：p / b，t / d，c / g</h3>
+  <div class="rule" data-seal="规则">
+    <p>这是中国学生最需要注意的一点。</p>
+    <ul class="plain">
+      <li>意大利语的 <b>p、t、c(k)</b> <b>不送气</b>，听起来很像拼音的 b、d、g。说的时候把手放在嘴前，不应该感觉到气流。</li>
+      <li>意大利语的 <b>b、d、g</b> 是<b>浊音</b>：声带要振动。普通话里没有这种音。说 b 的时候摸着喉咙，要感觉到振动，好像前面有一个很轻的「m」：<i class="it">bene</i> ≈「(m)bene」。</li>
+    </ul>
+    <div class="exs">
+      <div data-it="pasta, basta" data-zh="面食／够了"></div>
+      <div data-it="tutto, dodici" data-zh="全部／十二"></div>
+      <div data-it="caldo, gatto" data-zh="热／猫"></div>
+    </div>
+  </div>
+
+  <h3>C 和 G：看后面的字母</h3>
+  <div class="tw"><table>
+    <tr><th>写法</th><th>读音</th><th>例词</th></tr>
+    <tr class="grp"><td colspan="3">C</td></tr>
+    <tr><td class="big">ca, co, cu</td><td>k（不送气）</td><td class="itc">casa, come, cuore</td></tr>
+    <tr><td class="big">ce, ci</td><td>像英语 cheese 的 ch，接近拼音 q，但舌头不要太靠前</td><td class="itc">cena, ciao</td></tr>
+    <tr><td class="big">che, chi</td><td>k（h 让 c 保持硬音）</td><td class="itc">che, chi, chiave</td></tr>
+    <tr class="grp"><td colspan="3">G</td></tr>
+    <tr><td class="big">ga, go, gu</td><td>浊音 g</td><td class="itc">gatto, gola, gusto</td></tr>
+    <tr><td class="big">ge, gi</td><td>像英语 jeans 的 j（浊音）</td><td class="itc">gelato, giorno</td></tr>
+    <tr><td class="big">ghe, ghi</td><td>浊音 g</td><td class="itc">spaghetti, laghi</td></tr>
+    <tr class="grp"><td colspan="3">其他组合</td></tr>
+    <tr><td class="big">sce, sci</td><td>像英语 she 的 sh</td><td class="itc">pesce, sci</td></tr>
+    <tr><td class="big">gn</td><td>像「你」的 n 和 y 连在一起，类似 ny</td><td class="itc">gnocchi, Spagna</td></tr>
+    <tr><td class="big">gli</td><td>舌面贴上颚的 l，类似 ly</td><td class="itc">figlio, famiglia</td></tr>
+    <tr><td class="big">z</td><td>ts（像拼音 c）或 dz（浊音）</td><td class="itc">pizza, zero</td></tr>
+    <tr><td class="big">qu</td><td>kw</td><td class="itc">questo, quando</td></tr>
+    <tr><td class="big">h</td><td>永远不发音</td><td class="itc">ho, hotel</td></tr>
+  </table></div>
+  <div class="exs">
+    <div data-it="ciao, chiave, gelato, spaghetti, gnocchi, famiglia" data-zh="你好、钥匙、冰淇淋、意大利面、团子、家庭"></div>
+  </div>
+
+  <h3>R 和 L</h3>
+  <div class="rule" data-seal="规则">
+    <p><b>r</b> 是<b>舌尖颤音</b>（大舌音）：舌尖在上齿后面快速振动。不要发成拼音的 r（日），也不要发成 l。<b>l</b> 和拼音的 l 一样。</p>
+    <p>练习方法：快速重复「得了、得了、得了」，或者说英语 <i class="it">butter</i> 的美式发音，舌尖那一下轻弹就是意大利语单个 r 的感觉。<b>rr</b> 要多颤几下。</p>
+    <div class="exs">
+      <div data-it="rana, lana" data-zh="青蛙／羊毛"></div>
+      <div data-it="Roma, amore, treno" data-zh="罗马、爱、火车"></div>
+    </div>
+  </div>
+
+  <h3>双辅音：读长一点</h3>
+  <div class="rule" data-seal="规则">
+    <p>写两个相同辅音时，要把这个辅音<b>停顿、拉长</b>一下，前面的元音会变短。双辅音会改变意思：</p>
+    <div class="exs">
+      <div data-it="sete, sette" data-zh="口渴／七"></div>
+      <div data-it="nono, nonno" data-zh="第九／爷爷"></div>
+      <div data-it="caro, carro" data-zh="贵的、亲爱的／车（手推车）"></div>
+      <div data-it="capello, cappello" data-zh="一根头发／帽子"></div>
+    </div>
+  </div>
+  <div class="warn"><strong>中国学生的常见错误</strong>把 p、t、c 发成送气音；b、d、g 没有浊音；把 r 读成 l；忽略双辅音；把 o 读成 ou，把 e 读成 ei。</div>
+  <div class="drill" data-set="l1"></div>
+</section>
+
+<!-- L2 -->
+<section class="lesson" id="l2">
+  <div class="kicker"><span>第二课</span><span class="itk">Lezione 2</span></div>
+  <h2>重音、语调与问候<small>Accento, intonazione e saluti</small></h2>
+  <h3>重音：意大利语的「声调」</h3>
+  <p>意大利语没有声调，但每个词都有一个<b>重读音节</b>：读得更长、更响。重音放错了，意大利人可能听不懂，就像中文声调读错一样。本书用下划线标出重音。</p>
+  <div class="rule" data-seal="规则">
+    <ul class="plain">
+      <li>大多数词重音在<b>倒数第二个音节</b>：<span class="it"><span class="st">ca</span>sa, a<span class="st">mi</span>co, ra<span class="st">gaz</span>za</span>。</li>
+      <li>有些词在<b>倒数第三个音节</b>，只能一个个记：<span class="it">te<span class="st">le</span>fono, <span class="st">mac</span>china, <span class="st">par</span>lano</span>。</li>
+      <li>重音在<b>最后一个音节</b>时一定写重音符号：<span class="it">cit<span class="st">tà</span>, caf<span class="st">fè</span>, per<span class="st">ché</span></span>。</li>
+    </ul>
+    <p>重音能区分意思，就像声调：</p>
+    <div class="exs">
+      <div data-it="papà, papa" data-zh="爸爸／教皇"></div>
+      <div data-it="è, e" data-zh="是（动词）／和"></div>
+    </div>
+  </div>
+  <h3>语调：问句靠升调</h3>
+  <div class="rule" data-seal="规则">
+    <p>这一点和中文正好相反。中文问句加「吗」，声调不变。意大利语<b>没有「吗」</b>：陈述句和一般疑问句的词完全一样，区别只在<b>句尾的语调</b>。陈述句句尾下降，问句句尾上升。</p>
+    <div class="exs">
+      <div data-it="Sei italiano." data-zh="你是意大利人。（句尾下降）"></div>
+      <div data-it="Sei italiano?" data-zh="你是意大利人吗？（句尾上升）"></div>
+    </div>
+  </div>
+  <div class="dialog" data-dlg="l2"></div>
+  <h3>问候</h3>
+  <div class="tw"><table>
+    <tr><th>说法</th><th>什么时候用</th></tr>
+    <tr><td class="itc">Ciao!</td><td>你好／再见。只对朋友、家人、同龄人用。</td></tr>
+    <tr><td class="itc">Buongiorno!</td><td>早上好、你好。从早上到下午三四点。</td></tr>
+    <tr><td class="itc">Buonasera!</td><td>晚上好。下午晚些时候以后。</td></tr>
+    <tr><td class="itc">Buonanotte!</td><td>晚安。睡觉前。</td></tr>
+    <tr><td class="itc">Arrivederci!</td><td>再见（礼貌）。对陌生人、在商店里。</td></tr>
+    <tr><td class="itc">Grazie! — Prego.</td><td>谢谢！——不客气。</td></tr>
+    <tr><td class="itc">Scusa / Scusi</td><td>对不起、打扰一下（对朋友／对陌生人）。</td></tr>
+  </table></div>
+  <div class="rule" data-seal="规则">
+    <h3>你和您：tu 和 Lei</h3>
+    <p>意大利语区分「你」（<i class="it">tu</i>）和「您」（<i class="it">Lei</i>）。对陌生人、店员、老师、年纪大的人，用 <i class="it">Lei</i> 和 <i class="it">Buongiorno</i>，不要说 <i class="it">Ciao</i>。</p>
+    <div class="exs">
+      <div data-it="Come stai?" data-zh="你好吗？（对朋友）"></div>
+      <div data-it="Come sta?" data-zh="您好吗？（礼貌）"></div>
+    </div>
+  </div>
+  <div class="speech" data-seal="口语"><h3>口语里</h3><ul class="plain">
+    <li>意大利人见面常常说 <i class="it">Ciao, come va?</i>「嗨，怎么样？」，回答 <i class="it">Bene, e tu?</i>。</li>
+    <li><i class="it">Salve!</i> 是一个介于 <i class="it">Ciao</i> 和 <i class="it">Buongiorno</i> 之间的问候，不知道该用哪个时很安全。</li>
+    <li>熟人之间告别常说 <i class="it">A presto!</i>「回头见」或 <i class="it">A dopo!</i>「待会儿见」。</li>
+  </ul></div>
+  <div class="drill" data-set="l2"></div>
+</section>
+
+<div class="partttl">第二部分 · 基础会话</div>
+
+<!-- L3 -->
+<section class="lesson" id="l3">
+  <div class="kicker"><span>第三课</span><span class="itk">Lezione 3</span></div>
+  <h2>自我介绍：动词 essere<small>Presentarsi</small></h2>
+  <div class="dialog" data-dlg="l3"></div>
+  <h3>动词要跟着人称变</h3>
+  <p>中文的「是」对谁都一样。意大利语的动词会根据<b>主语</b>改变形式。<i class="it">essere</i>「是」是最重要的动词，它是不规则的，要背下来：</p>
+  <div class="tw"><table class="conj">
+    <tr><th>人称</th><th>essere 是</th><th>中文</th></tr>
+    <tr><td>io</td><td>sono</td><td>我是</td></tr>
+    <tr><td>tu</td><td>sei</td><td>你是</td></tr>
+    <tr><td>lui / lei / Lei</td><td>è</td><td>他／她／您是</td></tr>
+    <tr><td>noi</td><td>siamo</td><td>我们是</td></tr>
+    <tr><td>voi</td><td>siete</td><td>你们是</td></tr>
+    <tr><td>loro</td><td>sono</td><td>他们是</td></tr>
+  </table></div>
+  <div class="rule" data-seal="规则">
+    <p><b>主语常常省略。</b>动词的形式已经说明了是谁，所以 <i class="it">io, tu</i> 一般不说。只有强调或对比时才说：</p>
+    <div class="exs">
+      <div data-it="Sono cinese." data-zh="我是中国人。"></div>
+      <div data-it="Io sono cinese, lui è italiano." data-zh="我是中国人，他是意大利人。（对比）"></div>
+    </div>
+    <p>注意：<i class="it">è</i>（是）有重音符号，<i class="it">e</i>（和）没有。<i class="it">Lei</i>「您」用第三人称：<i class="it">Lei è italiano?</i>「您是意大利人吗？」</p>
+  </div>
+  <h3>国籍和职业也分阴阳性</h3>
+  <div class="rule" data-seal="规则">
+    <p>以 <b>-o</b> 结尾的词，说女性时变成 <b>-a</b>。以 <b>-e</b> 结尾的词男女一样。</p>
+    <div class="tw"><table>
+      <tr><th>男</th><th>女</th><th>中文</th></tr>
+      <tr><td class="itc m">italiano</td><td class="itc f">italiana</td><td>意大利人</td></tr>
+      <tr><td class="itc m">cinese</td><td class="itc f">cinese</td><td>中国人</td></tr>
+      <tr><td class="itc m">studente</td><td class="itc f">studentessa</td><td>学生</td></tr>
+      <tr><td class="itc m">cuoco</td><td class="itc f">cuoca</td><td>厨师</td></tr>
+      <tr><td class="itc m">insegnante</td><td class="itc f">insegnante</td><td>老师</td></tr>
+    </table></div>
+    <div class="exs">
+      <div data-it="Marco è italiano. Giulia è italiana." data-zh="马可是意大利人。茱莉亚是意大利人。"></div>
+    </div>
+  </div>
+  <h3>否定：non 放在动词前</h3>
+  <div class="exs">
+    <div data-it="Non sono italiano." data-zh="我不是意大利人。"></div>
+    <div data-it="Lei non è studentessa, è insegnante." data-zh="她不是学生，她是老师。"></div>
+  </div>
+  <h3>名字和来自哪里</h3>
+  <div class="exs">
+    <div data-it="Mi chiamo Li Wei." data-zh="我叫李薇。"></div>
+    <div data-it="Come ti chiami?" data-zh="你叫什么名字？"></div>
+    <div data-it="Sono di Pechino." data-zh="我是北京人。（我来自北京）"></div>
+  </div>
+  <div class="speech" data-seal="口语"><h3>口语里</h3><ul class="plain">
+    <li>认识新朋友时说 <i class="it">Piacere!</i>「幸会！」，对方回答 <i class="it">Piacere mio!</i>「我也很高兴！」。</li>
+    <li>回答「我也是」：<i class="it">Anch'io!</i>；回答「我不是」：<i class="it">Io no.</i></li>
+    <li>中国名字意大利人可能记不住，可以说 <i class="it">Mi chiamo Wei, come «way»</i> 帮助对方记住。</li>
+  </ul></div>
+  <div class="drill" data-set="l3"></div>
+</section>
+
+<!-- L4 -->
+<section class="lesson" id="l4">
+  <div class="kicker"><span>第四课</span><span class="itk">Lezione 4</span></div>
+  <h2>名词的性、数和冠词<small>Nomi e articoli</small></h2>
+  <div class="dialog" data-dlg="l4"></div>
+  <h3>每个名词都有性别</h3>
+  <div class="rule" data-seal="规则">
+    <p>意大利语所有名词都是<b class="m">阳性</b>或<b class="f">阴性</b>，连桌子、太阳都是。大部分可以从词尾判断：</p>
+    <div class="formula">-o → 通常阳性　·　-a → 通常阴性　·　-e → 两种都有，要记</div>
+    <div class="formula">复数：-o → -i　·　-a → -e　·　-e → -i</div>
+    <div class="tw"><table>
+      <tr><th>单数</th><th>复数</th><th>中文</th></tr>
+      <tr><td class="itc m">libro</td><td class="itc m">libri</td><td>书</td></tr>
+      <tr><td class="itc f">casa</td><td class="itc f">case</td><td>房子、家</td></tr>
+      <tr><td class="itc m">giornale</td><td class="itc m">giornali</td><td>报纸</td></tr>
+      <tr><td class="itc f">notte</td><td class="itc f">notti</td><td>夜晚</td></tr>
+    </table></div>
+    <p>例外要单独记：<i class="it">il problema</i>（阳性），<i class="it">la mano</i>（阴性），<i class="it">la foto</i>（阴性）。以重音结尾的词和外来词复数不变：<i class="it">il caffè → i caffè, il bar → i bar</i>。</p>
+  </div>
+  <h3>冠词：意大利语的「量词」</h3>
+  <p>中文没有冠词，但意大利语的名词前<b>几乎总要有冠词</b>。可以把它想成中文的量词：它要和名词「配对」，而且告诉你名词的性和数。</p>
+  <div class="tw"><table>
+    <tr><th></th><th>阳性单数</th><th>阳性复数</th><th>阴性单数</th><th>阴性复数</th></tr>
+    <tr><td>一般</td><td class="itc m">il libro</td><td class="itc m">i libri</td><td class="itc f">la casa</td><td class="itc f">le case</td></tr>
+    <tr><td>元音前</td><td class="itc m">l'amico</td><td class="itc m">gli amici</td><td class="itc f">l'amica</td><td class="itc f">le amiche</td></tr>
+    <tr><td>s+辅音、z、gn、ps 前</td><td class="itc m">lo studente, lo zaino</td><td class="itc m">gli studenti</td><td class="itc f">la studentessa</td><td class="itc f">le studentesse</td></tr>
+    <tr><td>不定冠词「一个」</td><td class="itc m">un libro, uno studente</td><td>—</td><td class="itc f">una casa, un'amica</td><td>—</td></tr>
+  </table></div>
+  <div class="rule" data-seal="规则">
+    <p><b>定冠词</b>（il, la…）相当于「这个、那个、已知的」；<b>不定冠词</b>（un, una…）相当于「一个」。</p>
+    <div class="exs">
+      <div data-it="È un libro. Il libro è nuovo." data-zh="这是一本书。这本书是新的。"></div>
+      <div data-it="Ho un'amica italiana. L'amica di Marco è cinese." data-zh="我有一个意大利朋友（女）。马可的朋友（女）是中国人。"></div>
+    </div>
+  </div>
+  <h3>这个、那个：questo 和 quello</h3>
+  <div class="exs">
+    <div data-it="questo libro, questa casa" data-zh="这本书，这个房子"></div>
+    <div data-it="questi libri, queste case" data-zh="这些书，这些房子"></div>
+  </div>
+  <div class="warn"><strong>记单词的方法</strong>每个名词都和冠词一起记：<i class="it">il libro, la casa, lo zaino, l'acqua (f)</i>。词汇表里阳性是蓝色，阴性是红色。</div>
+  <div class="speech" data-seal="口语"><h3>口语里</h3><ul class="plain">
+    <li>即使说错了冠词，意大利人一般也能听懂，所以开口最重要。但名词和形容词的阴阳性一致，听起来会自然很多。</li>
+    <li>指着东西问：<i class="it">Che cos'è?</i>「这是什么？」，回答 <i class="it">È un… / È una…</i>。</li>
+    <li>不知道一个词时，可以说 <i class="it">Come si chiama questo?</i>「这个叫什么？」</li>
+  </ul></div>
+  <div class="drill" data-set="l4"></div>
+</section>
+
+<!-- L5 -->
+<section class="lesson" id="l5">
+  <div class="kicker"><span>第五课</span><span class="itk">Lezione 5</span></div>
+  <h2>你好吗？avere 和形容词<small>Come stai?</small></h2>
+  <div class="dialog" data-dlg="l5"></div>
+  <h3>动词 avere「有」</h3>
+  <div class="tw"><table class="conj">
+    <tr><th>人称</th><th>avere 有</th><th>中文</th></tr>
+    <tr><td>io</td><td>ho</td><td>我有</td></tr>
+    <tr><td>tu</td><td>hai</td><td>你有</td></tr>
+    <tr><td>lui / lei / Lei</td><td>ha</td><td>他／她／您有</td></tr>
+    <tr><td>noi</td><td>abbiamo</td><td>我们有</td></tr>
+    <tr><td>voi</td><td>avete</td><td>你们有</td></tr>
+    <tr><td>loro</td><td>hanno</td><td>他们有</td></tr>
+  </table></div>
+  <p>h 不发音：<i class="it">ho</i> 读作「o」，<i class="it">hanno</i> 读作「anno」。</p>
+  <div class="rule" data-seal="规则">
+    <h3>中文用「是」或形容词，意大利语用 avere</h3>
+    <div class="exs">
+      <div data-it="Ho vent'anni." data-zh="我二十岁。（不是 sono vent'anni）"></div>
+      <div data-it="Ho fame. Ho sete." data-zh="我饿了。我渴了。"></div>
+      <div data-it="Ho freddo. Ho caldo." data-zh="我冷。我热。"></div>
+      <div data-it="Ho sonno. Ho fretta." data-zh="我困了。我赶时间。"></div>
+    </div>
+  </div>
+  <h3>形容词要和名词一致</h3>
+  <div class="rule" data-seal="规则">
+    <p>形容词通常放在名词<b>后面</b>，而且要跟名词的性和数一致：</p>
+    <div class="exs">
+      <div data-it="un ragazzo alto, una ragazza alta" data-zh="一个高个子男孩，一个高个子女孩"></div>
+      <div data-it="i ragazzi alti, le ragazze alte" data-zh="高个子男孩们，高个子女孩们"></div>
+      <div data-it="un libro interessante, una città interessante" data-zh="一本有意思的书，一个有意思的城市（-e 结尾男女一样）"></div>
+    </div>
+  </div>
+  <div class="warn"><strong>不需要「很」</strong>中文习惯说「我很累」，意大利语直接说 <i class="it">Sono stanco.</i> 就是「我累了」。<i class="it">molto</i>「很」只在真正强调时用。</div>
+  <h3>你好吗？用 stare</h3>
+  <div class="exs">
+    <div data-it="Come stai? — Sto bene, grazie." data-zh="你好吗？——我很好，谢谢。"></div>
+    <div data-it="Così così. / Non c'è male." data-zh="一般般。／还不错。"></div>
+    <div data-it="Sto male." data-zh="我不舒服。／我状态不好。"></div>
+  </div>
+  <div class="speech" data-seal="口语"><h3>口语里</h3><ul class="plain">
+    <li>回答 <i class="it">Come va?</i>，最常听到的是 <i class="it">Bene!</i>、<i class="it">Tutto bene!</i>「一切都好」、<i class="it">Insomma…</i>「凑合吧」。</li>
+    <li><i class="it">Dai!</i> 是万能词：「来吧！」「加油！」「别这样！」，看语气。</li>
+    <li>说自己累了：男生 <i class="it">Sono stanco</i>，女生 <i class="it">Sono stanca</i>。说话人的性别也会改变形容词。</li>
+  </ul></div>
+  <div class="drill" data-set="l5"></div>
+</section>
+
+<!-- L6 -->
+<section class="lesson" id="l6">
+  <div class="kicker"><span>第六课</span><span class="itk">Lezione 6</span></div>
+  <h2>规则动词现在时<small>Il presente</small></h2>
+  <div class="dialog" data-dlg="l6"></div>
+  <p>意大利语动词原形以 <b>-are、-ere、-ire</b> 结尾。去掉这个词尾，换上表示人称的词尾。三组的变化很相似：</p>
+  <div class="tw"><table class="conj">
+    <tr><th>人称</th><th>parlare 说</th><th>prendere 拿、点（餐）</th><th>dormire 睡觉</th></tr>
+    <tr><td>io</td><td>parl<span class="end">o</span></td><td>prend<span class="end">o</span></td><td>dorm<span class="end">o</span></td></tr>
+    <tr><td>tu</td><td>parl<span class="end">i</span></td><td>prend<span class="end">i</span></td><td>dorm<span class="end">i</span></td></tr>
+    <tr><td>lui / lei</td><td>parl<span class="end">a</span></td><td>prend<span class="end">e</span></td><td>dorm<span class="end">e</span></td></tr>
+    <tr><td>noi</td><td>parl<span class="end">iamo</span></td><td>prend<span class="end">iamo</span></td><td>dorm<span class="end">iamo</span></td></tr>
+    <tr><td>voi</td><td>parl<span class="end">ate</span></td><td>prend<span class="end">ete</span></td><td>dorm<span class="end">ite</span></td></tr>
+    <tr><td>loro</td><td>parl<span class="end">ano</span></td><td>prend<span class="end">ono</span></td><td>dorm<span class="end">ono</span></td></tr>
+  </table></div>
+  <div class="rule" data-seal="规则">
+    <ul class="plain">
+      <li><b>io 永远以 -o 结尾，tu 永远以 -i 结尾。</b>先把这两个和 lui/lei 练熟，会话里最常用。</li>
+      <li>有些 -ire 动词在中间加 <b>-isc-</b>：<i class="it">capire</i>「懂」→ <i class="it">capisco, capisci, capisce, capiamo, capite, capiscono</i>。</li>
+      <li>loro 形式重音在倒数第三个音节：<span class="it"><span class="st">par</span>lano, <span class="st">dor</span>mono</span>，不要读成 parLAno。</li>
+      <li>现在时也可以表示不远的将来：<i class="it">Domani parto.</i>「我明天出发。」</li>
+    </ul>
+  </div>
+  <div class="exs">
+    <div data-it="Parlo cinese e un po' di italiano." data-zh="我说中文和一点意大利语。"></div>
+    <div data-it="Lavori o studi?" data-zh="你工作还是上学？"></div>
+    <div data-it="Abitiamo a Milano." data-zh="我们住在米兰。"></div>
+    <div data-it="Non capisco." data-zh="我不懂。"></div>
+  </div>
+  <div class="warn"><strong>常见错误</strong>中文动词不变，所以中国学生常常对所有人都用原形：✗ <i class="it">Io parlare italiano</i>。正确：<i class="it">Parlo italiano.</i></div>
+  <div class="speech" data-seal="口语"><h3>口语里</h3><ul class="plain">
+    <li>问职业：<i class="it">Che lavoro fai?</i>「你做什么工作？」（<i class="it">fai</i> 来自不规则动词 <i class="it">fare</i>「做」）。</li>
+    <li>夸别人：<i class="it">Parli benissimo!</i>「你说得太好了！」。谦虚的回答：<i class="it">Grazie, ma devo migliorare.</i>「谢谢，不过我还得进步。」</li>
+    <li>听不懂时直接说 <i class="it">Non capisco, puoi ripetere?</i>「我没听懂，可以再说一遍吗？」意大利人很习惯。</li>
+  </ul></div>
+  <div class="drill" data-set="l6"></div>
+</section>
+
+<!-- L7 -->
+<section class="lesson" id="l7">
+  <div class="kicker"><span>第七课</span><span class="itk">Lezione 7</span></div>
+  <h2>提问<small>Fare domande</small></h2>
+  <div class="dialog" data-dlg="l7"></div>
+  <h3>1. 一般疑问句：只靠语调</h3>
+  <div class="rule" data-seal="规则">
+    <p>不加任何词，句尾升调。回答用 <i class="it">sì</i>「是」或 <i class="it">no</i>「不」，这一点比中文简单。</p>
+    <div class="exs">
+      <div data-it="Parli inglese? — Sì, un po'." data-zh="你会说英语吗？——会一点。"></div>
+      <div data-it="Sei stanca? — No, sto bene." data-zh="你累了吗？——不，我很好。"></div>
+    </div>
+  </div>
+  <h3>2. 特殊疑问句：疑问词放在句首</h3>
+  <div class="rule" data-seal="规则">
+    <p>和中文不一样！中文的疑问词留在原来的位置（「你去<b>哪儿</b>？」），意大利语的疑问词要放在<b>句子开头</b>，后面紧跟动词：</p>
+    <div class="formula">疑问词 + 动词 (+ 主语)</div>
+    <div class="exs">
+      <div data-it="Dove abiti?" data-zh="你住在哪儿？"></div>
+      <div data-it="Dove abita Marco?" data-zh="马可住在哪儿？"></div>
+      <div data-it="Come ti chiami?" data-zh="你叫什么名字？（你怎么称呼自己？）"></div>
+    </div>
+  </div>
+  <div class="tw"><table>
+    <tr><th>疑问词</th><th>中文</th><th>例句</th></tr>
+    <tr><td class="itc">che cosa / cosa</td><td>什么</td><td class="itc">Cosa fai?</td></tr>
+    <tr><td class="itc">chi</td><td>谁</td><td class="itc">Chi è?</td></tr>
+    <tr><td class="itc">dove</td><td>哪儿</td><td class="itc">Dove vai?</td></tr>
+    <tr><td class="itc">quando</td><td>什么时候</td><td class="itc">Quando parti?</td></tr>
+    <tr><td class="itc">perché</td><td>为什么／因为</td><td class="itc">Perché studi italiano?</td></tr>
+    <tr><td class="itc">come</td><td>怎么样、怎么</td><td class="itc">Come stai?</td></tr>
+    <tr><td class="itc">quanto / quanti</td><td>多少</td><td class="itc">Quanti anni hai?</td></tr>
+    <tr><td class="itc">quale</td><td>哪个</td><td class="itc">Qual è il tuo numero?</td></tr>
+    <tr><td class="itc">di dove</td><td>从哪里来</td><td class="itc">Di dove sei?</td></tr>
+  </table></div>
+  <p><i class="it">Perché?</i>「为什么？」的回答也用 <i class="it">perché</i>「因为」：<i class="it">Perché mi piace.</i>「因为我喜欢。」</p>
+  <div class="speech" data-seal="口语"><h3>口语里</h3><ul class="plain">
+    <li>句尾加 <i class="it">…, vero?</i> 或 <i class="it">…, no?</i> 表示「对吧？」：<i class="it">Sei cinese, vero?</i></li>
+    <li>没听清楚时说 <i class="it">Come?</i>「什么？」或礼貌一点的 <i class="it">Scusi?</i>，不要说 <i class="it">Cosa?</i>，听起来有点粗鲁。</li>
+    <li>意大利人很爱问 <i class="it">Ti piace l'Italia?</i>「你喜欢意大利吗？」，准备好答案！</li>
+  </ul></div>
+  <div class="drill" data-set="l7"></div>
+</section>
+
+<!-- L8 -->
+<section class="lesson" id="l8">
+  <div class="kicker"><span>第八课</span><span class="itk">Lezione 8</span></div>
+  <h2>在咖啡馆：数字和价格<small>Al bar</small></h2>
+  <div class="dialog" data-dlg="l8"></div>
+  <h3>数字</h3>
+  <div class="tw"><table id="numeri"></table></div>
+  <div class="rule" data-seal="规则">
+    <ul class="plain">
+      <li>21 到 99：十位 + 个位连在一起写：<i class="it">trentadue</i> 32。遇到 1 和 8（以元音开头）时，十位去掉最后的元音：<i class="it">ventuno</i> 21，<i class="it">ventotto</i> 28。</li>
+      <li>100 <i class="it">cento</i>，200 <i class="it">duecento</i>，1000 <i class="it">mille</i>，2000 <i class="it">duemila</i>。</li>
+      <li>价格：<i class="it">due euro e cinquanta</i> 2.50 欧元。<i class="it">euro</i> 复数不变。</li>
+    </ul>
+    <div class="exs">
+      <div data-it="ventuno, trentadue, quarantotto, novantanove" data-zh="21、32、48、99"></div>
+      <div data-it="Sono tre euro e venti." data-zh="一共三欧二十。"></div>
+    </div>
+  </div>
+  <h3>vorrei：礼貌地要东西</h3>
+  <div class="rule" data-seal="规则">
+    <p>中文说「我要一杯咖啡」很自然，但意大利语的 <i class="it">Voglio un caffè</i>「我要」听起来<b>很不客气</b>，像小孩子。点东西时一定用 <i class="it">vorrei</i>「我想要」：</p>
+    <div class="exs">
+      <div data-it="Vorrei un caffè, per favore." data-zh="我想要一杯咖啡，谢谢。"></div>
+      <div data-it="Quanto costa?" data-zh="多少钱？"></div>
+      <div data-it="Il conto, per favore." data-zh="请结账。"></div>
+    </div>
+  </div>
+  <div class="tw"><table>
+    <tr><th>意大利语</th><th>中文</th></tr>
+    <tr><td class="itc">un caffè</td><td>一杯意式浓缩咖啡（在意大利 caffè 就是 espresso）</td></tr>
+    <tr><td class="itc">un cappuccino</td><td>一杯卡布奇诺</td></tr>
+    <tr><td class="itc">un cornetto</td><td>一个羊角面包</td></tr>
+    <tr><td class="itc">una spremuta</td><td>一杯鲜榨果汁</td></tr>
+    <tr><td class="itc">un bicchiere d'acqua</td><td>一杯水</td></tr>
+    <tr><td class="itc">una bottiglia d'acqua</td><td>一瓶水</td></tr>
+  </table></div>
+  <div class="speech" data-seal="口语"><h3>口语里</h3><ul class="plain">
+    <li>店员常说 <i class="it">Dica!</i>「请说！」或 <i class="it">Prego?</i>「您要什么？」。</li>
+    <li>意大利人一般只在早上喝 cappuccino，午饭后点 cappuccino 会被善意地看一眼。</li>
+    <li>在大一点的咖啡馆要先去收银台（<i class="it">la cassa</i>）付钱，拿小票（<i class="it">lo scontrino</i>）再去吧台点。</li>
+    <li>站在吧台喝比坐着便宜。付钱时说 <i class="it">Ecco a Lei</i>「给您」。</li>
+  </ul></div>
+  <div class="drill" data-set="l8"></div>
+</section>
+
+<div class="partttl">第三部分 · 进阶会话</div>
+
+<!-- L9 -->
+<section class="lesson" id="l9">
+  <div class="kicker"><span>第九课</span><span class="itk">Lezione 9</span></div>
+  <h2>打电话：地点和介词<small>Dove sei?</small></h2>
+  <div class="dialog" data-dlg="l9"></div>
+  <h3>有：c'è 和 ci sono</h3>
+  <div class="rule" data-seal="规则">
+    <p>中文的「有」有两个意思：「我有」用 <i class="it">avere</i>；「某个地方有」用 <i class="it">c'è</i>（单数）和 <i class="it">ci sono</i>（复数）。</p>
+    <div class="exs">
+      <div data-it="C'è un bar qui vicino?" data-zh="这附近有咖啡馆吗？"></div>
+      <div data-it="Ci sono due farmacie in questa strada." data-zh="这条街上有两家药店。"></div>
+      <div data-it="Non c'è latte." data-zh="没有牛奶了。"></div>
+    </div>
+  </div>
+  <h3>常用介词</h3>
+  <div class="tw"><table>
+    <tr><th>介词</th><th>主要意思</th><th>例子</th></tr>
+    <tr><td class="itc">a</td><td>在／去（城市）、在某个时间</td><td class="itc">a Roma, a casa, alle otto</td></tr>
+    <tr><td class="itc">in</td><td>在／去（国家、地区、房间、交通工具）</td><td class="itc">in Italia, in ufficio, in treno</td></tr>
+    <tr><td class="itc">di</td><td>……的、来自</td><td class="itc">il libro di Marco, sono di Pechino</td></tr>
+    <tr><td class="itc">da</td><td>从、在某人那里</td><td class="itc">da Milano, vado dal medico</td></tr>
+    <tr><td class="itc">con</td><td>和、用</td><td class="itc">con un amico</td></tr>
+    <tr><td class="itc">su</td><td>在……上</td><td class="itc">sul tavolo</td></tr>
+    <tr><td class="itc">per</td><td>为了、去往</td><td class="itc">un regalo per te</td></tr>
+  </table></div>
+  <div class="rule" data-seal="规则">
+    <h3>介词 + 冠词 = 一个词</h3>
+    <p>a、di、da、in、su 后面跟定冠词时，要合成一个词：</p>
+    <div class="tw"><table>
+      <tr><th></th><th>il</th><th>la</th><th>l'</th><th>i</th><th>le</th></tr>
+      <tr><td class="itc">a</td><td class="itc">al</td><td class="itc">alla</td><td class="itc">all'</td><td class="itc">ai</td><td class="itc">alle</td></tr>
+      <tr><td class="itc">di</td><td class="itc">del</td><td class="itc">della</td><td class="itc">dell'</td><td class="itc">dei</td><td class="itc">delle</td></tr>
+      <tr><td class="itc">da</td><td class="itc">dal</td><td class="itc">dalla</td><td class="itc">dall'</td><td class="itc">dai</td><td class="itc">dalle</td></tr>
+      <tr><td class="itc">in</td><td class="itc">nel</td><td class="itc">nella</td><td class="itc">nell'</td><td class="itc">nei</td><td class="itc">nelle</td></tr>
+      <tr><td class="itc">su</td><td class="itc">sul</td><td class="itc">sulla</td><td class="itc">sull'</td><td class="itc">sui</td><td class="itc">sulle</td></tr>
+    </table></div>
+    <div class="exs">
+      <div data-it="Sono al supermercato." data-zh="我在超市。"></div>
+      <div data-it="Il latte è nel frigo." data-zh="牛奶在冰箱里。"></div>
+      <div data-it="Le chiavi sono sul tavolo." data-zh="钥匙在桌子上。"></div>
+    </div>
+  </div>
+  <h3>位置</h3>
+  <div class="exs">
+    <div data-it="vicino alla stazione, davanti al cinema, dietro la chiesa" data-zh="在火车站附近，在电影院前面，在教堂后面"></div>
+    <div data-it="sopra il letto, sotto il tavolo, a destra, a sinistra" data-zh="床上方，桌子下面，右边，左边"></div>
+  </div>
+  <div class="warn"><strong>和中文语序相反</strong>中文说「在桌子上」，地点放前面、方位放后面；意大利语是「在……上 + 桌子」：<i class="it">sul tavolo</i>。</div>
+  <div class="speech" data-seal="口语"><h3>口语里</h3><ul class="plain">
+    <li>接电话说 <i class="it">Pronto?</i>「喂？」。</li>
+    <li>问路：<i class="it">Scusi, dov'è la stazione?</i> 回答常常是 <i class="it">Sempre dritto</i>「一直往前」、<i class="it">Giri a destra</i>「右转」。</li>
+    <li>挂电话前：<i class="it">A dopo!</i>「待会儿见」、<i class="it">Ci sentiamo!</i>「再联系」。</li>
+  </ul></div>
+  <div class="drill" data-set="l9"></div>
+</section>
+
+<!-- L10 -->
+<section class="lesson" id="l10">
+  <div class="kicker"><span>第十课</span><span class="itk">Lezione 10</span></div>
+  <h2>约朋友：情态动词和常用不规则动词<small>Vuoi venire?</small></h2>
+  <div class="dialog" data-dlg="l10"></div>
+  <h3>想、能、必须</h3>
+  <div class="tw"><table class="conj">
+    <tr><th>人称</th><th>volere 想要</th><th>potere 能、可以</th><th>dovere 必须</th></tr>
+    <tr><td>io</td><td>voglio</td><td>posso</td><td>devo</td></tr>
+    <tr><td>tu</td><td>vuoi</td><td>puoi</td><td>devi</td></tr>
+    <tr><td>lui / lei</td><td>vuole</td><td>può</td><td>deve</td></tr>
+    <tr><td>noi</td><td>vogliamo</td><td>possiamo</td><td>dobbiamo</td></tr>
+    <tr><td>voi</td><td>volete</td><td>potete</td><td>dovete</td></tr>
+    <tr><td>loro</td><td>vogliono</td><td>possono</td><td>devono</td></tr>
+  </table></div>
+  <div class="rule" data-seal="规则">
+    <div class="formula">情态动词（变位）+ 动词原形</div>
+    <div class="exs">
+      <div data-it="Vuoi venire al cinema?" data-zh="你想去看电影吗？（邀请）"></div>
+      <div data-it="Posso entrare?" data-zh="我可以进来吗？（请求许可）"></div>
+      <div data-it="Puoi aiutarmi?" data-zh="你能帮我吗？（请求帮助）"></div>
+      <div data-it="Devo lavorare domani." data-zh="我明天得工作。"></div>
+    </div>
+  </div>
+  <h3>三个最常用的不规则动词</h3>
+  <div class="tw"><table class="conj">
+    <tr><th>人称</th><th>andare 去</th><th>fare 做</th><th>venire 来</th></tr>
+    <tr><td>io</td><td>vado</td><td>faccio</td><td>vengo</td></tr>
+    <tr><td>tu</td><td>vai</td><td>fai</td><td>vieni</td></tr>
+    <tr><td>lui / lei</td><td>va</td><td>fa</td><td>viene</td></tr>
+    <tr><td>noi</td><td>andiamo</td><td>facciamo</td><td>veniamo</td></tr>
+    <tr><td>voi</td><td>andate</td><td>fate</td><td>venite</td></tr>
+    <tr><td>loro</td><td>vanno</td><td>fanno</td><td>vengono</td></tr>
+  </table></div>
+  <div class="exs">
+    <div data-it="Andiamo!" data-zh="我们走吧！"></div>
+    <div data-it="Che cosa fai stasera?" data-zh="你今晚干什么？"></div>
+    <div data-it="Vieni con me?" data-zh="你和我一起来吗？"></div>
+  </div>
+  <div class="warn"><strong>andare 和 venire</strong>和中文的「去／来」一样，<i class="it">venire</i> 是朝说话人或听话人的方向。但被邀请时，意大利语回答 <i class="it">Sì, vengo!</i>「好，我来！」，因为是朝对方的方向。</div>
+  <div class="speech" data-seal="口语"><h3>口语里</h3><ul class="plain">
+    <li>接受邀请：<i class="it">Volentieri!</i>「很乐意！」、<i class="it">Perché no?</i>「为什么不呢？」。</li>
+    <li>拒绝：<i class="it">Mi dispiace, non posso.</i>「抱歉，我去不了。」意大利人通常会再加一个理由。</li>
+    <li>约时间：<i class="it">Va bene alle otto?</i>「八点可以吗？」，回答 <i class="it">Va benissimo!</i>「很好！」。</li>
+  </ul></div>
+  <div class="drill" data-set="l10"></div>
+</section>
+
+<!-- L11 -->
+<section class="lesson" id="l11">
+  <div class="kicker"><span>第十一课</span><span class="itk">Lezione 11</span></div>
+  <h2>时间和日常生活<small>Che ore sono?</small></h2>
+  <div class="dialog" data-dlg="l11"></div>
+  <h3>几点了？</h3>
+  <div class="exs">
+    <div data-it="Che ore sono? — Sono le tre." data-zh="几点了？——三点。（用复数 sono le）"></div>
+    <div data-it="È l'una. È mezzogiorno. È mezzanotte." data-zh="一点。中午十二点。半夜十二点。（单数用 è）"></div>
+    <div data-it="Sono le otto e mezza." data-zh="八点半。"></div>
+    <div data-it="Sono le nove e un quarto." data-zh="九点一刻。"></div>
+    <div data-it="Sono le dieci meno cinque." data-zh="差五分十点。"></div>
+    <div data-it="A che ora? — Alle sette." data-zh="几点？——七点。"></div>
+  </div>
+  <h3>星期、月份和日期</h3>
+  <div class="tw"><table>
+    <tr><th>星期</th><th>月份</th></tr>
+    <tr><td class="itc">lunedì, martedì, mercoledì, giovedì, venerdì, sabato, domenica</td><td class="itc">gennaio, febbraio, marzo, aprile, maggio, giugno, luglio, agosto, settembre, ottobre, novembre, dicembre</td></tr>
+  </table></div>
+  <div class="rule" data-seal="规则">
+    <ul class="plain">
+      <li>星期和月份<b>小写</b>。</li>
+      <li>日期顺序和中文<b>相反</b>：日 + 月 + 年。<i class="it">Oggi è il 21 ottobre 2026.</i>「今天是 2026 年 10 月 21 日。」</li>
+      <li>每月一日说 <i class="it">il primo</i>：<i class="it">il primo maggio</i>「五月一日」。</li>
+      <li><i class="it">il lunedì</i> 加冠词表示「每个星期一」：<i class="it">Il lunedì vado in palestra.</i></li>
+    </ul>
+  </div>
+  <h3>反身动词：mi alzo</h3>
+  <div class="rule" data-seal="规则">
+    <p>很多日常动作在意大利语里是「对自己做」的，动词前要加反身代词 <i class="it">mi, ti, si, ci, vi, si</i>。<i class="it">Mi chiamo</i>「我叫」就是反身动词（字面意思：我称呼自己）。</p>
+    <div class="tw"><table class="conj">
+      <tr><th>人称</th><th>alzarsi 起床</th></tr>
+      <tr><td>io</td><td>mi alzo</td></tr><tr><td>tu</td><td>ti alzi</td></tr><tr><td>lui / lei</td><td>si alza</td></tr>
+      <tr><td>noi</td><td>ci alziamo</td></tr><tr><td>voi</td><td>vi alzate</td></tr><tr><td>loro</td><td>si alzano</td></tr>
+    </table></div>
+    <div class="exs">
+      <div data-it="Mi sveglio alle sette, mi lavo e mi vesto." data-zh="我七点醒来，洗漱，穿衣服。"></div>
+      <div data-it="A che ora ti alzi?" data-zh="你几点起床？"></div>
+    </div>
+  </div>
+  <div class="speech" data-seal="口语"><h3>口语里</h3><ul class="plain">
+    <li>意大利人吃饭晚：午饭一般一点到两点，晚饭八点以后。</li>
+    <li>口语里常用 24 小时制说火车、电影的时间：<i class="it">alle venti e trenta</i>「20:30」。</li>
+    <li><i class="it">Fra un'ora</i>「一小时后」，<i class="it">Sono in ritardo!</i>「我迟到了！」，<i class="it">Sono in anticipo.</i>「我早到了。」</li>
+  </ul></div>
+  <div class="drill" data-set="l11"></div>
+</section>
+
+<!-- L12 -->
+<section class="lesson" id="l12">
+  <div class="kicker"><span>第十二课</span><span class="itk">Lezione 12</span></div>
+  <h2>讲过去的事：近过去时<small>Il passato prossimo</small></h2>
+  <div class="dialog" data-dlg="l12"></div>
+  <p>中文用「了」「过」表示过去，动词本身不变。意大利语要换动词的形式。口语里最常用的过去时是 <b>passato prossimo</b>（近过去时）。</p>
+  <div class="rule" data-seal="规则">
+    <div class="formula">avere 或 essere（现在时）+ 过去分词</div>
+    <div class="formula">过去分词：-are → -ato　·　-ere → -uto　·　-ire → -ito</div>
+    <div class="exs">
+      <div data-it="Ho mangiato una pizza." data-zh="我吃了一个比萨。（mangiare → mangiato）"></div>
+      <div data-it="Hai capito?" data-zh="你明白了吗？（capire → capito）"></div>
+      <div data-it="Abbiamo venduto la macchina." data-zh="我们把车卖了。（vendere → venduto）"></div>
+    </div>
+  </div>
+  <h3>用 avere 还是 essere？</h3>
+  <div class="rule" data-seal="规则">
+    <ul class="plain">
+      <li><b>大多数动词用 avere。</b></li>
+      <li><b>表示移动或状态变化的动词用 essere</b>：<i class="it">andare, venire, partire, arrivare, uscire, tornare, restare, stare, essere, nascere</i>，以及所有反身动词。</li>
+      <li>用 essere 时，过去分词要和主语<b>性数一致</b>：</li>
+    </ul>
+    <div class="exs">
+      <div data-it="Marco è andato a Roma." data-zh="马可去了罗马。"></div>
+      <div data-it="Giulia è andata a Roma." data-zh="茱莉亚去了罗马。"></div>
+      <div data-it="Siamo tornati ieri." data-zh="我们昨天回来了。"></div>
+      <div data-it="Mi sono alzata tardi." data-zh="我（女）起晚了。"></div>
+    </div>
+  </div>
+  <h3>常用的不规则过去分词</h3>
+  <div class="tw"><table>
+    <tr><th>原形</th><th>过去分词</th><th>原形</th><th>过去分词</th></tr>
+    <tr><td class="itc">fare 做</td><td class="itc">fatto</td><td class="itc">vedere 看见</td><td class="itc">visto</td></tr>
+    <tr><td class="itc">prendere 拿</td><td class="itc">preso</td><td class="itc">essere / stare</td><td class="itc">stato</td></tr>
+    <tr><td class="itc">dire 说</td><td class="itc">detto</td><td class="itc">leggere 读</td><td class="itc">letto</td></tr>
+    <tr><td class="itc">scrivere 写</td><td class="itc">scritto</td><td class="itc">bere 喝</td><td class="itc">bevuto</td></tr>
+    <tr><td class="itc">venire 来</td><td class="itc">venuto</td><td class="itc">rimanere 留下</td><td class="itc">rimasto</td></tr>
+  </table></div>
+  <div class="exs">
+    <div data-it="Che cosa hai fatto ieri?" data-zh="你昨天做了什么？"></div>
+    <div data-it="Ho visto un film e ho letto un libro." data-zh="我看了一部电影，读了一本书。"></div>
+    <div data-it="Non ho mai mangiato il tiramisù." data-zh="我从来没吃过提拉米苏。"></div>
+  </div>
+  <p>表示过去的时间词：<i class="it">ieri</i>（昨天）、<i class="it">l'anno scorso</i>（去年）、<i class="it">la settimana scorsa</i>（上周）、<i class="it">due giorni fa</i>（两天前）。</p>
+  <div class="speech" data-seal="口语"><h3>口语里</h3><ul class="plain">
+    <li>星期一意大利人常问 <i class="it">Com'è andato il fine settimana?</i>「周末过得怎么样？」</li>
+    <li>描述过去的状态（天气、心情、「以前常常」）要用另一个时态，未完成过去时：<i class="it">era bello</i>「（当时）很美」、<i class="it">faceva freddo</i>「（当时）很冷」。先听懂就够了。</li>
+    <li><i class="it">Ce l'ho fatta!</i>「我做到了！」是很常用的感叹。</li>
+  </ul></div>
+  <div class="drill" data-set="l12"></div>
+</section>
+
+<!-- L13 -->
+<section class="lesson" id="l13">
+  <div class="kicker"><span>第十三课</span><span class="itk">Lezione 13</span></div>
+  <h2>喜欢和比较<small>Mi piace</small></h2>
+  <div class="dialog" data-dlg="l13"></div>
+  <h3>「我喜欢」= 「……让我喜欢」</h3>
+  <div class="rule" data-seal="规则">
+    <p>中文说「我喜欢意大利」，主语是「我」。意大利语正好相反：主语是被喜欢的东西，字面意思是「意大利让我喜欢」。所以动词要跟着<b>被喜欢的东西</b>变：</p>
+    <div class="formula">mi / ti / gli / le + piace（单数或动词原形）／ piacciono（复数）</div>
+    <div class="exs">
+      <div data-it="Mi piace l'Italia." data-zh="我喜欢意大利。"></div>
+      <div data-it="Mi piacciono gli spaghetti." data-zh="我喜欢意大利面。（复数 → piacciono）"></div>
+      <div data-it="Ti piace cucinare?" data-zh="你喜欢做饭吗？（动词原形 → piace）"></div>
+      <div data-it="A Marco piace il calcio. Gli piace molto." data-zh="马可喜欢足球。他非常喜欢。"></div>
+      <div data-it="Non mi piace il caffè americano." data-zh="我不喜欢美式咖啡。"></div>
+    </div>
+  </div>
+  <h3>比较</h3>
+  <div class="rule" data-seal="规则">
+    <div class="formula">A è più / meno + 形容词 + di B</div>
+    <div class="exs">
+      <div data-it="Roma è più grande di Firenze." data-zh="罗马比佛罗伦萨大。"></div>
+      <div data-it="Il treno è meno caro dell'aereo." data-zh="火车没有飞机贵。"></div>
+      <div data-it="Sono alto come mio fratello." data-zh="我和我哥哥一样高。"></div>
+    </div>
+    <p>最高级：<i class="it">il più …</i>「最……」，或者在形容词后加 <b>-issimo</b>「非常……」：</p>
+    <div class="exs">
+      <div data-it="È il ristorante più buono della città." data-zh="这是城里最好吃的餐厅。"></div>
+      <div data-it="La pizza è buonissima!" data-zh="比萨好吃极了！"></div>
+    </div>
+    <p>不规则：<i class="it">migliore</i>「更好的」，<i class="it">peggiore</i>「更差的」，<i class="it">meglio</i>「更好地」。</p>
+  </div>
+  <h3>说看法</h3>
+  <div class="exs">
+    <div data-it="Secondo me, Milano è bellissima." data-zh="我觉得米兰非常漂亮。"></div>
+    <div data-it="Sono d'accordo. / Non sono d'accordo." data-zh="我同意。／我不同意。"></div>
+  </div>
+  <div class="speech" data-seal="口语"><h3>口语里</h3><ul class="plain">
+    <li>很喜欢：<i class="it">Mi piace tantissimo!</i>，非常喜欢、爱死了：<i class="it">Lo adoro!</i></li>
+    <li>夸食物：<i class="it">Che buono!</i>「真好吃！」，夸风景：<i class="it">Che bello!</i>「真美！」</li>
+    <li><i class="it">Boh!</i> 耸肩加这个词，意思是「不知道」，非常口语。</li>
+  </ul></div>
+  <div class="drill" data-set="l13"></div>
+</section>
+
+<!-- L14 -->
+<section class="lesson" id="l14">
+  <div class="kicker"><span>第十四课</span><span class="itk">Lezione 14</span></div>
+  <h2>买东西：宾语代词<small>Lo prendo!</small></h2>
+  <div class="dialog" data-dlg="l14"></div>
+  <h3>直接宾语代词：它、他、她</h3>
+  <div class="rule" data-seal="规则">
+    <p>为了不重复名词，用代词代替。和中文最大的区别：代词放在<b>动词前面</b>（有点像中文的「把它……」）。</p>
+    <div class="tw"><table>
+      <tr><th>代替</th><th>代词</th><th>例子</th></tr>
+      <tr><td>阳性单数（他、它）</td><td class="itc m">lo</td><td class="itc">Il libro? Lo compro.</td></tr>
+      <tr><td>阴性单数（她、它）</td><td class="itc f">la</td><td class="itc">La giacca? La prendo.</td></tr>
+      <tr><td>阳性复数</td><td class="itc m">li</td><td class="itc">Gli spaghetti? Li adoro.</td></tr>
+      <tr><td>阴性复数</td><td class="itc f">le</td><td class="itc">Le scarpe? Le provo.</td></tr>
+      <tr><td>我、你、我们、你们</td><td class="itc">mi, ti, ci, vi</td><td class="itc">Mi senti? Ti chiamo domani.</td></tr>
+    </table></div>
+    <div class="exs">
+      <div data-it="Conosci Marco? — Sì, lo conosco." data-zh="你认识马可吗？——认识（认识他）。"></div>
+      <div data-it="Non la vedo." data-zh="我看不见她／它。"></div>
+    </div>
+    <p>和动词原形一起用时，代词可以接在原形后面：<i class="it">Posso provarla?</i>「我可以试试它吗？」</p>
+  </div>
+  <h3>间接宾语代词：给我、给他</h3>
+  <div class="exs">
+    <div data-it="Mi dai il tuo numero?" data-zh="你能给我你的电话号码吗？"></div>
+    <div data-it="Gli scrivo un messaggio." data-zh="我给他发一条消息。"></div>
+    <div data-it="Le telefono stasera." data-zh="我今晚给她打电话。"></div>
+  </div>
+  <h3>颜色和尺码</h3>
+  <div class="exs">
+    <div data-it="nero, bianco, rosso, blu, verde, grigio" data-zh="黑、白、红、蓝、绿、灰（以 -o 结尾的颜色要跟名词一致：una giacca nera）"></div>
+    <div data-it="Che taglia porta? — La media." data-zh="您穿什么尺码？——中号。"></div>
+  </div>
+  <div class="speech" data-seal="口语"><h3>口语里</h3><ul class="plain">
+    <li>店员常问 <i class="it">Posso aiutarLa?</i>「我能帮您吗？」，只是看看可以说 <i class="it">Sto solo guardando, grazie.</i></li>
+    <li>试穿后：<i class="it">Mi sta bene?</i>「我穿着合适吗？」，<i class="it">È troppo stretta / larga.</i>「太紧／太宽了。」</li>
+    <li>决定买：<i class="it">La prendo!</i>「我要了！」。打折：<i class="it">i saldi</i>，问 <i class="it">C'è uno sconto?</i>「有折扣吗？」</li>
+  </ul></div>
+  <div class="drill" data-set="l14"></div>
+</section>
+
+<!-- L15 -->
+<section class="lesson" id="l15">
+  <div class="kicker"><span>第十五课</span><span class="itk">Lezione 15</span></div>
+  <h2>计划未来：将来时和连接词<small>Che cosa farai?</small></h2>
+  <div class="dialog" data-dlg="l15"></div>
+  <h3>简单将来时</h3>
+  <div class="tw"><table class="conj">
+    <tr><th>人称</th><th>parlare</th><th>partire</th><th>essere（不规则）</th></tr>
+    <tr><td>io</td><td>parler<span class="end">ò</span></td><td>partir<span class="end">ò</span></td><td>sarò</td></tr>
+    <tr><td>tu</td><td>parler<span class="end">ai</span></td><td>partir<span class="end">ai</span></td><td>sarai</td></tr>
+    <tr><td>lui / lei</td><td>parler<span class="end">à</span></td><td>partir<span class="end">à</span></td><td>sarà</td></tr>
+    <tr><td>noi</td><td>parler<span class="end">emo</span></td><td>partir<span class="end">emo</span></td><td>saremo</td></tr>
+    <tr><td>voi</td><td>parler<span class="end">ete</span></td><td>partir<span class="end">ete</span></td><td>sarete</td></tr>
+    <tr><td>loro</td><td>parler<span class="end">anno</span></td><td>partir<span class="end">anno</span></td><td>saranno</td></tr>
+  </table></div>
+  <div class="rule" data-seal="规则">
+    <ul class="plain">
+      <li>-are 动词的 a 变成 e：<i class="it">parlare → parlerò</i>。</li>
+      <li>常用不规则：<i class="it">avere → avrò, andare → andrò, fare → farò, potere → potrò, venire → verrò, volere → vorrò</i>。</li>
+      <li>口语里，确定的近期计划常用<b>现在时</b>：<i class="it">Domani vado a Venezia.</i>。将来时更多用于不太确定的、较远的计划，或者猜测：<i class="it">Saranno le otto.</i>「大概八点吧。」</li>
+    </ul>
+  </div>
+  <h3>连接词：把句子连起来</h3>
+  <div class="tw"><table>
+    <tr><th>连接词</th><th>中文</th><th>例句</th></tr>
+    <tr><td class="itc">e / ma / però</td><td>和 / 但是 / 不过</td><td class="itc">È caro, ma è bello.</td></tr>
+    <tr><td class="itc">perché</td><td>因为</td><td class="itc">Resto a casa perché piove.</td></tr>
+    <tr><td class="itc">quindi / allora</td><td>所以 / 那么</td><td class="itc">Piove, quindi resto a casa.</td></tr>
+    <tr><td class="itc">se</td><td>如果</td><td class="itc">Se piove, resto a casa.</td></tr>
+    <tr><td class="itc">quando</td><td>当……的时候</td><td class="itc">Quando arrivo, ti chiamo.</td></tr>
+    <tr><td class="itc">prima / poi / dopo</td><td>先 / 然后 / 之后</td><td class="itc">Prima mangio, poi studio.</td></tr>
+    <tr><td class="itc">anche se</td><td>即使、虽然</td><td class="itc">Esco anche se piove.</td></tr>
+  </table></div>
+  <div class="warn"><strong>和中文的区别</strong>中文常常成对使用「因为……所以……」「虽然……但是……」。意大利语<b>只用一个</b>：<i class="it">Resto a casa perché piove.</i> 或 <i class="it">Piove, quindi resto a casa.</i>，不要两个一起用。</div>
+  <div class="speech" data-seal="口语"><h3>口语里</h3><ul class="plain">
+    <li><i class="it">Allora…</i>「那么……」是意大利人开始说话、思考时最常用的填充词，就像中文的「那个……」。</li>
+    <li><i class="it">Magari!</i>「但愿如此！」是对美好计划最自然的回应。</li>
+    <li>祝别人顺利：<i class="it">In bocca al lupo!</i>（字面：在狼嘴里），回答 <i class="it">Crepi!</i>，不要说 <i class="it">grazie</i>。</li>
+  </ul></div>
+  <div class="drill" data-set="l15"></div>
+</section>
+
+<!-- L16 -->
+<section class="lesson" id="l16">
+  <div class="kicker"><span>第十六课</span><span class="itk">Lezione 16</span></div>
+  <h2>听力：李薇在罗马<small>Li Wei a Roma</small></h2>
+  <p>李薇是一个在罗马学习的中国学生，她讲述自己在意大利的生活。这段话用到了整本书的语法。分三步练习：</p>
+  <ul class="plain">
+    <li><b>1. 只用耳朵。</b>隐藏文字和翻译，点「全部播放」，然后回答下面的问题。</li>
+    <li><b>2. 看文字。</b>显示文字，再听一遍，每句跟读。</li>
+    <li><b>3. 轮到你。</b>用同样的句型讲你自己的生活（最后几道练习）。</li>
+  </ul>
+  <div class="acts" style="margin-left:0">
+    <button class="btn pri" id="rdplay">▶ 全部播放</button>
+    <button class="btn" id="tgtxt" aria-pressed="false">隐藏意大利语文字</button>
+  </div>
+  <div class="exs" id="reading">
+    <div data-it="Mi chiamo Li Wei e sono cinese, di Pechino." data-zh="我叫李薇，是中国人，北京人。"></div>
+    <div data-it="L'anno scorso sono venuta in Italia per studiare l'italiano." data-zh="去年我来意大利学意大利语。"></div>
+    <div data-it="Adesso abito a Roma, in un piccolo appartamento vicino al centro." data-zh="现在我住在罗马，在市中心附近的一个小公寓里。"></div>
+    <div data-it="Ogni mattina mi alzo alle sette e vado a scuola in autobus." data-zh="每天早上我七点起床，坐公交车去学校。"></div>
+    <div data-it="All'inizio non capivo niente, perché gli italiani parlano molto velocemente." data-zh="一开始我什么都听不懂，因为意大利人说话很快。"></div>
+    <div data-it="Adesso capisco quasi tutto, ma parlo ancora un po' lentamente." data-zh="现在我几乎都能听懂，但说得还有点慢。"></div>
+    <div data-it="Mi piace molto la cucina italiana: secondo me la pizza qui è più buona che in Cina!" data-zh="我很喜欢意大利菜：我觉得这里的比萨比中国的好吃！"></div>
+    <div data-it="Il mese scorso sono andata a Firenze e ho visto tanti musei." data-zh="上个月我去了佛罗伦萨，看了很多博物馆。"></div>
+    <div data-it="L'anno prossimo, se posso, resterò in Italia e cercherò un lavoro." data-zh="明年，如果可以的话，我会留在意大利找工作。"></div>
+    <div data-it="Vorrei diventare una guida turistica per i turisti cinesi." data-zh="我想成为一名给中国游客讲解的导游。"></div>
+  </div>
+  <h3>文中的语法</h3>
+  <ul class="plain">
+    <li>近过去时（第 12 课）：<i class="it">sono venuta, sono andata, ho visto</i>（女性说话人，分词用 -a）</li>
+    <li>反身动词和时间（第 11 课）：<i class="it">mi alzo alle sette</i></li>
+    <li>喜欢和比较（第 13 课）：<i class="it">mi piace, più buona che in Cina</i>（比较两个地点时用 <i class="it">che</i>）</li>
+    <li>将来时和 se（第 15 课）：<i class="it">se posso, resterò, cercherò</i></li>
+    <li>未完成过去时（只要求听懂）：<i class="it">non capivo</i>「（那时）听不懂」</li>
+  </ul>
+  <div class="drill" data-set="l16"></div>
+</section>
+
+<div class="partttl">附录</div>
+
+<section class="lesson" id="frasi">
+  <div class="kicker"><span>附录 A</span><span class="itk">Frasi utili</span></div>
+  <h2>常用句：要背下来的句子</h2>
+  <p>从第一天就可以用的句子，不需要先懂语法。把它们当作整体来记：听、大声跟读，然后遮住意大利语，看着中文说出来。</p>
+  <div id="frasario"></div>
+</section>
+
+<section class="lesson" id="flash">
+  <div class="kicker"><span>附录 B</span><span class="itk">Flashcard</span></div>
+  <h2>单词卡：间隔重复</h2>
+  <p>单词分在五个盒子里。答对了，单词升一个盒子，以后出现得少一些；答错了，回到第一个盒子。低号盒子里的单词出现得更频繁。目标：全部进入第 5 个盒子。</p>
+  <p><b>听</b>模式：卡片上什么都不显示，只听声音，说出意思。<b>说</b>模式：看中文，大声说出带冠词的意大利语单词。<b>读</b>模式：看意大利语，说出意思。</p>
+  <div class="seg" role="group" aria-label="单词卡模式">
+    <button class="btn" data-fcm="ear" aria-pressed="true">听</button>
+    <button class="btn" data-fcm="say" aria-pressed="false">说</button>
+    <button class="btn" data-fcm="read" aria-pressed="false">读</button>
+  </div>
+  <div class="fc">
+    <div class="fc-card" id="fccard"></div>
+    <div class="boxes" id="fcboxes"></div>
+    <div class="confirm" id="fcreset"></div>
+  </div>
+</section>
+
+<section class="lesson" id="vocab">
+  <div class="kicker"><span>附录 C</span><span class="itk">Vocabolario</span></div>
+  <h2>词汇表</h2>
+  <p>本书用到的主要单词，按主题排列，和单词卡相同。<span class="m">蓝色</span>是阳性名词，<span class="f">红色</span>是阴性名词。</p>
+  <div class="tw"><table id="vocabtbl"></table></div>
+</section>
+
+<footer>意大利语入门课本 · Primo libro di italiano · 第一、二部分对应 A1 水平，第三部分对应 A2 水平的主要语法。继续学习：A2 会话课、意大利语播客、和意大利人语言交换。</footer>
+</main>
+</div>
+
+<script>
+(function(){
+"use strict";
+/* ---------- dizionario italiano → cinese per il tooltip ---------- */
+var DICT={};
+("a:在、到、给|abbiamo:我们有（avere）|abita:他／她住（abitare）|abitano:他们住|abiti:你住|abitiamo:我们住|abito:我住|adesso:现在|adoro:我超爱（adorare）|agosto:八月|ai:a + i（在、到）|aiutare:帮助|aiutarla:帮助您|aiutarmi:帮助我|aiuto:帮助；我帮|al:a + il（在、到）|all':a + l'（在、到）|alla:a + la（在、到）|alle:a + le（在……点；到）|inizio:开始|allora:那么、所以|alta:高的（阴性）|alte:高的（阴性复数）|alti:高的（阳性复数）|alto:高的|altrettanto:你也一样|altro:别的；还要别的吗|alzata:起床（过去分词，阴性）|alzi:你起床|alzo:我起床|americano:美国的|amiche:朋友们（女）|amici:朋友们|amico:朋友|amore:爱|anch'io:我也|anche:也|ancora:还、仍然|andare:去|andarò:（错误形式）|andata:去（过去分词，阴性）|andato:去（过去分词）|anderò:（错误形式）|andiamo:我们去；走吧|andrò:我将去|anni:年（复数）；岁|anticipo:提前|appartamento:公寓|aprile:四月|arrivare:到达|arrivederci:再见|arrivo:我到达|aspetta:等（命令）|attimo:一会儿|autobus:公交车|avere:有|avete:你们有|avrò:我将有|bagno:洗手间；洗澡、游泳|bar:咖啡馆、酒吧|basta:够了|beato:幸福的|beato te:你真幸福|bel:美好的|bella:美的（阴性）|bellissima:非常美（阴性）|bello:美的|bene:好|benissimo:非常好|bere:喝|bevo:我喝|bevuto:喝（过去分词）|bianco:白色|bicchiere:杯子|birra:啤酒|blu:蓝色|bocca:嘴|boh:不知道（口语）|bottiglia:瓶子|buona:好的（阴性）|buonanotte:晚安|buonasera:晚上好|buongiorno:早上好、你好|buonissima:非常好吃（阴性）|buonissimo:非常好|buono:好的、好吃的|c'è:（某处）有|caffè:咖啡|calcio:足球|caldo:热|camera:房间|camerino:试衣间|capello:一根头发|capiamo:我们懂|capire:懂|capisce:他／她懂|capisci:你懂|capisco:我懂|capiscono:他们懂|capite:你们懂|capito:懂（过去分词）|capivo:我（那时）懂|cappello:帽子|cappuccino:卡布奇诺|carbonara:培根蛋酱（意面）|caro:贵的；亲爱的|carro:车（手推车）|carta:卡；纸|casa:家、房子|case:房子（复数）|cassa:收银台|ce:那里（用于 ce l'ho）|cena:晚饭|cento:一百|centro:市中心|cercherò:我将找|cerco:我找|certo:当然|che:什么；多么；那个|chi:谁|chiama:他叫；他打电话|chiami:你叫|chiamo:我叫；我打电话|chiave:钥匙|chiavi:钥匙（复数）|chiesa:教堂|ci:我们；那里|ciao:你好；再见|cibo:食物|cina:中国|cinema:电影院|cinese:中国的、中国人|cinesi:中国人（复数）|cinquanta:五十|cinque:五|città:城市|cola:可乐|colore:颜色|com'è:怎么样|come:怎么、怎么样；像|comincio:我开始|compro:我买|con:和、用|conosci:你认识|conosco:我认识|conto:账单|cornetto:羊角面包|cos'è:是什么|cosa:什么|costa:值（多少钱）|così:这样|crepi:谢谢（对 in bocca al lupo 的固定回答）|cucina:厨房；菜系|cucinare:做饭|cuoca:厨师（女）|cuoco:厨师|cuore:心|d'accordo:同意|da:从；在某人那里|dai:来吧！；从（复数）；你给|dal:da + il|dall':da + l'|dalla:da + la|dalle:da + le|davanti:在前面|davvero:真的|dei:di + i|del:di + il（……的）|dell':di + l'|della:di + la|delle:di + le|destra:右边|detto:说（过去分词）|devo:我必须|di:……的；来自|dica:请说|dicembre:十二月|dieci:十|dietro:在后面|dire:说|dispiace:使遗憾|mi dispiace:对不起、很遗憾|diventare:成为|dodici:十二|domani:明天|domenica:星期日|dopo:之后|dormito:睡（过去分词）|dormo:我睡|dov'è:在哪儿|dove:哪儿|dritto:直的、一直|due:二|duecento:二百|duemila:两千|duomo:大教堂|e:和|ecco:这就是；给你|entrare:进入|era:（那时）是|esami:考试（复数）|esco:我出去|essere:是|euro:欧元|fa:他做；（天气）；……以前|faccio:我做|faceva:（那时）做；（天气）是|fai:你做|fame:饥饿|famiglia:家庭|farai:你将做|fare:做|farmacie:药店（复数）|farò:我将做|fatica:辛苦|fatta:做（过去分词，阴性）|fatto:做（过去分词）|favore:帮忙|per favore:请|febbraio:二月|figlio:儿子|film:电影|fine:结束；周末（fine settimana）|finire:结束、完成|finiscono:他们结束|fino:直到|firenze:佛罗伦萨|forse:也许|foto:照片|fra:在……之后、之间|fratello:兄弟|fredda:冷的（阴性）|freddo:冷|fretta:匆忙|frigo:冰箱|gatto:猫|gelato:冰淇淋|gennaio:一月|giacca:夹克|giornale:报纸|giornali:报纸（复数）|giornata:一天、白天|giorni:天（复数）|giorno:天、日子|giovedì:星期四|giri:你转弯|giugno:六月|giulia:茱莉亚（人名）|gli:定冠词（阳性复数）；给他|gnocchi:团子（意式面疙瘩）|gola:喉咙|grande:大的|grazie:谢谢|grigio:灰色|guardando:正在看|guida:导游；向导|gusto:味道|ha:他／她有|hai:你有|hanno:他们有|ho:我有|hotel:酒店|i:定冠词（阳性复数）|idea:主意|ieri:昨天|il:定冠词（阳性单数）|in:在……里、去|inglese:英语、英国的|insegnante:老师|insomma:总之、凑合|interessante:有意思的|io:我|italia:意大利|italiana:意大利的（阴性）|italiani:意大利人（复数）|italiano:意大利的、意大利语|l':定冠词（元音前）|la:定冠词（阴性）；她、它|laghi:湖（复数）|lana:羊毛|larga:宽的（阴性）|latte:牛奶|laurea:大学毕业|lavo:我洗|lavorare:工作|lavori:你工作|lavoro:工作；我工作|le:定冠词（阴性复数）；她们；给她|leggere:读|lei:她|lentamente:慢慢地|letto:床；读（过去分词）|li:他们、它们|libri:书（复数）|libro:书|lo:定冠词；他、它|luglio:七月|lui:他|luna:月亮|lunedì:星期一|lupo:狼|in bocca al lupo:祝你好运|lì:那里|ma:但是|macchina:汽车|madre:母亲|magari:但愿；也许|maggio:五月|mai:从来；从不|male:坏、不好|mangiare:吃|mangiato:吃（过去分词）|mangio:我吃|mano:手|marco:马可（人名）|mare:海|martedì:星期二|marzo:三月|mattina:早上|me:我（介词后）|media:中等的；中号|medico:医生|meglio:更好地|meno:更少；差（几分）|mercoledì:星期三|mese:月|messaggio:消息|mezza:一半；半（点）|mezzanotte:半夜十二点|mezzogiorno:中午十二点|mi:我；给我；我自己|mia:我的（阴性）|mie:我的（阴性复数）|migliorare:进步|migliore:更好的|milano:米兰|mille:一千|mio:我的|moderna:现代的|molto:很、非常；很多|musei:博物馆（复数）|musica:音乐|nascere:出生|nei:in + i|nel:in + il（在……里）|nell':in + l'|nella:in + la|nelle:in + le|nera:黑色的（阴性）|nero:黑色|niente:什么也没有|no:不|noi:我们|non:不|nonno:爷爷|nono:第九|normale:正常的|notte:夜晚|notti:夜晚（复数）|novantanove:九十九|nove:九|novembre:十一月|numero:号码|nuovo:新的|o:或者|oggi:今天|ogni:每|ora:小时；现在|ore:小时（复数）；点钟|ottanta:八十|otto:八|ottobre:十月|pagare:付钱|palestra:健身房|papa:教皇|papà:爸爸|parla:他／她说|parlano:他们说|parlare:说|parlerò:我将说|parli:你说|parlo:我说|parti:你出发|partirai:你将出发|partire:出发|parto:我出发|pasta:面食|peccato:可惜|pechino:北京|peggiore:更差的|per:为了；去往|perché:为什么；因为|perfetto:完美、太好了|persone:人们|però:不过|pesce:鱼|piaccio:我让……喜欢|piacciono:（复数）让……喜欢|piace:让……喜欢|piacere:幸会；喜欢|piano:慢；钢琴|piatto:菜；盘子|piccolo:小的|piove:下雨|pizza:比萨|più:更|po':一点（un po'）|poco:很少|poi:然后|porta:门；他穿、他带|posso:我可以|potrò:我将能|preferito:最喜欢的|prego:不客气；请|prendere:拿；点（餐）|prendo:我拿；我要|preso:拿（过去分词）|presto:早；快|a presto:回头见|prima:之前、先|primo:第一|problema:问题|pronto:喂（电话）；准备好的|prossimo:下一个|provarla:试它|provo:我试|puoi:你可以|può:他／她／您可以|qual:哪个（qual è）|quale:哪个|quando:什么时候；当……时|quanti:多少（复数）|quanto:多少|quarantotto:四十八|quarto:一刻钟；第四|quasi:几乎|questa:这个（阴性）|queste:这些（阴性）|questi:这些（阳性）|questo:这个|qui:这里|quindi:所以|ragazza:女孩|ragazze:女孩们|ragazzi:男孩们|ragazzo:男孩|rana:青蛙|regalo:礼物|restare:留下|resterò:我将留下|resto:我留下|rimanere:留下|rimasto:留下（过去分词）|ripetere:重复|ristorante:餐厅|ritardo:迟到|roma:罗马|rosso:红色|sabato:星期六|saldi:打折季|salve:你好|saranno:他们将是；大概是|scarpe:鞋（复数）|sci:滑雪|sconto:折扣|scontrino:小票|scorsa:上一个（阴性）|scorso:上一个|scritto:写（过去分词）|scrivania:书桌|scrivere:写|scrivo:我写|scuola:学校|scusa:对不起（对朋友）|scusi:打扰一下、对不起（礼貌）|se:如果|secondo:第二；根据|secondo me:我觉得|sei:你是；六|sempre:总是|senti:你听见|sentiamo:我们联系|sete:口渴|sette:七|settembre:九月|settimana:星期、周|shanghai:上海|si:他自己；（无人称）|siamo:我们是|sicilia:西西里|siete:你们是|sinistra:左边|so:我知道|sole:太阳|solo:只|sonno:困|sono:我是；他们是|sopra:上面|sotto:下面|spaghetti:意大利面|spagna:西班牙|speciale:特别的|speriamo:但愿|spremuta:鲜榨果汁|sta:他／她／您待（状态）|stai:你待（状态）|stanca:累的（阴性）|stanco:累的|stare:待；（身体）状态|stasera:今晚|stato:是、待（过去分词）|stazione:火车站|sto:我待；我（状态）|strada:街道|stretta:紧的（阴性）|studente:学生|studentessa:女学生|studentesse:女学生们|studenti:学生们|studi:你学习|studiare:学习|studio:我学习|su:在……上|subito:马上|sui:su + i|sul:su + il（在……上）|sull':su + l'|sulla:su + la|sulle:su + le|supermercato:超市|sveglio:我醒来；醒着的|sì:是|taglia:尺码|tanti:很多（复数）|tantissimo:非常多|tanto:很多|tardi:晚|tavolo:桌子|te:你（介词后）|telefono:电话|tempo:时间；天气|ti:你；给你；你自己|tiramisù:提拉米苏|tornare:回来|tornati:回来（过去分词，复数）|tornerò:我将回去|tre:三|treno:火车|trenta:三十|trentadue:三十二|troppo:太|trovi:你找到|trovo:我找到|tu:你|tuo:你的|tuoi:你的（复数）|turisti:游客|turistica:旅游的（阴性）|tutto:全部|ufficio:办公室|un:一个（阳性）|un':一个（阴性，元音前）|una:一个（阴性）|uno:一；一个（阳性）|uova:鸡蛋（复数）|uscire:出去|va:他去；（事情）进行|va bene:好的|vado:我去|vai:你去|vedere:看见|vedo:我看见|vedrò:我将看见|veloce:快的|velocemente:快地|venduto:卖（过去分词）|venerdì:星期五|venezia:威尼斯|vengo:我来|venire:来|venti:二十|venticinque:二十五|ventidue:二十二|ventotto:二十八|ventuno:二十一|venuta:来（过去分词，阴性）|venuto:来（过去分词）|verde:绿色|vero:真的；对吧|verrò:我将来|vesto:我穿衣|vi:你们；给你们|viaggio:旅行|vicino:附近|vieni:你来|vino:葡萄酒|visto:看见（过去分词）|voglio:我要|volentieri:很乐意|vorrebbe:他／她想要|vorrei:我想要（礼貌）|vorrò:我将想要|vuoi:你想要|vuol:想要（vuol dire = 意思是）|vuole:他／她／您想要|zaino:背包|zero:零|è:是（他／她／您是）|anno:年|aereo:飞机|acqua:水|amica:朋友（女）|inizio:开始|una:一个（阴性）|ventiuno:（错误形式）|vent'uno:（错误形式）|faciuto:（错误形式）|fato:命运（这里是错误形式）|fao:（错误形式）|fo:（错误形式）|capo:头、老板（这里是错误形式）|capiro:（错误形式）|libre:（错误形式）|ki:（读音）|butter:英语单词 butter|way:英语单词 way|wei:薇（名字）|li wei:李薇|lavo:我洗|f:阴性|alzata:起床（阴性过去分词）|guardando:正在看|ce l'ho:我有（口语）|fatta:做成（阴性）|me:我|dice:说|vuol dire:意思是|sentiamo:联系|ci sentiamo:再联系|piano piano:慢慢地|dov':在哪儿|com':怎么|cos':什么|anch':也|d':……的（di）|vent':二十|l'una:一点钟|l'ho:我（把它）……了|aiutarla:帮助您|quattro:四|undici:十一|tredici:十三|quattordici:十四|quindici:十五|sedici:十六|diciassette:十七|diciotto:十八|diciannove:十九|quaranta:四十|sessanta:六十|settanta:七十|novanta:九十").split("|").forEach(function(p){var i=p.indexOf(":");DICT[p.slice(0,i)]=p.slice(i+1)});
+
+/* ---------- dialoghi ---------- */
+var DLG={
+l2:[["A","Buongiorno!","早上好！"],["B","Buongiorno! Come sta?","早上好！您好吗？"],["A","Bene, grazie. E Lei?","很好，谢谢。您呢？"],["B","Molto bene, grazie.","很好，谢谢。"],["A","Arrivederci!","再见！"],["B","Arrivederci, buona giornata!","再见，祝您一天愉快！"]],
+l3:[["A","Ciao! Mi chiamo Marco. Come ti chiami?","你好！我叫马可。你叫什么名字？"],["B","Ciao! Mi chiamo Li Wei.","你好！我叫李薇。"],["A","Sei cinese?","你是中国人吗？"],["B","Sì, sono cinese, di Pechino. E tu?","是，我是中国人，北京人。你呢？"],["A","Io sono italiano, di Roma. Sono studente.","我是意大利人，罗马人。我是学生。"],["B","Anch'io sono studentessa!","我也是学生！"],["A","Piacere!","很高兴认识你！"],["B","Piacere mio!","我也很高兴！"]],
+l4:[["A","Ecco la mia camera!","这就是我的房间！"],["B","Che bella! È grande.","真漂亮！很大。"],["A","Questo è il letto e questa è la scrivania.","这是床，这是书桌。"],["B","E questi sono i tuoi libri?","这些是你的书吗？"],["A","Sì, sono libri di italiano.","是的，是意大利语书。"],["B","E che cos'è questo?","那这是什么？"],["A","È uno zaino. È un regalo di mia madre.","这是一个背包。是我妈妈送的礼物。"]],
+l5:[["A","Ciao Li Wei, come stai?","你好李薇，你好吗？"],["B","Così così. Sono stanca.","一般般。我很累。"],["A","Perché?","为什么？"],["B","Ho molto lavoro. E tu?","我工作很多。你呢？"],["A","Io sto bene, ma ho fame!","我很好，不过我饿了！"],["B","Anch'io ho fame. Andiamo a mangiare?","我也饿了。我们去吃饭吧？"],["A","Sì, dai!","好啊，走！"]],
+l6:[["A","Che lavoro fai?","你做什么工作？"],["B","Sono studentessa. Studio italiano all'università. E tu?","我是学生。我在大学学意大利语。你呢？"],["A","Lavoro in un ristorante. Ma tu parli molto bene!","我在一家餐厅工作。你说得很好啊！"],["B","Grazie! Ma capisco poco quando le persone parlano veloce.","谢谢！不过别人说得快的时候我听不太懂。"],["A","È normale. Piano piano capisci tutto!","这很正常。慢慢地你就都懂了！"],["B","Speriamo!","但愿吧！"]],
+l7:[["A","Scusa, di dove sei?","请问，你是哪里人？"],["B","Sono di Shanghai.","我是上海人。"],["A","E dove abiti adesso?","那你现在住在哪儿？"],["B","Abito a Milano, vicino al Duomo.","我住在米兰，大教堂附近。"],["A","Perché sei in Italia?","你为什么在意大利？"],["B","Perché studio musica.","因为我学音乐。"],["A","Che bello! Quanti anni hai?","真好！你多大了？"],["B","Ventidue.","二十二岁。"]],
+l8:[["A","Buongiorno, dica!","早上好，请说！"],["B","Buongiorno. Vorrei un cappuccino e un cornetto, per favore.","早上好。我想要一杯卡布奇诺和一个羊角面包，谢谢。"],["A","Altro?","还要别的吗？"],["B","Anche un bicchiere d'acqua. Quanto costa?","再要一杯水。多少钱？"],["A","Tre euro e venti.","三欧二十。"],["B","Ecco a Lei.","给您。"],["A","Grazie, buona giornata!","谢谢，祝您愉快！"],["B","Grazie, altrettanto!","谢谢，您也是！"]],
+l9:[["A","Pronto? Ciao Li Wei, dove sei?","喂？你好李薇，你在哪儿？"],["B","Sono al supermercato. Perché?","我在超市。怎么了？"],["A","C'è il latte a casa?","家里有牛奶吗？"],["B","No, non c'è. Lo compro io.","没有了。我来买。"],["A","E ci sono le uova?","那鸡蛋有吗？"],["B","Sì, ci sono. Sono nel frigo.","有，在冰箱里。"],["A","Perfetto, grazie. A dopo!","太好了，谢谢。待会儿见！"],["B","A dopo!","待会儿见！"]],
+l10:[["A","Stasera che cosa fai?","你今晚干什么？"],["B","Niente di speciale. Perché?","没什么特别的。怎么了？"],["A","Vuoi venire al cinema con me?","你想跟我去看电影吗？"],["B","Sì, volentieri! A che ora?","好啊，很乐意！几点？"],["A","Alle otto. Puoi venire alle sette e mezza davanti al cinema?","八点。你七点半能到电影院门口吗？"],["B","Va bene. Prima devo finire un lavoro, ma vengo!","好的。我得先做完一件事，不过我会来的！"]],
+l11:[["A","A che ora ti alzi la mattina?","你早上几点起床？"],["B","Mi alzo alle sette. E tu?","我七点起床。你呢？"],["A","Alle sei e mezza, perché comincio a lavorare alle otto.","六点半，因为我八点开始上班。"],["B","Che fatica!","真辛苦！"],["A","Sì, ma il sabato dormo fino alle dieci.","是啊，不过星期六我睡到十点。"],["B","Anch'io! Il sabato non mi sveglio mai prima delle nove.","我也是！星期六我从来不在九点前醒。"]],
+l12:[["A","Che cosa hai fatto nel fine settimana?","你周末做了什么？"],["B","Sabato sono andata al mare con le mie amiche.","星期六我和朋友们去了海边。"],["A","Che bello! Avete fatto il bagno?","真好！你们游泳了吗？"],["B","No, l'acqua era fredda. Ma abbiamo mangiato il pesce in un ristorante. E tu?","没有，水很凉。不过我们在一家餐厅吃了鱼。你呢？"],["A","Io sono rimasto a casa e ho dormito tanto!","我待在家里，睡了很多觉！"],["B","Beato te!","你真幸福！"]],
+l13:[["A","Ti piace Milano?","你喜欢米兰吗？"],["B","Sì, mi piace molto, ma secondo me Roma è più bella.","喜欢，很喜欢，不过我觉得罗马更美。"],["A","Davvero? Milano è più moderna.","真的吗？米兰更现代。"],["B","È vero, ma a Roma il cibo è buonissimo!","没错，但是罗马的吃的好吃极了！"],["A","Ti piacciono gli spaghetti alla carbonara?","你喜欢培根蛋酱意大利面吗？"],["B","Li adoro! Sono il mio piatto preferito.","我超爱！那是我最喜欢的菜。"]],
+l14:[["A","Buongiorno, posso aiutarLa?","您好，需要帮忙吗？"],["B","Sì, cerco una giacca.","是的，我在找一件夹克。"],["A","Di che colore la vuole?","您想要什么颜色的？"],["B","Nera. Posso provarla?","黑色的。我可以试一下吗？"],["A","Certo, il camerino è lì.","当然，试衣间在那边。"],["B","Mi sta bene! La prendo. Quanto costa?","挺合适！我要了。多少钱？"],["A","Ottanta euro, ma oggi c'è il venti per cento di sconto.","八十欧，不过今天打八折。"],["B","Perfetto! Posso pagare con la carta?","太好了！我可以刷卡吗？"],["A","Certo!","当然！"]],
+l15:[["A","Che cosa farai dopo la laurea?","毕业以后你要做什么？"],["B","Se trovo lavoro, resterò in Italia.","如果找到工作，我就留在意大利。"],["A","E se non lo trovi?","要是找不到呢？"],["B","Allora tornerò in Cina, ma prima farò un viaggio in Sicilia.","那我就回中国，不过之前我会去西西里旅行。"],["A","Bella idea! Quando partirai?","好主意！你什么时候出发？"],["B","Forse a luglio, quando finiscono gli esami.","也许七月，考试结束的时候。"],["A","In bocca al lupo per gli esami!","祝你考试顺利！"],["B","Crepi!","谢谢！（固定回答）"]]
+};
+
+/* ---------- esercizi ----------
+   {q, o:[...], e}         scelta: o[0] è giusta
+   + au:"..."              prima si ascolta l'italiano, il testo appare dopo
+   {t:"say", zh, it, e}    di' la frase ad alta voce, poi confronta
+   {t:"ord", q, w, a}      componi la frase */
+var EX={
+l1:[
+ {q:"听：你听到的是哪个词？",au:"pasta",o:["pasta","basta"],e:"p 不送气、声带不振动；b 是浊音，声带要振动。pasta 面食，basta 够了。"},
+ {q:"听：你听到的是哪个词？",au:"lana",o:["lana","rana"],e:"l 和拼音一样；r 要舌尖颤动。lana 羊毛，rana 青蛙。"},
+ {q:"听：你听到的是哪个词？",au:"sette",o:["sette","sete"],e:"双辅音 tt 要停顿一下。sette 七，sete 口渴。"},
+ {q:"听：你听到的是哪个词？",au:"nonno",o:["nonno","nono"],e:"nonno 爷爷，nono 第九。"},
+ {q:"听：你听到的是哪个词？",au:"carro",o:["carro","caro"],e:"rr 要多颤几下。carro 车，caro 贵的。"},
+ {q:"听：你听到的是哪个词？",au:"gola",o:["gola","cola"],e:"g 是浊音。gola 喉咙，cola 可乐。"},
+ {q:"ciao 中的 ci 怎么读？",o:["像英语 cheese 的 ch","像 k","像 s"],e:"c 在 e、i 前读软音。"},
+ {q:"chiave 中的 chi 怎么读？",o:["ki","像英语 ch","像 sh"],e:"h 让 c 保持硬音 k。"},
+ {q:"ho（我有）中的 h 怎么读？",o:["不发音","像拼音 h","像英语 h"],e:"意大利语的 h 永远不发音。"},
+ {t:"say",zh:"大声读，注意浊音 b、大舌音 r 和双辅音：bene, Roma, birra, pizza",it:"bene, Roma, birra, pizza",e:"摸着喉咙读 b，要感觉到振动。"}
+],
+l2:[
+ {q:"听：是哪个词？",au:"papà",o:["papà（爸爸）","papa（教皇）"],e:"重音在最后一个音节：pa-PÀ。"},
+ {q:"听：这是疑问句还是陈述句？",au:"Sei italiano?",o:["疑问句","陈述句"],e:"句尾上升，是问句。"},
+ {q:"听：这是疑问句还是陈述句？",au:"Sei italiano.",o:["陈述句","疑问句"],e:"句尾下降，是陈述句。"},
+ {q:"早上见到老师，你说：",o:["Buongiorno!","Ciao!","Buonanotte!"],e:"对老师用礼貌的 Buongiorno。"},
+ {q:"别人对你说：",au:"Grazie!",o:["Prego.","Arrivederci.","Scusi."],e:"谢谢 → 不客气：Prego。"},
+ {q:"晚上九点走进餐厅，你说：",o:["Buonasera!","Buongiorno!","Buonanotte!"],e:"Buonanotte 只在睡前用。"},
+ {t:"say",zh:"对店员说「早上好！」",it:"Buongiorno!"},
+ {t:"say",zh:"说「谢谢！」，再回答「不客气。」",it:"Grazie! Prego."},
+ {t:"say",zh:"礼貌地告别：「再见，祝您一天愉快！」",it:"Arrivederci, buona giornata!"}
+],
+l3:[
+ {q:"听，选择意思：",au:"Sono di Pechino.",o:["我是北京人。","我在北京工作。","我去北京。"],e:"di = 来自。"},
+ {q:"听，选择意思：",au:"Non sono studente.",o:["我不是学生。","我是学生。","你不是学生吗？"],e:"non 放在动词前。"},
+ {q:"别人问你：",au:"Come ti chiami?",o:["Mi chiamo Li Wei.","Sono bene.","Ho Li Wei."],e:"用 Mi chiamo 回答名字。"},
+ {q:"「我们是中国人。」",o:["Siamo cinesi.","Sono cinesi.","Siete cinesi."],e:"siamo = 我们是。sono cinesi 是「他们是中国人」。"},
+ {q:"女生说「我是意大利人」：",o:["Sono italiana.","Sono italiano.","È italiana."],e:"女性用 -a：italiana。"},
+ {q:"「我也是！」",o:["Anch'io!","Io anche!","Anche tu!"],e:"「我也是」= Anch'io。"},
+ {t:"say",zh:"介绍自己：「我叫李薇，我是中国人。」（换成你的名字）",it:"Mi chiamo Li Wei, sono cinese.",e:"把 Li Wei 换成你的名字。"},
+ {t:"say",zh:"问：「你叫什么名字？」",it:"Come ti chiami?",e:"句尾不用上升太多，疑问词已经表示是问句。"},
+ {t:"ord",q:"组句：「我不是意大利人。」",w:["Non","sono","italiano."],a:["Non sono italiano."]}
+],
+l4:[
+ {q:"选择正确的冠词：___ libro",o:["il","la","lo"],e:"libro 阳性，辅音开头 → il。"},
+ {q:"选择正确的冠词：___ studente",o:["lo","il","la"],e:"s + 辅音前用 lo。"},
+ {q:"选择正确的冠词：___ amica",o:["l'","la","il"],e:"元音前用 l'。"},
+ {q:"libro（书）的复数：",o:["i libri","le libre","il libri"],e:"-o → -i，il → i。"},
+ {q:"「这些房子」：",o:["queste case","questi case","questa case"],e:"casa 阴性，复数 case，questo 也变成 queste。"},
+ {q:"听：这是什么？",au:"È uno zaino.",o:["一个背包","一个房间","一本书"],e:"zaino 背包（z 开头用 uno）。"},
+ {q:"别人指着一个东西问你：",au:"Che cos'è?",o:["È un libro.","Sono un libro.","Ho un libro."],e:"这是什么？→ 这是一本书。"},
+ {t:"say",zh:"说「这是一本书。这本书是新的。」",it:"È un libro. Il libro è nuovo."},
+ {t:"say",zh:"说「这是我的房间。」",it:"Questa è la mia camera."}
+],
+l5:[
+ {q:"听，选择意思：",au:"Ho fame.",o:["我饿了。","我累了。","我冷。"],e:"avere fame = 饿。"},
+ {q:"听，选择意思：",au:"Ho vent'anni.",o:["我二十岁。","我有二十个朋友。","二十年前。"],e:"年龄用 avere。"},
+ {q:"朋友问你：",au:"Come stai?",o:["Sto bene, grazie.","Ho bene, grazie.","Sono bene, grazie."],e:"用 stare：Sto bene。"},
+ {q:"「我二十五岁。」",o:["Ho venticinque anni.","Sono venticinque anni.","Venticinque anni sono."],e:"年龄用 avere，不用 essere。"},
+ {q:"「一个高个子女孩」",o:["una ragazza alta","una ragazza alto","un ragazza alta"],e:"冠词、名词、形容词都要阴性。"},
+ {q:"女生说「我累了」：",o:["Sono stanca.","Sono stanco.","Ho stanca."],e:"说话人是女性 → stanca。"},
+ {t:"say",zh:"说「我很好，谢谢。你呢？」",it:"Sto bene, grazie. E tu?"},
+ {t:"say",zh:"说「我渴了。」",it:"Ho sete."},
+ {t:"say",zh:"说「我冷。」",it:"Ho freddo."}
+],
+l6:[
+ {q:"听，选择意思：",au:"Abito a Milano.",o:["我住在米兰。","我在米兰工作。","我去米兰。"],e:"abitare = 住。"},
+ {q:"听，选择意思：",au:"Lavori o studi?",o:["你工作还是上学？","你喜欢工作吗？","我工作也上学。"],e:"-i 结尾 = tu（你）。"},
+ {q:"听，选择意思：",au:"Non capisco.",o:["我不懂。","我不知道。","我不喜欢。"],e:"capire → capisco。"},
+ {q:"「我说中文。」",o:["Parlo cinese.","Parlare cinese.","Parla cinese."],e:"io → -o。"},
+ {q:"「他们住在罗马。」",o:["Abitano a Roma.","Abita a Roma.","Abitiamo a Roma."],e:"loro → -ano。"},
+ {q:"capire（懂）的 io 形式：",o:["capisco","capo","capiro"],e:"capire 加 -isc-。"},
+ {t:"say",zh:"说「我说中文和一点意大利语。」",it:"Parlo cinese e un po' di italiano."},
+ {t:"say",zh:"问：「你在哪儿工作？」",it:"Dove lavori?"},
+ {t:"ord",q:"组句：「我们住在米兰。」",w:["Abitiamo","a","Milano."],a:["Abitiamo a Milano."]}
+],
+l7:[
+ {q:"听，选择意思：",au:"Di dove sei?",o:["你是哪里人？","你在哪儿？","你去哪儿？"],e:"di dove = 来自哪里。"},
+ {q:"听，选择意思：",au:"Quanti anni hai?",o:["你多大了？","你有多少钱？","你学了几年？"],e:"年龄用 avere。"},
+ {q:"听，选择意思：",au:"Perché studi italiano?",o:["你为什么学意大利语？","你在哪儿学意大利语？","你学意大利语多久了？"],e:"perché = 为什么。"},
+ {q:"「你住在哪儿？」",o:["Dove abiti?","Abiti dove tu?","Tu dove abiti dove?"],e:"疑问词放在句首。"},
+ {q:"别人问你：",au:"Sei cinese, vero?",o:["Sì, sono cinese.","Sì, vero.","Vero, cinese."],e:"…, vero? = ……，对吧？"},
+ {q:"没听清对方的话，礼貌的说法是：",o:["Scusi?","Cosa?","Perché?"],e:"Cosa? 有点不礼貌。"},
+ {t:"say",zh:"问：「你是哪里人？」",it:"Di dove sei?"},
+ {t:"say",zh:"回答：「我是上海人，但我住在米兰。」",it:"Sono di Shanghai, ma abito a Milano."},
+ {t:"ord",q:"组句：「马可住在哪儿？」",w:["Dove","abita","Marco?"],a:["Dove abita Marco?"]}
+],
+l8:[
+ {q:"听：多少钱？",au:"Sono tre euro e venti.",o:["3.20 欧元","3.12 欧元","20.30 欧元"],e:"tre euro e venti = 3 欧 20 分。"},
+ {q:"听：哪个数字？",au:"ventotto",o:["28","18","38"],e:"venti + otto → ventotto。"},
+ {q:"听，选择意思：",au:"Vorrei un cappuccino, per favore.",o:["我想要一杯卡布奇诺，谢谢。","我喜欢卡布奇诺。","卡布奇诺多少钱？"],e:"vorrei = 我想要（礼貌）。"},
+ {q:"在咖啡馆点东西，最礼貌的说法：",o:["Vorrei un caffè, per favore.","Voglio un caffè.","Un caffè, subito!"],e:"voglio 听起来很不客气。"},
+ {q:"店员问你：",au:"Altro?",o:["No, grazie. Quanto costa?","Sì, altro.","Prego, altro."],e:"还要别的吗？→ 不用了，谢谢。多少钱？"},
+ {q:"21 怎么说？",o:["ventuno","ventiuno","vent'uno"],e:"venti + uno，去掉 i。"},
+ {t:"say",zh:"点餐：「我想要一个羊角面包和一杯水，谢谢。」",it:"Vorrei un cornetto e un bicchiere d'acqua, per favore."},
+ {t:"say",zh:"问：「多少钱？」",it:"Quanto costa?"},
+ {t:"say",zh:"说「请结账。」",it:"Il conto, per favore."}
+],
+l9:[
+ {q:"听，选择意思：",au:"Sono al supermercato.",o:["我在超市。","我去超市。","超市在哪儿？"],e:"a + il = al。"},
+ {q:"听，选择意思：",au:"C'è un bar qui vicino?",o:["这附近有咖啡馆吗？","咖啡馆很近吗？","我在咖啡馆附近。"],e:"c'è = 有（某处有）。"},
+ {q:"听，选择意思：",au:"Le chiavi sono sul tavolo.",o:["钥匙在桌子上。","钥匙在桌子下面。","我把钥匙放在桌上了。"],e:"su + il = sul。"},
+ {q:"「在冰箱里」：in + il frigo =",o:["nel frigo","in il frigo","al frigo"],e:"in + il = nel。"},
+ {q:"「有两家药店」：",o:["Ci sono due farmacie.","C'è due farmacie.","Ha due farmacie."],e:"复数用 ci sono。"},
+ {q:"接电话，对方问你：",au:"Pronto? Dove sei?",o:["Sono a casa.","Ho a casa.","C'è a casa."],e:"在哪儿 → essere。"},
+ {t:"say",zh:"说「我在家。」",it:"Sono a casa."},
+ {t:"say",zh:"问路：「请问，火车站在哪儿？」",it:"Scusi, dov'è la stazione?"},
+ {t:"say",zh:"说「牛奶在冰箱里。」",it:"Il latte è nel frigo."}
+],
+l10:[
+ {q:"听，选择意思：",au:"Vuoi venire al cinema?",o:["你想去看电影吗？","你去过电影院吗？","电影院在哪儿？"],e:"vuoi + 原形 = 你想……"},
+ {q:"听，选择意思：",au:"Mi dispiace, non posso.",o:["抱歉，我去不了。","我不喜欢。","我不知道。"],e:"non posso = 我不能。"},
+ {q:"听，选择意思：",au:"Devo lavorare domani.",o:["我明天得工作。","我明天想工作。","我明天不工作。"],e:"devo = 我必须。"},
+ {q:"请求许可：「我可以进来吗？」",o:["Posso entrare?","Voglio entrare?","Devo entrare?"],e:"posso = 我可以。"},
+ {q:"朋友邀请你：",au:"Vieni con noi?",o:["Sì, volentieri!","Sì, vado!","Sì, puoi!"],e:"接受邀请：Volentieri! 或 Sì, vengo!"},
+ {q:"fare（做）的 io 形式：",o:["faccio","fao","fo"],e:"fare 不规则：faccio, fai, fa…"},
+ {t:"say",zh:"邀请：「你想跟我去看电影吗？」",it:"Vuoi venire al cinema con me?"},
+ {t:"say",zh:"请求帮助：「你能帮我吗？」",it:"Puoi aiutarmi?"},
+ {t:"say",zh:"说「我们走吧！」",it:"Andiamo!"}
+],
+l11:[
+ {q:"听：几点？",au:"Sono le otto e mezza.",o:["8:30","8:15","9:30"],e:"e mezza = 半。"},
+ {q:"听：几点？",au:"Sono le dieci meno cinque.",o:["9:55","10:05","10:55"],e:"meno = 差。"},
+ {q:"听：今天星期几？",au:"Oggi è giovedì.",o:["星期四","星期二","星期六"],e:"giovedì = 星期四。"},
+ {q:"「一点钟」：",o:["È l'una.","Sono le una.","È una ora."],e:"一点用单数 è l'una。"},
+ {q:"「2026 年 10 月 21 日」意大利语的顺序是：",o:["21 ottobre 2026","2026 ottobre 21","ottobre 21 2026"],e:"日 + 月 + 年，和中文相反。"},
+ {q:"朋友问你：",au:"A che ora ti alzi?",o:["Mi alzo alle sette.","Alzo alle sette.","Sono le sette."],e:"alzarsi 是反身动词：mi alzo。"},
+ {t:"say",zh:"问：「几点了？」",it:"Che ore sono?"},
+ {t:"say",zh:"说「我七点起床。」",it:"Mi alzo alle sette."},
+ {t:"say",zh:"说「我每个星期一去健身房。」",it:"Il lunedì vado in palestra."}
+],
+l12:[
+ {q:"听，选择意思：",au:"Ho mangiato una pizza.",o:["我吃了一个比萨。","我在吃比萨。","我想吃比萨。"],e:"ho + mangiato = 吃了。"},
+ {q:"听，选择意思：",au:"Sono andata al mare.",o:["我（女）去了海边。","我要去海边。","我喜欢海边。"],e:"andare 用 essere，女性 → andata。"},
+ {q:"听，选择意思：",au:"Hai capito?",o:["你明白了吗？","你想明白吗？","你去哪儿了？"],e:"capire → capito。"},
+ {q:"「马可去了罗马。」",o:["Marco è andato a Roma.","Marco ha andato a Roma.","Marco è andata a Roma."],e:"andare 用 essere，马可是男性 → andato。"},
+ {q:"fare（做）的过去分词：",o:["fatto","fato","faciuto"],e:"fare → fatto，不规则。"},
+ {q:"朋友问你：",au:"Che cosa hai fatto ieri?",o:["Ho visto un film.","Vedo un film.","Vedrò un film."],e:"问过去 → 用过去时回答。"},
+ {t:"say",zh:"说「我昨天看了一部电影。」",it:"Ieri ho visto un film."},
+ {t:"say",zh:"女生说「我去了佛罗伦萨。」（男生说 andato）",it:"Sono andata a Firenze."},
+ {t:"say",zh:"问：「你周末做了什么？」",it:"Che cosa hai fatto nel fine settimana?"}
+],
+l13:[
+ {q:"听，选择意思：",au:"Mi piacciono gli spaghetti.",o:["我喜欢意大利面。","我想吃意大利面。","我会做意大利面。"],e:"复数 → piacciono。"},
+ {q:"听，选择意思：",au:"Roma è più grande di Firenze.",o:["罗马比佛罗伦萨大。","佛罗伦萨比罗马大。","罗马和佛罗伦萨一样大。"],e:"più … di = 比……更……"},
+ {q:"听，选择意思：",au:"Secondo me, è bellissima.",o:["我觉得它非常漂亮。","我不知道它漂不漂亮。","它没有那么漂亮。"],e:"secondo me = 我觉得。"},
+ {q:"「我喜欢书。」（书是复数）",o:["Mi piacciono i libri.","Mi piace i libri.","Io piaccio i libri."],e:"被喜欢的东西是复数 → piacciono。"},
+ {q:"「马可喜欢足球。」",o:["A Marco piace il calcio.","Marco piace il calcio.","Marco mi piace il calcio."],e:"字面：足球让马可喜欢。"},
+ {q:"意大利人问你：",au:"Ti piace l'Italia?",o:["Sì, mi piace molto!","Sì, piaccio molto!","Sì, ti piace!"],e:"回答用 mi piace。"},
+ {t:"say",zh:"说「我很喜欢意大利。」",it:"Mi piace molto l'Italia."},
+ {t:"say",zh:"比较：「火车没有飞机贵。」",it:"Il treno è meno caro dell'aereo."},
+ {t:"say",zh:"夸食物：「比萨好吃极了！」",it:"La pizza è buonissima!"}
+],
+l14:[
+ {q:"听，选择意思：",au:"La prendo!",o:["我要了！（买它）","我拿给你！","我不要了！"],e:"la = 它（阴性），代词在动词前。"},
+ {q:"听，选择意思：",au:"Posso provarla?",o:["我可以试试它吗？","我可以买它吗？","你能帮我吗？"],e:"provare + la。"},
+ {q:"「你认识马可吗？——认识（他）。」",o:["Sì, lo conosco.","Sì, conosco lo.","Sì, la conosco."],e:"lo = 他，放在动词前。"},
+ {q:"Le scarpe? ___ provo.（这些鞋？我试一下。）",o:["Le","Li","La"],e:"scarpe 阴性复数 → le。"},
+ {q:"店员问你，你只想看看：",au:"Posso aiutarLa?",o:["Sto solo guardando, grazie.","Sì, lo aiuto.","Non posso."],e:"我只是看看，谢谢。"},
+ {q:"「我给他发消息。」",o:["Gli scrivo un messaggio.","Lo scrivo un messaggio.","Scrivo gli un messaggio."],e:"给他 = gli（间接宾语）。"},
+ {t:"say",zh:"说「我在找一件夹克。」",it:"Cerco una giacca."},
+ {t:"say",zh:"说「我可以刷卡吗？」",it:"Posso pagare con la carta?"},
+ {t:"say",zh:"决定买下夹克：「我要了！」",it:"La prendo!"}
+],
+l15:[
+ {q:"听，选择意思：",au:"Se piove, resto a casa.",o:["如果下雨，我就待在家。","因为下雨，我待在家。","虽然下雨，我还是出门。"],e:"se = 如果。"},
+ {q:"听，选择意思：",au:"Quando arrivo, ti chiamo.",o:["我到了就给你打电话。","你到了给我打电话。","我什么时候到？"],e:"quando = 当……的时候。"},
+ {q:"听，选择意思：",au:"Che cosa farai dopo la laurea?",o:["毕业以后你要做什么？","你毕业了吗？","你为什么上大学？"],e:"farai = fare 的将来时。"},
+ {q:"andare 将来时的 io 形式：",o:["andrò","anderò","andarò"],e:"andare 不规则：andrò。"},
+ {q:"哪一句是正确的？",o:["Resto a casa perché piove.","Perché piove, quindi resto a casa.","Perché piove, allora quindi resto a casa."],e:"意大利语只用一个连接词，不像中文「因为……所以……」。"},
+ {q:"朋友祝你考试顺利：",au:"In bocca al lupo!",o:["Crepi!","Grazie!","Anche a te!"],e:"固定回答是 Crepi!"},
+ {t:"say",zh:"说「如果明天天气好，我们去海边。」",it:"Se domani fa bel tempo, andiamo al mare."},
+ {t:"say",zh:"说「我先吃饭，然后学习。」",it:"Prima mangio, poi studio."},
+ {t:"say",zh:"说「明年我会留在意大利。」",it:"L'anno prossimo resterò in Italia."}
+],
+l16:[
+ {q:"听问题，根据短文选择答案：",au:"Di dov'è Li Wei?",o:["北京","上海","罗马"],e:"«Sono cinese, di Pechino.»"},
+ {q:"听问题，根据短文选择答案：",au:"Quando è venuta in Italia?",o:["去年","今年","上个月"],e:"«L'anno scorso sono venuta in Italia.»"},
+ {q:"听问题，根据短文选择答案：",au:"Come va a scuola?",o:["坐公交车","走路","坐地铁"],e:"«Vado a scuola in autobus.»"},
+ {q:"听问题，根据短文选择答案：",au:"Dove è andata il mese scorso?",o:["佛罗伦萨","威尼斯","米兰"],e:"«Il mese scorso sono andata a Firenze.»"},
+ {q:"听问题，根据短文选择答案：",au:"Che lavoro vorrebbe fare?",o:["导游","老师","厨师"],e:"«Vorrei diventare una guida turistica.»"},
+ {t:"say",zh:"轮到你：介绍自己（名字、国籍、住在哪里）。",it:"Mi chiamo Li Wei, sono cinese e abito a Roma.",e:"换成你自己的信息。"},
+ {t:"say",zh:"讲你的早上：「每天早上我七点起床，然后去上班。」",it:"Ogni mattina mi alzo alle sette, poi vado al lavoro."},
+ {t:"say",zh:"讲经历：「上个月我去了米兰，看了大教堂。」",it:"Il mese scorso sono andato a Milano e ho visto il Duomo.",e:"女生说 sono andata。"}
+]};
+
+/* ---------- vocabolario: [parola, cinese, genere] ---------- */
+var V=[
+["问候和礼貌"],["ciao","你好；再见",""],["buongiorno","早上好、你好",""],["buonasera","晚上好",""],["grazie","谢谢",""],["prego","不客气；请",""],["scusi","打扰一下、对不起（礼貌）",""],["arrivederci","再见",""],["per favore","请",""],
+["人"],["amico","朋友","m"],["amica","朋友（女）","f"],["ragazzo","男孩","m"],["ragazza","女孩","f"],["studente","学生","m"],["studentessa","女学生","f"],["madre","母亲","f"],["padre","父亲","m"],["fratello","兄弟","m"],["sorella","姐妹","f"],["famiglia","家庭","f"],["nome","名字","m"],
+["地点"],["casa","房子、家","f"],["città","城市","f"],["camera","房间","f"],["scuola","学校","f"],["università","大学","f"],["ufficio","办公室","m"],["ristorante","餐厅","m"],["bar","咖啡馆","m"],["supermercato","超市","m"],["stazione","火车站","f"],["cinema","电影院","m"],["mare","海","m"],["centro","市中心","m"],["strada","街道","f"],["farmacia","药店","f"],
+["吃的喝的"],["caffè","咖啡","m"],["acqua","水","f"],["latte","牛奶","m"],["pizza","比萨","f"],["pane","面包","m"],["vino","葡萄酒","m"],["cornetto","羊角面包","m"],["pesce","鱼","m"],["gelato","冰淇淋","m"],["conto","账单","m"],
+["东西"],["libro","书","m"],["tavolo","桌子","m"],["letto","床","m"],["chiave","钥匙","f"],["zaino","背包","m"],["giacca","夹克","f"],["scarpa","鞋","f"],["telefono","电话","m"],["macchina","汽车","f"],["regalo","礼物","m"],["frigo","冰箱","m"],
+["时间"],["giorno","天、日子","m"],["notte","夜晚","f"],["mattina","早上","f"],["sera","晚上","f"],["settimana","星期、周","f"],["mese","月","m"],["anno","年","m"],["ora","小时；现在","f"],["oggi","今天",""],["domani","明天",""],["ieri","昨天",""],["adesso","现在",""],
+["动词"],["essere","是",""],["avere","有",""],["stare","待；（身体）状态",""],["parlare","说",""],["abitare","住",""],["lavorare","工作",""],["studiare","学习",""],["mangiare","吃",""],["bere","喝",""],["prendere","拿；点（餐）",""],["capire","懂",""],["dormire","睡觉",""],["andare","去",""],["venire","来",""],["fare","做",""],["volere","想要",""],["potere","能、可以",""],["dovere","必须",""],["piacere","让……喜欢",""],["comprare","买",""],["cercare","找",""],["chiamarsi","叫（名字）",""],["alzarsi","起床",""],
+["形容词"],["bello","美的",""],["buono","好的；好吃的",""],["grande","大的",""],["piccolo","小的",""],["nuovo","新的",""],["caro","贵的；亲爱的",""],["stanco","累的",""],["alto","高的",""],["italiano","意大利的",""],["cinese","中国的",""],
+["疑问词"],["che cosa","什么",""],["chi","谁",""],["dove","哪儿",""],["quando","什么时候",""],["perché","为什么；因为",""],["come","怎么、怎么样",""],["quanto","多少",""]
+];
+
+/* ---------- frasario ---------- */
+var FRASI=[
+["救命句",[["Scusi!","打扰一下！／对不起！"],["Non capisco.","我听不懂。"],["Può parlare più piano, per favore?","您能说慢一点吗？"],["Può ripetere, per favore?","您能再说一遍吗？"],["Come si dice questo in italiano?","这个用意大利语怎么说？"],["Che cosa vuol dire?","这是什么意思？"],["Parlo un po' d'italiano.","我会说一点意大利语。"],["Mi può aiutare?","您能帮我吗？"],["Dov'è il bagno?","洗手间在哪儿？"],["Non lo so.","我不知道。"]]],
+["礼貌",[["Buongiorno!","早上好！你好！"],["Buonasera!","晚上好！"],["Grazie mille!","非常感谢！"],["Prego.","不客气。"],["Per favore.","请。"],["Piacere!","很高兴认识你！"],["Mi dispiace.","对不起，很遗憾。"],["Arrivederci!","再见！"],["A presto!","回头见！"],["Buona giornata!","祝你一天愉快！"]]],
+["餐厅和商店",[["Vorrei questo.","我想要这个。"],["Quanto costa?","多少钱？"],["Il conto, per favore.","请结账。"],["Posso pagare con la carta?","我可以刷卡吗？"],["Un tavolo per due, per favore.","请给我们两个人的桌子。"],["È troppo caro.","太贵了。"],["Sto solo guardando.","我只是看看。"]]],
+["反应",[["Va bene.","好的。"],["D'accordo.","同意。"],["Certo!","当然！"],["Davvero?","真的吗？"],["Che bello!","太好了！"],["Peccato!","真可惜！"],["Non c'è problema.","没问题。"],["Aspetta un attimo.","等一下。"],["Dai!","来吧！加油！"],["Boh!","不知道（口语）。"],["Magari!","但愿如此！"]]]
+];
+
+var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+var KEY="primo-libro-italiano-v1";
+var state={best:{},box:{}};
+try{var raw=localStorage.getItem(KEY);if(raw){var p=JSON.parse(raw);state.best=p.best||{};state.box=p.box||{}}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state))}catch(e){}}
+var prefs={tr:true,slow:false,fcm:"ear"};
+try{var pr=JSON.parse(localStorage.getItem(KEY+"-prefs")||"{}");if(pr.tr===false)prefs.tr=false;if(pr.slow)prefs.slow=true;if(pr.fcm)prefs.fcm=pr.fcm}catch(e){}
+function savePrefs(){try{localStorage.setItem(KEY+"-prefs",JSON.stringify(prefs))}catch(e){}}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+var hasHan=/[一-鿿]/;
+
+/* ---------- voce ---------- */
+var voice=null,hasTTS=("speechSynthesis" in window),speakSeq=0,players=[];
+function pickVoice(){if(!hasTTS)return;try{var vs=speechSynthesis.getVoices();voice=vs.filter(function(v){return /^it[-_]IT/i.test(v.lang)})[0]||vs.filter(function(v){return /^it/i.test(v.lang)})[0]||null}catch(e){}}
+if(hasTTS){pickVoice();try{speechSynthesis.onvoiceschanged=pickVoice}catch(e){}}
+setTimeout(function(){pickVoice();if(!hasTTS||!voice){var n=$("#ttsnote");if(n)n.textContent="你的浏览器似乎没有安装意大利语语音，▶ 按钮可能没有声音。手机上可以在「文字转语音」设置里添加「意大利语（意大利）」语音。练习成绩和单词卡进度保存在这个浏览器里。"}},1500);
+function stopPlayers(except){players.forEach(function(p){if(p!==except)p.stop(true)})}
+function speak(t,cb,opt){
+  opt=opt||{};if(!opt.chain)stopPlayers();
+  var my=++speakSeq,done=false;
+  function fin(){if(done)return;done=true;if(cb&&my===speakSeq)cb()}
+  if(!hasTTS){if(cb)setTimeout(fin,Math.max(800,t.length*80));return}
+  try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="it-IT";if(voice)u.voice=voice;u.rate=prefs.slow?.65:.95;if(opt.pitch)u.pitch=opt.pitch;
+    u.onend=fin;u.onerror=function(){setTimeout(fin,200)};speechSynthesis.speak(u);
+    if(cb)setTimeout(fin,Math.max(2500,t.length*(prefs.slow?140:95)));
+  }catch(e){if(cb)setTimeout(fin,800)}
+}
+var SPK='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+var MIC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>';
+
+/* ---------- parole cliccabili ---------- */
+var LET=/[A-Za-zÀ-ÖØ-öø-ÿ]/;
+function itHTML(text,plain){return String(text).split(/(\s+)/).map(function(tok){
+  if(/^\s*$/.test(tok))return tok;
+  var m=tok.match(/^([«"(¿¡—–-]*)(.*?)([.,!?;:»")…—]*)$/);var core=m?m[2]:tok;
+  if(!core||!LET.test(core))return esc(tok);
+  return esc(m[1])+(plain?esc(core):'<span class="w" tabindex="0" role="button" data-say="'+esc(core)+'">'+esc(core)+'</span>')+esc(m[3]);
+}).join("")}
+function norm(w){return w.toLowerCase().replace(/[’]/g,"'")}
+function meaning(w){var k=norm(w);if(DICT[k])return DICT[k];
+  var i=k.indexOf("'");if(i>0&&i<k.length-1){var a=k.slice(0,i+1),b=k.slice(i+1),ma=DICT[a],mb=DICT[b];if(ma||mb)return (ma||a)+" + "+(mb||b)}
+  if(/^[A-Z]/.test(w)&&!DICT[k])return "专有名词";
+  return ""}
+
+/* ---------- audio al clic ---------- */
+document.addEventListener("click",function(e){var b=e.target.closest("[data-say]");if(b)speak(b.getAttribute("data-say"))});
+document.addEventListener("keydown",function(e){var t=e.target;if((e.key==="Enter"||e.key===" ")&&t.classList&&t.classList.contains("w")){e.preventDefault();speak(t.getAttribute("data-say"))}});
+
+/* ---------- tooltip ---------- */
+var tip=document.createElement("div");tip.className="tip";tip.setAttribute("role","tooltip");tip.hidden=true;document.body.appendChild(tip);
+var tipTimer=null,tipFor=null;
+function showTip(w){var h=w.getAttribute("data-say"),m=meaning(h);
+  tip.innerHTML='<span class="tip-w" lang="it">'+esc(h)+'</span>'+(m?'<span class="tip-m">'+esc(m)+'</span>':'');
+  tip.hidden=false;tipFor=w;
+  var r=w.getBoundingClientRect(),tw=tip.offsetWidth,th=tip.offsetHeight,vw=document.documentElement.clientWidth;
+  var x=Math.max(8,Math.min(vw-tw-8,r.left+r.width/2-tw/2)),y=r.top-th-8;if(y<8)y=r.bottom+8;
+  tip.style.left=x+"px";tip.style.top=y+"px"}
+function hideTip(){tip.hidden=true;tipFor=null;clearTimeout(tipTimer)}
+document.addEventListener("mouseover",function(e){var w=e.target.closest&&e.target.closest(".w");if(w&&w!==tipFor)showTip(w);else if(!w&&tipFor)hideTip()});
+document.addEventListener("focusin",function(e){var w=e.target.closest&&e.target.closest(".w");if(w)showTip(w)});
+document.addEventListener("focusout",function(e){if(e.target===tipFor)hideTip()});
+document.addEventListener("click",function(e){var w=e.target.closest&&e.target.closest(".w");if(w){showTip(w);clearTimeout(tipTimer);tipTimer=setTimeout(hideTip,3000)}});
+window.addEventListener("scroll",function(){if(tipFor)hideTip()},{passive:true});
+
+/* ---------- esempi e testo italiano nel testo ---------- */
+$$("div[data-it]").forEach(function(d){var it=d.getAttribute("data-it");d.className="ex";
+  d.innerHTML='<div class="ex-body"><div class="it-l" lang="it">'+itHTML(it)+'</div><div class="tr">'+esc(d.getAttribute("data-zh")||"")+'</div></div><button class="say" data-say="'+esc(it)+'" aria-label="播放">'+SPK+'</button>'});
+$$(".it,.itc").forEach(function(el){if(el.children.length)return;el.setAttribute("lang","it");el.innerHTML=itHTML(el.textContent)});
+
+/* ---------- alfabeto e numeri ---------- */
+var ALF=[["A","a","a"],["B","bi","bi"],["C","ci","ci"],["D","di","di"],["E","e","e"],["F","effe","effe"],["G","gi","gi"],["H","acca","acca"],["I","i","i"],["L","elle","elle"],["M","emme","emme"],["N","enne","enne"],["O","o","o"],["P","pi","pi"],["Q","cu","cu"],["R","erre","erre"],["S","esse","esse"],["T","ti","ti"],["U","u","u"],["V","vu","vu"],["Z","zeta","zeta"]];
+var at=$("#alfabeto");if(at){var rows='';for(var i=0;i<ALF.length;i+=3){rows+='<tr>'+ALF.slice(i,i+3).map(function(a){return '<td class="big">'+a[0]+' <span style="font-weight:400;color:var(--muted);font-size:16px">'+a[1]+'</span></td><td><button class="say sm" data-say="'+a[2]+'" aria-label="播放 '+a[0]+'">'+SPK+'</button></td>'}).join("")+'</tr>'}at.innerHTML='<tr><th>字母</th><th></th><th>字母</th><th></th><th>字母</th><th></th></tr>'+rows}
+var NUM=[["0","zero"],["1","uno"],["2","due"],["3","tre"],["4","quattro"],["5","cinque"],["6","sei"],["7","sette"],["8","otto"],["9","nove"],["10","dieci"],["11","undici"],["12","dodici"],["13","tredici"],["14","quattordici"],["15","quindici"],["16","sedici"],["17","diciassette"],["18","diciotto"],["19","diciannove"],["20","venti"],["30","trenta"],["40","quaranta"],["50","cinquanta"],["60","sessanta"],["70","settanta"],["80","ottanta"],["90","novanta"],["100","cento"],["1000","mille"]];
+var nt=$("#numeri");if(nt){var r2='';for(var j=0;j<NUM.length;j+=3){r2+='<tr>'+NUM.slice(j,j+3).map(function(n){return '<td class="big" style="font-variant-numeric:tabular-nums">'+n[0]+'</td><td class="itc">'+itHTML(n[1])+'</td><td><button class="say sm" data-say="'+n[1]+'" aria-label="播放">'+SPK+'</button></td>'}).join("")+'</tr>'}nt.innerHTML='<tr><th>数</th><th>意大利语</th><th></th><th>数</th><th>意大利语</th><th></th><th>数</th><th>意大利语</th><th></th></tr>'+r2}
+
+/* ---------- lettore continuo ---------- */
+function Player(getLines,ui){
+  var p={tok:null,wait:null};
+  p.stop=function(quiet){p.tok=null;p.wait=null;if(!quiet){speakSeq++;try{speechSynthesis.cancel()}catch(e){}}getLines().forEach(function(l){l.el.classList.remove("now")});ui.idle()};
+  p.play=function(){stopPlayers(p);var tok={};p.tok=tok;ui.busy();step(0);
+    function step(i){if(p.tok!==tok)return;var L=getLines();L.forEach(function(l){l.el.classList.remove("now")});
+      if(i>=L.length){p.tok=null;ui.idle();return}
+      var l=L[i];l.el.classList.add("now");try{l.el.scrollIntoView({block:"nearest",behavior:"smooth"})}catch(e){}
+      if(l.mine&&!l.el.classList.contains("open")){p.wait={i:i,go:function(){step(i+1)},tok:tok};return}
+      speak(l.say,function(){setTimeout(function(){step(i+1)},500)},{pitch:l.pitch,chain:true})}};
+  p.answer=function(i,l){l.el.classList.add("open");var w=p.wait;p.wait=null;
+    speak(l.say,function(){if(w&&w.i===i&&p.tok===w.tok)setTimeout(w.go,500)},{pitch:l.pitch,chain:!!w})};
+  players.push(p);return p;
+}
+
+/* ---------- dialoghi ---------- */
+function renderDialog(el){
+  var id=el.getAttribute("data-dlg"),L=DLG[id];if(!L)return;
+  el.innerHTML='<div class="dl-head"><h3>对话<i>Dialogo</i></h3><div class="dl-ctrl"><button class="btn pri dl-play" type="button">'+SPK+' 全部播放</button><button class="btn dl-role" type="button" aria-pressed="false">'+MIC+' 我来说 B</button></div></div>'+
+   '<div class="dl-lines">'+L.map(function(r,i){return '<div class="dl who'+r[0]+'" data-i="'+i+'"><span class="who">'+r[0]+'</span><div class="dl-body"><div class="dl-text"><div class="it-l" lang="it">'+itHTML(r[1])+'</div><div class="tr">'+esc(r[2])+'</div></div><div class="dl-turn">轮到你了。大声说：<b>「'+esc(r[2])+'」</b><button class="btn pri dl-next" type="button">说完了，听标准版本</button></div></div><button class="say" data-say="'+esc(r[1])+'" aria-label="播放">'+SPK+'</button></div>'}).join("")+'</div>';
+  var lines=$$(".dl",el),role=false,playBtn=$(".dl-play",el),roleBtn=$(".dl-role",el);
+  function get(){return lines.map(function(ln,i){return {el:ln,say:L[i][1],pitch:L[i][0]==="B"?1.2:1,mine:role&&L[i][0]==="B"}})}
+  var pl=Player(get,{busy:function(){playBtn.innerHTML="■ 停止";playBtn.dataset.on="1"},idle:function(){playBtn.innerHTML=SPK+" 全部播放";playBtn.dataset.on=""}});
+  playBtn.onclick=function(){if(playBtn.dataset.on)pl.stop();else pl.play()};
+  roleBtn.onclick=function(){role=!role;el.classList.toggle("role",role);roleBtn.setAttribute("aria-pressed",role?"true":"false");lines.forEach(function(l){l.classList.remove("open")});pl.stop()};
+  lines.forEach(function(ln,i){$(".dl-next",ln).onclick=function(){pl.answer(i,get()[i])}});
+}
+$$(".dialog[data-dlg]").forEach(renderDialog);
+
+/* ---------- esercizi ---------- */
+function updateToc(){$$("[data-sc]").forEach(function(s){var b=state.best[s.getAttribute("data-sc")];s.textContent=b?b[0]+"/"+b[1]:"";s.classList.toggle("done",!!b&&b[0]===b[1])})}
+function itLine(t){return '<span class="zp"><span class="it-l" lang="it">'+itHTML(t)+'</span><button class="say sm" data-say="'+esc(t)+'" aria-label="播放">'+SPK+'</button></span>'}
+function nrm(s){return s.toLowerCase().replace(/[.,!?;:«»"]/g,"").replace(/\s+/g," ").trim()}
+function renderSet(el){
+  var id=el.getAttribute("data-set"),items=EX[id];if(!items)return;var res=new Array(items.length);
+  el.innerHTML='<div class="dhead"><span>按第一次的回答计分。「说一说」由你自己评分。</span><span>得分 <span class="score">0 / '+items.length+'</span>'+(state.best[id]?' · 最好成绩 '+state.best[id][0]+'/'+state.best[id][1]:'')+'</span></div>';
+  var scoreEl=$(".score",el);
+  function mark(i,ok){if(res[i]!==undefined)return;res[i]=ok;var n=res.filter(Boolean).length,done=res.filter(function(x){return x!==undefined}).length;scoreEl.textContent=n+" / "+items.length;
+    if(done===items.length){var b=state.best[id];if(!b||n>=b[0]){state.best[id]=[n,items.length];save();updateToc()}var r=document.createElement("div");r.className="acts";r.style.marginLeft="0";r.innerHTML='<button class="btn pri">重新做一遍</button>';r.firstChild.onclick=function(){renderSet(el)};el.appendChild(r)}}
+  items.forEach(function(it,i){
+    var q=document.createElement("div");q.className="q";
+    var tag=it.t==="say"?'<span class="qtag say-t">'+MIC+'说一说</span>':(it.t==="ord"?'<span class="qtag">组句</span>':(it.au?'<span class="qtag ear-t">'+SPK+'听</span>':'<span class="qtag">选择</span>'));
+    if(it.t==="say"){
+      q.innerHTML='<div class="qt"><span class="qn">'+(i+1)+'</span><span>'+tag+'用意大利语大声说：<b>'+esc(it.zh)+'</b></span></div>'+
+        '<div class="acts"><button class="btn pri sv">我说完了，看答案</button></div>'+
+        '<div class="expl sayans" hidden>'+itLine(it.it)+(it.e?'<span class="sayn">'+esc(it.e)+'</span>':'')+'</div>'+
+        '<div class="acts sg" hidden><span class="sgq">听一下，和你说的比较。说得怎么样？</span><button class="btn sgno">还要再练</button><button class="btn pri sgok">说对了</button></div>';
+      var ans=$(".sayans",q),sg=$(".sg",q);
+      $(".sv",q).onclick=function(){this.disabled=true;ans.hidden=false;sg.hidden=false;speak(it.it)};
+      $(".sgok",q).onclick=function(){fin(true)};$(".sgno",q).onclick=function(){fin(false)};
+      function fin(ok){$$(".sg button",q).forEach(function(b){b.disabled=true});$(".sgq",q).innerHTML=ok?'<b class="ok">很好！</b>再用 ▶ 跟读两遍。':'<b class="no">没关系。</b>点 ▶，跟着声音说，然后再试一次。';mark(i,ok)}
+    }else if(it.t==="ord"){
+      q.innerHTML='<div class="qt"><span class="qn">'+(i+1)+'</span><span>'+tag+esc(it.q)+'</span></div>';
+      var line=document.createElement("div");line.className="ordline";var pool=document.createElement("div");pool.className="ordpool";
+      var w=shuffle(it.w),g=0;while(w.join(" ")===it.a[0]&&g++<10)w=shuffle(it.w);
+      w.forEach(function(t){var b=document.createElement("button");b.className="tok";b.setAttribute("lang","it");b.textContent=t;b.onclick=function(){if(q.dataset.locked)return;(b.parentNode===pool?line:pool).appendChild(b)};pool.appendChild(b)});
+      var acts=document.createElement("div");acts.className="acts";acts.innerHTML='<button class="btn pri">检查</button><button class="btn">重来</button>';
+      var ex=document.createElement("div");ex.className="expl";
+      acts.children[1].onclick=function(){if(q.dataset.locked)return;$$(".tok",line).forEach(function(t){pool.appendChild(t)})};
+      acts.children[0].onclick=function(){
+        if(pool.children.length){ex.innerHTML="请先用上所有的词。";return}
+        var s=$$(".tok",line).map(function(t){return t.textContent}).join(" ");var ok=it.a.some(function(a){return nrm(a)===nrm(s)});
+        q.dataset.locked="1";acts.children[0].disabled=true;acts.children[1].disabled=true;
+        ex.innerHTML=(ok?'<b class="ok">正确！</b>现在大声说一遍：':'<b class="no">不太对。</b>正确答案：')+itLine(it.a[0]);speak(it.a[0]);mark(i,ok)};
+      q.appendChild(line);q.appendChild(pool);q.appendChild(acts);q.appendChild(ex);
+    }else{
+      q.innerHTML='<div class="qt"><span class="qn">'+(i+1)+'</span><span>'+tag+esc(it.q)+'</span></div>'+
+        (it.au?'<div class="acts"><button class="btn pri lsp">'+SPK+' 听</button><span class="lsh">可以听很多遍。回答后才显示文字。</span></div><div class="expl lsr" hidden></div>':'');
+      if(it.au)$(".lsp",q).onclick=function(){speak(it.au)};
+      var opts=document.createElement("div");opts.className="opts";var ex2=document.createElement("div");ex2.className="expl";
+      var order=shuffle(it.o.map(function(_,k){return k}));
+      order.forEach(function(k){var o=it.o[k],isIt=!hasHan.test(o);var b=document.createElement("button");b.className="opt";if(isIt)b.setAttribute("lang","it");b.textContent=o;
+        b.onclick=function(){var ok=k===0;$$(".opt",opts).forEach(function(x){x.disabled=true});opts.children[order.indexOf(0)].classList.add("right");if(!ok)b.classList.add("wrong");
+          ex2.innerHTML=(ok?'<b class="ok">正确！</b> ':'<b class="no">不对。</b> ')+esc(it.e||"")+(!hasHan.test(it.o[0])&&/\s/.test(it.o[0])?' '+itLine(it.o[0]):'');
+          if(it.au){var r=$(".lsr",q);r.hidden=false;r.innerHTML='你听到的是：'+itLine(it.au)}
+          mark(i,ok)};opts.appendChild(b)});
+      q.appendChild(opts);q.appendChild(ex2);
+    }
+    el.appendChild(q);
+  });
+}
+$$(".drill[data-set]").forEach(renderSet);
+updateToc();
+
+/* ---------- frasario ---------- */
+var fr=$("#frasario");if(fr){fr.innerHTML=FRASI.map(function(g){return '<h3>'+g[0]+'</h3><div class="exs">'+g[1].map(function(r){return '<div class="ex"><div class="ex-body"><div class="it-l" lang="it">'+itHTML(r[0])+'</div><div class="tr">'+esc(r[1])+'</div></div><button class="say" data-say="'+esc(r[0])+'" aria-label="播放">'+SPK+'</button></div>'}).join("")+'</div>'}).join("")}
+
+/* ---------- vocabolario ---------- */
+function art(w,g){if(g==="m")return /^[aeiouh]/i.test(w)?"l'":(/^(s[^aeiou]|z|gn|ps|y)/i.test(w)?"lo ":"il ");if(g==="f")return /^[aeiou]/i.test(w)?"l'":"la ";return ""}
+function wordHTML(r){var g=r[2],a=art(r[0],g);return g?'<span class="'+g+'"><span class="art">'+a+'</span>'+esc(r[0])+'</span>':esc(r[0])}
+$("#vocabtbl").innerHTML='<tr><th>意大利语</th><th>中文</th><th>性</th><th></th></tr>'+V.map(function(r){if(r.length===1)return '<tr class="grp"><td colspan="4">'+r[0]+'</td></tr>';return '<tr><td class="itc" lang="it">'+wordHTML(r)+'</td><td>'+esc(r[1])+'</td><td class="fc-g">'+(r[2]==="m"?"阳性":r[2]==="f"?"阴性":"")+'</td><td><button class="say sm" data-say="'+esc(art(r[0],r[2])+r[0])+'" aria-label="播放">'+SPK+'</button></td></tr>'}).join("");
+var W=V.filter(function(r){return r.length===3});
+W.forEach(function(r){if(!DICT[r[0]])DICT[r[0]]=r[1]});
+
+/* ---------- flashcard ---------- */
+function bx(w){return state.box[w[0]]||1}
+var fcCur=null,shown=false;
+function pick(){var tot=0,ws=W.map(function(w){var x=Math.pow(2,5-bx(w));if(w===fcCur)x=0;tot+=x;return x});var r=Math.random()*tot;for(var i=0;i<W.length;i++){r-=ws[i];if(r<=0)return W[i]}return W[0]}
+function drawBoxes(){var c=[0,0,0,0,0];W.forEach(function(w){c[bx(w)-1]++});var mx=Math.max.apply(null,c)||1;
+  $("#fcboxes").innerHTML=c.map(function(n,i){return '<div><div class="bar"><i style="height:'+(n/mx*100)+'%"></i></div><b>'+n+'</b><span>盒子 '+(i+1)+'</span></div>'}).join("")}
+function drawCard(auto){var w=fcCur,m=prefs.fcm,full=art(w[0],w[2])+w[0];
+  var word='<div class="fc-word" lang="it">'+wordHTML(w)+'</div>',gtxt=w[2]==="m"?"阳性名词":w[2]==="f"?"阴性名词":"";
+  var front=m==="ear"?'<button class="fc-ear" id="fcplay" type="button" aria-label="播放单词">'+SPK+'</button><p class="fc-hint">听，这是什么意思？先说出来，再看答案。</p>'
+    :m==="say"?'<p class="fc-zh">'+esc(w[1])+'</p><p class="fc-hint">用意大利语大声说出来'+(w[2]?'（带冠词）':'')+'，再看答案。</p>'
+    :word+'<p class="fc-hint">说出它的意思，再看答案。</p>';
+  $("#fccard").innerHTML=shown?word+'<div class="fc-zh">'+esc(w[1])+'</div>'+(gtxt?'<div class="fc-g">'+gtxt+'</div>':'')+'<div class="acts" style="margin-left:0;justify-content:center"><button class="btn" id="fcno">不会</button><button class="btn pri" id="fcyes">会了</button><button class="say" data-say="'+esc(full)+'" aria-label="播放">'+SPK+'</button></div>'
+    :front+'<div class="acts" style="margin-left:0;justify-content:center"><button class="btn pri" id="fcshow">看答案</button></div><p class="fc-box">盒子 '+bx(w)+'</p>';
+  if(shown){$("#fcno").onclick=function(){grade(false)};$("#fcyes").onclick=function(){grade(true)};speak(full)}
+  else{$("#fcshow").onclick=function(){shown=true;drawCard()};var pb=$("#fcplay");if(pb){pb.onclick=function(){speak(full)};if(auto)speak(full)}}}
+function grade(ok){state.box[fcCur[0]]=ok?Math.min(5,bx(fcCur)+1):1;save();drawBoxes();next(true)}
+function next(auto){fcCur=pick();shown=false;drawCard(auto)}
+function drawReset(conf){var r=$("#fcreset");r.innerHTML=conf?'<span>把所有单词放回第 1 个盒子？</span><button class="btn" id="rsy">是，清空</button><button class="btn" id="rsn">取消</button>':'<button class="btn" id="rs">清空单词卡进度</button>';
+  if(conf){$("#rsy").onclick=function(){state.box={};save();drawBoxes();next();drawReset(false)};$("#rsn").onclick=function(){drawReset(false)}}else{$("#rs").onclick=function(){drawReset(true)}}}
+drawBoxes();next();drawReset(false);
+function fcMode(m){prefs.fcm=m;savePrefs();$$("[data-fcm]").forEach(function(b){b.setAttribute("aria-pressed",b.getAttribute("data-fcm")===m?"true":"false")});shown=false;drawCard()}
+$$("[data-fcm]").forEach(function(b){b.onclick=function(){fcMode(b.getAttribute("data-fcm"))};b.setAttribute("aria-pressed",b.getAttribute("data-fcm")===prefs.fcm?"true":"false")});
+
+/* ---------- barra in alto ---------- */
+$("#totop").onclick=function(){var rm=false;try{rm=matchMedia("(prefers-reduced-motion: reduce)").matches}catch(e){}try{window.scrollTo({top:0,behavior:rm?"auto":"smooth"})}catch(e){window.scrollTo(0,0)}};
+function applyPrefs(){document.body.classList.toggle("no-tr",!prefs.tr);$("#tbtr").setAttribute("aria-pressed",prefs.tr?"true":"false");$("#tbtrl").textContent=prefs.tr?"显示":"隐藏";$("#tbslow").setAttribute("aria-pressed",prefs.slow?"true":"false");$("#tbslowl").textContent=prefs.slow?"慢":"正常"}
+$("#tbtr").onclick=function(){prefs.tr=!prefs.tr;savePrefs();applyPrefs()};
+$("#tbslow").onclick=function(){prefs.slow=!prefs.slow;savePrefs();applyPrefs();speak("Ciao!")};
+applyPrefs();
+
+/* ---------- ascolto finale ---------- */
+(function(){var btn=$("#rdplay");if(!btn)return;var lines=$$("#reading .ex");
+  var pl=Player(function(){return lines.map(function(l){return {el:l,say:$(".say",l).getAttribute("data-say"),pitch:1.1,mine:false}})},{busy:function(){btn.textContent="■ 停止";btn.dataset.on="1"},idle:function(){btn.textContent="▶ 全部播放";btn.dataset.on=""}});
+  btn.onclick=function(){if(btn.dataset.on)pl.stop();else pl.play()};
+  var t=$("#tgtxt");t.onclick=function(){var h=$("#reading").classList.toggle("hide-it");t.textContent=h?"显示意大利语文字":"隐藏意大利语文字";t.setAttribute("aria-pressed",h?"true":"false")}})();
+
+/* ---------- indice ---------- */
+var d=$("#tocd");try{if(matchMedia("(min-width:1000px)").matches)d.open=true}catch(e){}
+$$(".toc a").forEach(function(a){a.addEventListener("click",function(){try{if(!matchMedia("(min-width:1000px)").matches)d.open=false}catch(e){}})});
+
+})();
+</script>
+
+</body>
+</html>
