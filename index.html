@@ -19,7 +19,7 @@
   --cobalt:#1e3f96; --cobalt-2:#3b60c6; --tint:#e7ecf8;
   --seal:#c13a23; --seal-ink:#fff7f3; --seal-soft:#fbebe7;
   --ok:#24784a; --ok-bg:#e1f2e7; --bad:#b4352a; --bad-bg:#fbe6e2; --warn:#a8680a; --warn-bg:#fdf2de;
-  --masc:#2350c8; --fem:#c13a23;
+  --masc:#2350c8; --fem:#c13a23; --it:#17784a; --it-bg:#e1f3e8;
   --shadow:0 1px 2px rgba(20,26,44,.05),0 10px 30px -16px rgba(30,63,150,.28);
   --r:16px; --r-sm:10px;
   --f-disp:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
@@ -38,7 +38,7 @@
   --cobalt:#9fb5ff; --cobalt-2:#7f9cf5; --tint:#1b2440;
   --seal:#ff6f55; --seal-ink:#1d0d09; --seal-soft:#2c1a19;
   --ok:#6fcf97; --ok-bg:#122b21; --bad:#ff8f7d; --bad-bg:#371b18; --warn:#f2b24c; --warn-bg:#30250f;
-  --masc:#93b2ff; --fem:#ff7a63;
+  --masc:#93b2ff; --fem:#ff7a63; --it:#6fd6a2; --it-bg:#123326;
   --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 32px -16px rgba(0,0,0,.7);
   color-scheme:dark}}
 :root[data-theme="dark"]{
@@ -46,7 +46,7 @@
   --cobalt:#9fb5ff; --cobalt-2:#7f9cf5; --tint:#1b2440;
   --seal:#ff6f55; --seal-ink:#1d0d09; --seal-soft:#2c1a19;
   --ok:#6fcf97; --ok-bg:#122b21; --bad:#ff8f7d; --bad-bg:#371b18; --warn:#f2b24c; --warn-bg:#30250f;
-  --masc:#93b2ff; --fem:#ff7a63;
+  --masc:#93b2ff; --fem:#ff7a63; --it:#6fd6a2; --it-bg:#123326;
   --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 32px -16px rgba(0,0,0,.7);
   color-scheme:dark}
 
@@ -157,8 +157,10 @@ body.no-tr .tr{display:none!important}
 .say svg{width:15px;height:15px;margin-left:2px}
 .say.sm{width:30px;height:30px}
 .say.sm svg{width:12px;height:12px}
-.w{cursor:pointer;border-radius:4px;padding:0 1px;transition:background .12s}
-.w:hover,.w:focus-visible{background:var(--tint);color:var(--cobalt)}
+.w{cursor:pointer;border-radius:4px;padding:0 1px;color:var(--it);text-decoration:underline dotted;text-decoration-color:color-mix(in srgb,var(--it) 55%,transparent);text-decoration-thickness:1.5px;text-underline-offset:4px;transition:background .12s,color .12s}
+.w:hover,.w:focus-visible,.w.on{background:var(--it-bg);text-decoration-style:solid}
+.m .w,.f .w,.w.m,.w.f{color:inherit;text-decoration-color:currentColor}
+.conj .end{text-decoration:none}
 
 /* tabelle */
 .tw{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--sheet)}
@@ -336,8 +338,8 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
     <div><b>144</b><span>道练习 · <i>esercizi</i></span></div>
     <div><b>108</b><span>张单词卡 · <i>parole</i></span></div>
   </div>
-  <div class="legend"><span>名词颜色：</span><b class="m">阳性 il libro</b><b class="f">阴性 la casa</b><span>· 下划线 = 重音：<b><span class="st">ca</span>sa</b></span></div>
-  <p class="note" id="ttsnote">点 ▶ 听整句；点任何一个意大利语单词，可以单独听这个词，并看到它的中文意思。右上角可以隐藏中文翻译（只用耳朵练习）和放慢语速。声音来自你设备上的意大利语语音。</p>
+  <div class="legend"><span>名词颜色：</span><b class="m">阳性 il libro</b><b class="f">阴性 la casa</b><span>· 下划线 = 重音：<b><span class="st">ca</span>sa</b></span><span>· <b style="color:var(--it);text-decoration:underline dotted;text-underline-offset:4px">绿色</b> = 意大利语：点一下，听发音、看意思</span></div>
+  <p class="note" id="ttsnote">点 ▶ 听整句；所有<b style="color:var(--it)">绿色</b>的意大利语单词都可以点：会读出这个词，并显示它的中文意思。右上角可以隐藏中文翻译（只用耳朵练习）和放慢语速。声音来自你设备上的意大利语语音。</p>
 </header>
 
 <section class="lesson" id="metodo">
@@ -1502,6 +1504,15 @@ function meaning(w){var k=norm(w);if(DICT[k])return DICT[k];
   if(/^[A-Z]/.test(w)&&!DICT[k])return "专有名词";
   return ""}
 
+
+/* ---------- parole italiane dentro il testo cinese ---------- */
+V.forEach(function(r){if(r.length===3&&!DICT[r[0]])DICT[r[0]]=r[1]});
+function wordSpan(say,inner){return '<span class="w" tabindex="0" role="button" data-say="'+esc(say)+'">'+inner+'</span>'}
+function linkable(w){if(w.replace(/'/g,"").length<2)return false;var m=meaning(w);return !!m&&m!=="专有名词"&&!/^英语单词|错误形式|^（读音）/.test(m)}
+function linkMixed(text){return String(text).split(/([A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ'’]*)/).map(function(t,i){
+  if(i%2===0)return esc(t);var w=t.replace(/['’]+$/,function(q){return /^(un|l|d|dell|all|nell|dall|sull|anch|po|c|dov|com|cos|vent|quest|quell)$/i.test(t.slice(0,-q.length))?q:""});
+  var rest=t.slice(w.length);return (linkable(w)?wordSpan(w,esc(w)):esc(w))+esc(rest)}).join("")}
+
 /* ---------- audio al clic ---------- */
 document.addEventListener("click",function(e){var b=e.target.closest("[data-say]");if(b)speak(b.getAttribute("data-say"))});
 document.addEventListener("keydown",function(e){var t=e.target;if((e.key==="Enter"||e.key===" ")&&t.classList&&t.classList.contains("w")){e.preventDefault();speak(t.getAttribute("data-say"))}});
@@ -1576,16 +1587,16 @@ function renderSet(el){
     var q=document.createElement("div");q.className="q";
     var tag=it.t==="say"?'<span class="qtag say-t">'+MIC+'说一说</span>':(it.t==="ord"?'<span class="qtag">组句</span>':(it.au?'<span class="qtag ear-t">'+SPK+'听</span>':'<span class="qtag">选择</span>'));
     if(it.t==="say"){
-      q.innerHTML='<div class="qt"><span class="qn">'+(i+1)+'</span><span>'+tag+'用意大利语大声说：<b>'+esc(it.zh)+'</b></span></div>'+
+      q.innerHTML='<div class="qt"><span class="qn">'+(i+1)+'</span><span>'+tag+'用意大利语大声说：<b>'+linkMixed(it.zh)+'</b></span></div>'+
         '<div class="acts"><button class="btn pri sv">我说完了，看答案</button></div>'+
-        '<div class="expl sayans" hidden>'+itLine(it.it)+(it.e?'<span class="sayn">'+esc(it.e)+'</span>':'')+'</div>'+
+        '<div class="expl sayans" hidden>'+itLine(it.it)+(it.e?'<span class="sayn">'+linkMixed(it.e)+'</span>':'')+'</div>'+
         '<div class="acts sg" hidden><span class="sgq">听一下，和你说的比较。说得怎么样？</span><button class="btn sgno">还要再练</button><button class="btn pri sgok">说对了</button></div>';
       var ans=$(".sayans",q),sg=$(".sg",q);
       $(".sv",q).onclick=function(){this.disabled=true;ans.hidden=false;sg.hidden=false;speak(it.it)};
       $(".sgok",q).onclick=function(){fin(true)};$(".sgno",q).onclick=function(){fin(false)};
       function fin(ok){$$(".sg button",q).forEach(function(b){b.disabled=true});$(".sgq",q).innerHTML=ok?'<b class="ok">很好！</b>再用 ▶ 跟读两遍。':'<b class="no">没关系。</b>点 ▶，跟着声音说，然后再试一次。';mark(i,ok)}
     }else if(it.t==="ord"){
-      q.innerHTML='<div class="qt"><span class="qn">'+(i+1)+'</span><span>'+tag+esc(it.q)+'</span></div>';
+      q.innerHTML='<div class="qt"><span class="qn">'+(i+1)+'</span><span>'+tag+linkMixed(it.q)+'</span></div>';
       var line=document.createElement("div");line.className="ordline";var pool=document.createElement("div");pool.className="ordpool";
       var w=shuffle(it.w),g=0;while(w.join(" ")===it.a[0]&&g++<10)w=shuffle(it.w);
       w.forEach(function(t){var b=document.createElement("button");b.className="tok";b.setAttribute("lang","it");b.textContent=t;b.onclick=function(){if(q.dataset.locked)return;(b.parentNode===pool?line:pool).appendChild(b)};pool.appendChild(b)});
@@ -1599,14 +1610,14 @@ function renderSet(el){
         ex.innerHTML=(ok?'<b class="ok">正确！</b>现在大声说一遍：':'<b class="no">不太对。</b>正确答案：')+itLine(it.a[0]);speak(it.a[0]);mark(i,ok)};
       q.appendChild(line);q.appendChild(pool);q.appendChild(acts);q.appendChild(ex);
     }else{
-      q.innerHTML='<div class="qt"><span class="qn">'+(i+1)+'</span><span>'+tag+esc(it.q)+'</span></div>'+
+      q.innerHTML='<div class="qt"><span class="qn">'+(i+1)+'</span><span>'+tag+linkMixed(it.q)+'</span></div>'+
         (it.au?'<div class="acts"><button class="btn pri lsp">'+SPK+' 听</button><span class="lsh">可以听很多遍。回答后才显示文字。</span></div><div class="expl lsr" hidden></div>':'');
       if(it.au)$(".lsp",q).onclick=function(){speak(it.au)};
       var opts=document.createElement("div");opts.className="opts";var ex2=document.createElement("div");ex2.className="expl";
       var order=shuffle(it.o.map(function(_,k){return k}));
       order.forEach(function(k){var o=it.o[k],isIt=!hasHan.test(o);var b=document.createElement("button");b.className="opt";if(isIt)b.setAttribute("lang","it");b.textContent=o;
         b.onclick=function(){var ok=k===0;$$(".opt",opts).forEach(function(x){x.disabled=true});opts.children[order.indexOf(0)].classList.add("right");if(!ok)b.classList.add("wrong");
-          ex2.innerHTML=(ok?'<b class="ok">正确！</b> ':'<b class="no">不对。</b> ')+esc(it.e||"")+(!hasHan.test(it.o[0])&&/\s/.test(it.o[0])?' '+itLine(it.o[0]):'');
+          ex2.innerHTML=(ok?'<b class="ok">正确！</b> ':'<b class="no">不对。</b> ')+linkMixed(it.e||"")+(!hasHan.test(it.o[0])&&/\s/.test(it.o[0])?' '+itLine(it.o[0]):'');
           if(it.au){var r=$(".lsr",q);r.hidden=false;r.innerHTML='你听到的是：'+itLine(it.au)}
           mark(i,ok)};opts.appendChild(b)});
       q.appendChild(opts);q.appendChild(ex2);
@@ -1662,6 +1673,33 @@ applyPrefs();
   var pl=Player(function(){return lines.map(function(l){return {el:l,say:$(".say",l).getAttribute("data-say"),pitch:1.1,mine:false}})},{busy:function(){btn.textContent="■ 停止";btn.dataset.on="1"},idle:function(){btn.textContent="▶ 全部播放";btn.dataset.on=""}});
   btn.onclick=function(){if(btn.dataset.on)pl.stop();else pl.play()};
   var t=$("#tgtxt");t.onclick=function(){var h=$("#reading").classList.toggle("hide-it");t.textContent=h?"显示意大利语文字":"隐藏意大利语文字";t.setAttribute("aria-pressed",h?"true":"false")}})();
+
+
+/* ---------- tutte le parole italiane cliccabili ---------- */
+(function(){
+  var MAIN=$("main");if(!MAIN)return;
+  var SKIP="button,.w,script,style,.tok,.opts,.fc-card,#fcboxes,.toc,.cover-word,.stats,.kicker,.tip,.legend,#alfabeto";
+  function replaceText(node,html){var t=document.createElement("template");t.innerHTML=html;node.parentNode.replaceChild(t.content,node)}
+  function textNodes(root){var out=[],tw=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null),n;while((n=tw.nextNode())){if(!n.nodeValue.trim())continue;var p=n.parentElement;if(!p||p.closest(SKIP))continue;out.push(n)}return out}
+  /* zone tutte in italiano: ogni parola diventa cliccabile */
+  function italianZone(el){
+    if(el.closest(SKIP)||el.querySelector(".w"))return;
+    var kids=Array.prototype.slice.call(el.children);
+    if(kids.length&&kids.every(function(k){return k.matches("span.st,span.end")&&!/\s/.test(k.textContent)})){
+      var tags=[],h=el.innerHTML.replace(/<[^>]+>/g,function(m){tags.push(m);return "\u0001"+(tags.length-1)+"\u0002"});
+      el.innerHTML=h.split(/(\s+)/).map(function(tok){
+        if(/^\s*$/.test(tok))return tok;
+        var plain=tok.replace(/\u0001\d+\u0002/g,""),m=plain.match(/^([«"(¿¡—–-]*)(.*?)([.,!?;:»")…—]*)$/),core=m?m[2]:plain;
+        var back=tok.replace(/\u0001(\d+)\u0002/g,function(_,i){return tags[+i]});
+        if(!core||!LET.test(core)||hasHan.test(core))return back;
+        return wordSpan(core,back)}).join("");
+      return}
+    textNodes(el).forEach(function(n){replaceText(n,hasHan.test(n.nodeValue)?linkMixed(n.nodeValue):itHTML(n.nodeValue))});
+  }
+  $$('.it,.itc,.conj td,td.big,section.lesson>h2 small,#vocabtbl td[lang="it"]',MAIN).forEach(italianZone);
+  /* testo cinese: solo le parole italiane riconosciute dal dizionario */
+  textNodes(MAIN).forEach(function(n){if(/[A-Za-zÀ-ÿ]{2}/.test(n.nodeValue)&&!n.parentElement.closest('[lang="it"],.it,.itc,.it-l'))replaceText(n,linkMixed(n.nodeValue))});
+})();
 
 /* ---------- indice ---------- */
 var d=$("#tocd");try{if(matchMedia("(min-width:1000px)").matches)d.open=true}catch(e){}
