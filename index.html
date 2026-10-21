@@ -339,7 +339,7 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
     <div><b>108</b><span>张单词卡 · <i>parole</i></span></div>
   </div>
   <div class="legend"><span>名词颜色：</span><b class="m">阳性 il libro</b><b class="f">阴性 la casa</b><span>· 下划线 = 重音：<b><span class="st">ca</span>sa</b></span><span>· <b style="color:var(--it);text-decoration:underline dotted;text-underline-offset:4px">绿色</b> = 意大利语：点一下，听发音、看意思</span></div>
-  <p class="note" id="ttsnote">点 ▶ 听整句；所有<b style="color:var(--it)">绿色</b>的意大利语单词都可以点：会读出这个词，并显示它的中文意思。右上角可以隐藏中文翻译（只用耳朵练习）和放慢语速。声音来自你设备上的意大利语语音。</p>
+  <p class="note" id="ttsnote">点 ▶ 听整句；所有<b style="color:var(--it)">绿色</b>的意大利语单词都可以点：会读出这个词，并显示它的中文意思。右上角可以隐藏中文翻译（只用耳朵练习）和放慢语速。朗读声音是意大利语女声 Sara（AI 合成）。</p>
 </header>
 
 <section class="lesson" id="metodo">
@@ -1226,7 +1226,7 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
   <div class="tw"><table id="vocabtbl"></table></div>
 </section>
 
-<footer>意大利语入门课本 · Primo libro di italiano · 第一、二部分对应 A1 水平，第三部分对应 A2 水平的主要语法。继续学习：A2 会话课、意大利语播客、和意大利人语言交换。</footer>
+<footer>意大利语入门课本 · Primo libro di italiano · 第一、二部分对应 A1 水平，第三部分对应 A2 水平的主要语法。继续学习：A2 会话课、意大利语播客、和意大利人语言交换。<br>朗读声音：Sara，由开源模型 Kokoro-82M（Apache-2.0）合成。</footer>
 </main>
 </div>
 
@@ -1471,21 +1471,46 @@ function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp
 function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
 var hasHan=/[一-鿿]/;
 
-/* ---------- voce ---------- */
+/* ---------- voce ----------
+   Prima scelta: file audio registrati con la voce neurale "Sara" (audio/<hash>.mp3).
+   Se un file manca o non si carica, si usa la sintesi vocale del dispositivo. */
 var voice=null,hasTTS=("speechSynthesis" in window),speakSeq=0,players=[];
-function pickVoice(){if(!hasTTS)return;try{var vs=speechSynthesis.getVoices();voice=vs.filter(function(v){return /^it[-_]IT/i.test(v.lang)})[0]||vs.filter(function(v){return /^it/i.test(v.lang)})[0]||null}catch(e){}}
+var AUD=null;try{AUD=new Audio();AUD.preload="auto"}catch(e){}
+function cyrb53(str){var h1=0xdeadbeef,h2=0x41c6ce57;for(var i=0,ch;i<str.length;i++){ch=str.charCodeAt(i);h1=Math.imul(h1^ch,2654435761);h2=Math.imul(h2^ch,1597334677)}
+  h1=Math.imul(h1^(h1>>>16),2246822507);h1^=Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507);h2^=Math.imul(h1^(h1>>>13),3266489909);return 4294967296*(2097151&h2)+(h1>>>0)}
+function akey(t){t=String(t).replace(/[’]/g,"'").trim().replace(/\s+/g," ");if(!/\s/.test(t))t=t.toLowerCase();return t}
+function audioSrc(t){return "audio/"+cyrb53(akey(t)).toString(36)+".mp3"}
+function scoreVoice(v){var n=(v.name+" "+(v.voiceURI||"")).toLowerCase(),s=0;
+  if(/^it[-_]it/i.test(v.lang))s+=5;else if(/^it/i.test(v.lang))s+=3;else return -99;
+  if(/natural|neural|online|premium|enhanced|siri|wavenet|google/.test(n))s+=4;
+  if(/alice|federica|paola|elsa|isabella|fiamma|imelda|palmira|pierina|bianca|carla|giorgia|emma|sara|chiara|female/.test(n))s+=3;
+  if(/\b(luca|diego|cosimo|giuseppe|benigno|calimero|cataldo|gianni|lisandro|rinaldo|roberto|male)\b/.test(n))s-=3;
+  if(/compact|espeak/.test(n))s-=3;return s}
+function pickVoice(){if(!hasTTS)return;try{var best=null,bs=-99;speechSynthesis.getVoices().forEach(function(v){var sc=scoreVoice(v);if(sc>bs){bs=sc;best=v}});voice=bs>0?best:null}catch(e){}}
 if(hasTTS){pickVoice();try{speechSynthesis.onvoiceschanged=pickVoice}catch(e){}}
-setTimeout(function(){pickVoice();if(!hasTTS||!voice){var n=$("#ttsnote");if(n)n.textContent="你的浏览器似乎没有安装意大利语语音，▶ 按钮可能没有声音。手机上可以在「文字转语音」设置里添加「意大利语（意大利）」语音。练习成绩和单词卡进度保存在这个浏览器里。"}},1500);
+function stopAll(){try{if(AUD)AUD.pause()}catch(e){}try{if(hasTTS)speechSynthesis.cancel()}catch(e){}}
 function stopPlayers(except){players.forEach(function(p){if(p!==except)p.stop(true)})}
+function ttsSpeak(t,fin,wait){
+  if(!hasTTS){if(wait)setTimeout(fin,Math.max(800,t.length*80));return}
+  try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="it-IT";if(voice)u.voice=voice;u.rate=prefs.slow?.7:1;u.pitch=1;
+    u.onend=fin;u.onerror=function(){setTimeout(fin,200)};speechSynthesis.speak(u);
+    if(wait)setTimeout(fin,Math.max(2500,t.length*(prefs.slow?140:95)));
+  }catch(e){if(wait)setTimeout(fin,800)}
+}
 function speak(t,cb,opt){
   opt=opt||{};if(!opt.chain)stopPlayers();
-  var my=++speakSeq,done=false;
+  var my=++speakSeq,done=false,fell=false;
   function fin(){if(done)return;done=true;if(cb&&my===speakSeq)cb()}
-  if(!hasTTS){if(cb)setTimeout(fin,Math.max(800,t.length*80));return}
-  try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="it-IT";if(voice)u.voice=voice;u.rate=prefs.slow?.65:.95;if(opt.pitch)u.pitch=opt.pitch;
-    u.onend=fin;u.onerror=function(){setTimeout(fin,200)};speechSynthesis.speak(u);
-    if(cb)setTimeout(fin,Math.max(2500,t.length*(prefs.slow?140:95)));
-  }catch(e){if(cb)setTimeout(fin,800)}
+  function fallback(){if(fell||done||my!==speakSeq)return;fell=true;ttsSpeak(t,fin,!!cb)}
+  stopAll();
+  if(!AUD){ttsSpeak(t,fin,!!cb);return}
+  try{
+    AUD.onended=function(){if(my===speakSeq)fin()};
+    AUD.onerror=fallback;
+    AUD.src=audioSrc(t);
+    var r=prefs.slow?.75:1;AUD.defaultPlaybackRate=r;AUD.playbackRate=r;try{AUD.preservesPitch=true}catch(e){}
+    var pr=AUD.play();if(pr&&pr.catch)pr.catch(function(err){if(err&&err.name==="AbortError")return;fallback()});
+  }catch(e){fallback()}
 }
 var SPK='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
 var MIC='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>';
@@ -1547,7 +1572,7 @@ var nt=$("#numeri");if(nt){var r2='';for(var j=0;j<NUM.length;j+=3){r2+='<tr>'+N
 /* ---------- lettore continuo ---------- */
 function Player(getLines,ui){
   var p={tok:null,wait:null};
-  p.stop=function(quiet){p.tok=null;p.wait=null;if(!quiet){speakSeq++;try{speechSynthesis.cancel()}catch(e){}}getLines().forEach(function(l){l.el.classList.remove("now")});ui.idle()};
+  p.stop=function(quiet){p.tok=null;p.wait=null;if(!quiet){speakSeq++;stopAll()}getLines().forEach(function(l){l.el.classList.remove("now")});ui.idle()};
   p.play=function(){stopPlayers(p);var tok={};p.tok=tok;ui.busy();step(0);
     function step(i){if(p.tok!==tok)return;var L=getLines();L.forEach(function(l){l.el.classList.remove("now")});
       if(i>=L.length){p.tok=null;ui.idle();return}
