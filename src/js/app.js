@@ -14,7 +14,8 @@ var hasHan=/[一-鿿]/;
    Prima scelta: file audio registrati con la voce neurale "Sara" (audio/<hash>.mp3).
    Se un file manca o non si carica, si usa la sintesi vocale del dispositivo. */
 var voice=null,hasTTS=("speechSynthesis" in window),speakSeq=0,players=[];
-var PREFER_DEVICE=true;
+/* Voce: sintesi vocale del dispositivo, come nella prima versione. I file in audio/ non vengono usati. */
+var USE_DEVICE_VOICE=true;
 var AUD=null;try{AUD=new Audio();AUD.preload="auto"}catch(e){}
 function cyrb53(str){var h1=0xdeadbeef,h2=0x41c6ce57;for(var i=0,ch;i<str.length;i++){ch=str.charCodeAt(i);h1=Math.imul(h1^ch,2654435761);h2=Math.imul(h2^ch,1597334677)}
   h1=Math.imul(h1^(h1>>>16),2246822507);h1^=Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507);h2^=Math.imul(h1^(h1>>>13),3266489909);return 4294967296*(2097151&h2)+(h1>>>0)}
@@ -26,13 +27,14 @@ function scoreVoice(v){var n=(v.name+" "+(v.voiceURI||"")).toLowerCase(),s=0;
   if(/alice|federica|paola|elsa|isabella|fiamma|imelda|palmira|pierina|bianca|carla|giorgia|emma|sara|chiara|female/.test(n))s+=3;
   if(/\b(luca|diego|cosimo|giuseppe|benigno|calimero|cataldo|gianni|lisandro|rinaldo|roberto|male)\b/.test(n))s-=3;
   if(/compact|espeak/.test(n))s-=3;return s}
-function pickVoice(){if(!hasTTS)return;try{var best=null,bs=-99;speechSynthesis.getVoices().forEach(function(v){var sc=scoreVoice(v);if(sc>bs){bs=sc;best=v}});voice=bs>0?best:null}catch(e){}}
+function pickVoice(){if(!hasTTS)return;try{var vs=speechSynthesis.getVoices();voice=vs.filter(function(v){return /^it[-_]IT/i.test(v.lang)})[0]||vs.filter(function(v){return /^it/i.test(v.lang)})[0]||null}catch(e){}}
+setTimeout(function(){pickVoice();if(!hasTTS||!voice){var n=$("#ttsnote");if(n)n.textContent="你的浏览器似乎没有安装意大利语语音，▶ 按钮可能没有声音。手机上可以在「文字转语音」设置里添加「意大利语（意大利）」语音。练习成绩和单词卡进度保存在这个浏览器里。"}},1500);
 if(hasTTS){pickVoice();try{speechSynthesis.onvoiceschanged=pickVoice}catch(e){}}
 function stopAll(){try{if(AUD)AUD.pause()}catch(e){}try{if(hasTTS)speechSynthesis.cancel()}catch(e){}}
 function stopPlayers(except){players.forEach(function(p){if(p!==except)p.stop(true)})}
-function ttsSpeak(t,fin,wait){
+function ttsSpeak(t,fin,wait,pitch){
   if(!hasTTS){if(wait)setTimeout(fin,Math.max(800,t.length*80));return}
-  try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="it-IT";if(voice)u.voice=voice;u.rate=prefs.slow?.7:1;u.pitch=1;
+  try{speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="it-IT";if(voice)u.voice=voice;u.rate=prefs.slow?.65:.95;if(pitch)u.pitch=pitch;
     u.onend=fin;u.onerror=function(){setTimeout(fin,200)};speechSynthesis.speak(u);
     if(wait)setTimeout(fin,Math.max(2500,t.length*(prefs.slow?140:95)));
   }catch(e){if(wait)setTimeout(fin,800)}
@@ -44,7 +46,7 @@ function speak(t,cb,opt){
   function fallback(){if(fell||done||my!==speakSeq)return;fell=true;ttsSpeak(t,fin,!!cb)}
   stopAll();
   /* Finché non ci sono le registrazioni nuove: voce italiana del dispositivo se esiste, file audio solo come riserva. */
-  if(!AUD||(PREFER_DEVICE&&voice)){ttsSpeak(t,fin,!!cb);return}
+  if(!AUD||USE_DEVICE_VOICE){ttsSpeak(t,fin,!!cb,opt.pitch);return}
   try{
     AUD.onended=function(){if(my===speakSeq)fin()};
     AUD.onerror=fallback;
