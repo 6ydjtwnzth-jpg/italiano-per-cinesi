@@ -6,345 +6,469 @@
 <title>意大利语入门课本</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Noto+Serif+SC:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
-<meta name="theme-color" content="#f2f4f9" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0d1221" media="(prefers-color-scheme: dark)">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Noto+Sans+SC:wght@400;500;700;900&display=swap">
+<script>try{var t=localStorage.getItem("primo-libro-italiano-v1-theme");if(t==="dark"||t==="light")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 <meta name="description" content="给中文母语者的意大利语口语课：十六课，对话、练习、单词卡。">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%231e3f96%27/%3E%3Ctext x=%2732%27 y=%2746%27 font-size=%2738%27 text-anchor=%27middle%27 fill=%27white%27 font-family=%27serif%27 font-style=%27italic%27%3Eit%3C/text%3E%3C/svg%3E">
 <style>
-/* Layout: 青花 meets maiolica — cobalt glaze on porcelain white, shared by Chinese and Italian ceramics.
-   Sticky index on the left, one reading column; vermilion seal stamps mark rules; tile bands divide the parts. */
+/* Direzione: poster italiano contemporaneo alla Olimpia Zagnoli — forme piatte, colori pieni (pomodoro, cobalto, sole, basilico, rosa),
+   geometrie morbide. Indice a sinistra, colonna di lettura; ogni lezione ha un suo colore e una sua icona. */
 :root{
-  --paper:#f2f4f9; --sheet:#ffffff; --glaze:#f8f9fd; --ink:#141a2c; --muted:#596279; --line:#dce2ee; --grid:#c4cee4;
-  --cobalt:#1e3f96; --cobalt-2:#3b60c6; --tint:#e7ecf8;
-  --seal:#c13a23; --seal-ink:#fff7f3; --seal-soft:#fbebe7;
-  --ok:#24784a; --ok-bg:#e1f2e7; --bad:#b4352a; --bad-bg:#fbe6e2; --warn:#a8680a; --warn-bg:#fdf2de;
-  --masc:#2350c8; --fem:#c13a23; --it:#17784a; --it-bg:#e1f3e8;
-  --shadow:0 1px 2px rgba(20,26,44,.05),0 10px 30px -16px rgba(30,63,150,.28);
-  --r:16px; --r-sm:10px;
-  --f-disp:"Bodoni Moda","Didot","Bodoni 72",Georgia,serif;
-  --f-body:"Source Serif 4","Noto Serif SC","Songti SC","SimSun",Georgia,serif;
-  --f-han:"Noto Serif SC","Songti SC","SimSun","PingFang SC","Microsoft YaHei",serif;
-  --f-ui:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
-  --tile:
-    radial-gradient(circle at 50% 50%,var(--cobalt) 0 2.5px,transparent 3px),
-    radial-gradient(circle at 0 0,transparent 0 11px,var(--cobalt) 11.5px 13px,transparent 13.5px),
-    radial-gradient(circle at 100% 0,transparent 0 11px,var(--cobalt) 11.5px 13px,transparent 13.5px),
-    radial-gradient(circle at 100% 100%,transparent 0 11px,var(--cobalt) 11.5px 13px,transparent 13.5px),
-    radial-gradient(circle at 0 100%,transparent 0 11px,var(--cobalt) 11.5px 13px,transparent 13.5px);
+  --paper:#fff6f1; --sheet:#ffffff; --ink:#1a1720; --muted:#645c6e; --line:#f0e1d9; --line2:#e4d2c8;
+  --red:#ea4a2a; --blue:#2b50d8; --yellow:#ffc532; --green:#12965a; --pink:#ff9fb6; --white:#ffffff;
+  --red-soft:#ffe3da; --blue-soft:#e4e9ff; --yellow-soft:#fff1c7; --green-soft:#d8f3e5; --pink-soft:#ffe6ee;
+  --on-red:#ffffff; --on-blue:#ffffff; --on-yellow:#1a1720; --on-green:#ffffff; --on-pink:#1a1720;
+  --it:#0b7f6a; --it-bg:#d6f2ea; --masc:#2b50d8; --fem:#d8391b;
+  --ok:#11804b; --ok-bg:#daf3e5; --bad:#c9341a; --bad-bg:#ffe2da; --warn:#9a5a00;
+  --c:var(--blue); --c-soft:var(--blue-soft); --on:var(--on-blue);
+  --r:26px; --r-sm:16px;
+  --shadow:0 1px 0 rgba(26,23,32,.04),0 16px 32px -20px rgba(26,23,32,.38);
+  --f-disp:"Bricolage Grotesque","Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --f-body:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  --f-it:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --paper:#0d1221; --sheet:#141b2f; --glaze:#111829; --ink:#e6eaf5; --muted:#9aa4bd; --line:#26304b; --grid:#36425f;
-  --cobalt:#9fb5ff; --cobalt-2:#7f9cf5; --tint:#1b2440;
-  --seal:#ff6f55; --seal-ink:#1d0d09; --seal-soft:#2c1a19;
-  --ok:#6fcf97; --ok-bg:#122b21; --bad:#ff8f7d; --bad-bg:#371b18; --warn:#f2b24c; --warn-bg:#30250f;
-  --masc:#93b2ff; --fem:#ff7a63; --it:#6fd6a2; --it-bg:#123326;
-  --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 32px -16px rgba(0,0,0,.7);
+  --paper:#14111a; --sheet:#1f1b27; --ink:#f5f0f7; --muted:#b5abc0; --line:#2f2938; --line2:#3d3548;
+  --red:#ff6b4d; --blue:#7d97ff; --yellow:#ffcc4d; --green:#3fd28e; --pink:#ffa3ba;
+  --red-soft:#3a1f1c; --blue-soft:#1e2448; --yellow-soft:#3a3016; --green-soft:#15352a; --pink-soft:#3c2030;
+  --on-red:#1c0b07; --on-blue:#0b1032; --on-yellow:#1c1503; --on-green:#04200f; --on-pink:#2a0c17;
+  --it:#4fe0b8; --it-bg:#123a31; --masc:#93a9ff; --fem:#ff8a70;
+  --ok:#5ee09a; --ok-bg:#133526; --bad:#ff8b74; --bad-bg:#3d1d18; --warn:#ffc04d;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 18px 36px -20px rgba(0,0,0,.85);
   color-scheme:dark}}
 :root[data-theme="dark"]{
-  --paper:#0d1221; --sheet:#141b2f; --glaze:#111829; --ink:#e6eaf5; --muted:#9aa4bd; --line:#26304b; --grid:#36425f;
-  --cobalt:#9fb5ff; --cobalt-2:#7f9cf5; --tint:#1b2440;
-  --seal:#ff6f55; --seal-ink:#1d0d09; --seal-soft:#2c1a19;
-  --ok:#6fcf97; --ok-bg:#122b21; --bad:#ff8f7d; --bad-bg:#371b18; --warn:#f2b24c; --warn-bg:#30250f;
-  --masc:#93b2ff; --fem:#ff7a63; --it:#6fd6a2; --it-bg:#123326;
-  --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 32px -16px rgba(0,0,0,.7);
+  --paper:#14111a; --sheet:#1f1b27; --ink:#f5f0f7; --muted:#b5abc0; --line:#2f2938; --line2:#3d3548;
+  --red:#ff6b4d; --blue:#7d97ff; --yellow:#ffcc4d; --green:#3fd28e; --pink:#ffa3ba;
+  --red-soft:#3a1f1c; --blue-soft:#1e2448; --yellow-soft:#3a3016; --green-soft:#15352a; --pink-soft:#3c2030;
+  --on-red:#1c0b07; --on-blue:#0b1032; --on-yellow:#1c1503; --on-green:#04200f; --on-pink:#2a0c17;
+  --it:#4fe0b8; --it-bg:#123a31; --masc:#93a9ff; --fem:#ff8a70;
+  --ok:#5ee09a; --ok-bg:#133526; --bad:#ff8b74; --bad-bg:#3d1d18; --warn:#ffc04d;
+  --shadow:0 1px 0 rgba(0,0,0,.3),0 18px 36px -20px rgba(0,0,0,.85);
   color-scheme:dark}
+.t-red{--c:var(--red);--c-soft:var(--red-soft);--on:var(--on-red)}
+.t-blue{--c:var(--blue);--c-soft:var(--blue-soft);--on:var(--on-blue)}
+.t-yellow{--c:var(--yellow);--c-soft:var(--yellow-soft);--on:var(--on-yellow)}
+.t-green{--c:var(--green);--c-soft:var(--green-soft);--on:var(--on-green)}
+.t-pink{--c:var(--pink);--c-soft:var(--pink-soft);--on:var(--on-pink)}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.75;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 72px;
-  -webkit-font-smoothing:antialiased}
-[lang="it"],.it,.it-l{font-family:"Source Serif 4",Georgia,serif}
-a{color:var(--cobalt)}
-h1,h2,h3{text-wrap:balance;line-height:1.3;margin:0}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.8;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 80px;
+  -webkit-font-smoothing:antialiased;transition:background .25s,color .25s}
+[lang="it"],.it,.it-l{font-family:var(--f-it)}
+a{color:var(--blue)}
+h1,h2,h3{text-wrap:balance;line-height:1.25;margin:0}
 p{margin:0}
-button{font:inherit;color:inherit}
-:focus-visible{outline:2px solid var(--cobalt-2);outline-offset:2px;border-radius:4px}
+button,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px;border-radius:6px}
 b,strong{font-weight:700}
-.m{color:var(--masc);font-weight:600}.f{color:var(--fem);font-weight:600}
-.st{text-decoration:underline;text-decoration-color:var(--seal);text-decoration-thickness:2px;text-underline-offset:4px;font-weight:700}
-::selection{background:var(--tint)}
+.m{color:var(--masc);font-weight:700}.f{color:var(--fem);font-weight:700}
+.st{text-decoration:underline;text-decoration-color:var(--red);text-decoration-thickness:3px;text-underline-offset:5px;font-weight:700}
+::selection{background:var(--yellow);color:#1a1720}
 
-.book{max-width:1200px;margin:0 auto;display:grid;gap:24px;grid-template-columns:1fr}
-@media (min-width:1000px){.book{gap:56px;grid-template-columns:260px minmax(0,1fr)}}
-main{min-width:0;max-width:780px;display:flex;flex-direction:column;gap:80px}
+.book{max-width:1220px;margin:0 auto;display:grid;gap:24px;grid-template-columns:1fr}
+@media (min-width:1000px){.book{gap:56px;grid-template-columns:250px minmax(0,1fr)}}
+main{min-width:0;max-width:820px;display:flex;flex-direction:column;gap:84px}
 
 /* indice */
-.toc{font-family:var(--f-ui);font-size:14px;padding-top:24px}
-@media (max-width:999px){.toc{padding-top:68px}}
-@media (min-width:1000px){.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;max-height:100vh;overflow:auto;padding-block:32px 24px}}
-.toc details{background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:6px 10px}
-.toc summary{cursor:pointer;font-weight:600;letter-spacing:.1em;font-size:13px;color:var(--cobalt);padding:8px 6px;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.toc{font-family:var(--f-body);font-size:14px;padding-top:68px}
+@media (min-width:1000px){.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;max-height:100vh;overflow:auto;padding-block:28px 24px;scrollbar-width:thin}}
+.toc details{background:var(--sheet);border-radius:var(--r-sm);box-shadow:var(--shadow);padding:6px 8px}
+.toc summary{cursor:pointer;font-family:var(--f-disp);font-weight:800;font-size:15px;padding:8px 8px;list-style:none;display:flex;justify-content:space-between;align-items:center}
 .toc summary::-webkit-details-marker{display:none}
-.toc summary::after{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);transition:transform .2s;margin-right:4px}
+.toc summary::after{content:"";width:9px;height:9px;border-right:2.5px solid currentColor;border-bottom:2.5px solid currentColor;transform:rotate(45deg);transition:transform .2s;margin-right:4px}
 .toc details[open] summary::after{transform:rotate(-135deg)}
-.toc ol{list-style:none;margin:4px 0 8px;padding:0;display:flex;flex-direction:column;gap:1px}
-.toc .part{font-size:11px;letter-spacing:.12em;color:var(--muted);margin-top:14px;padding:4px 8px;font-weight:600}
-.toc a{display:flex;justify-content:space-between;gap:8px;text-decoration:none;color:var(--ink);padding:6px 8px;border-radius:8px;transition:background .15s,color .15s}
-.toc a:hover{background:var(--tint);color:var(--cobalt)}
+.toc ol{list-style:none;margin:2px 0 8px;padding:0;display:flex;flex-direction:column;gap:1px}
+.toc .part{font-size:11px;letter-spacing:.14em;color:var(--muted);margin-top:12px;padding:4px 8px;font-weight:700}
+.toc a{display:flex;justify-content:space-between;align-items:center;gap:8px;text-decoration:none;color:var(--ink);padding:6px 8px;border-radius:10px;transition:background .15s}
+.toc a:hover{background:var(--c-soft)}
+.toc .dot{width:10px;height:10px;border-radius:50%;background:var(--c);flex:none;margin-right:8px}
+.toc a>span:first-child{display:flex;align-items:center;flex:1;min-width:0}
 .toc .sc{color:var(--muted);font-variant-numeric:tabular-nums;font-size:12px;white-space:nowrap}
-.toc .sc.done{color:var(--ok);font-weight:600}
+.toc .sc.done{color:var(--ok);font-weight:700}
 .toc .sc.done::before{content:"✓ "}
 
 /* copertina */
-.cover{padding-top:8px;display:grid;gap:28px;position:relative}
-@media (min-width:1000px){.cover{padding-top:48px}}
-.cover-tiles{height:88px;border-radius:var(--r);background-color:var(--sheet);background-image:var(--tile);background-size:28px 28px;background-position:center;
-  border:1px solid var(--line);-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 40%,transparent 100%);mask-image:linear-gradient(90deg,#000 0%,#000 40%,transparent 100%);opacity:.9}
-.cover-eyebrow{font-family:var(--f-ui);font-size:13px;letter-spacing:.14em;color:var(--cobalt);font-weight:600}
-.cover-word{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap}
-.cover-word .ciao{font-family:var(--f-disp);font-style:italic;font-weight:600;font-size:clamp(76px,17vw,148px);line-height:.82;color:var(--cobalt);letter-spacing:-.02em}
-.stamp{display:inline-grid;place-items:center;writing-mode:vertical-rl;font-family:var(--f-han);font-weight:700;font-size:clamp(18px,3.4vw,24px);letter-spacing:.2em;
-  background:var(--seal);color:var(--seal-ink);padding:12px 8px;border-radius:6px;box-shadow:inset 0 0 0 3px var(--seal),inset 0 0 0 4.5px var(--seal-ink);transform:rotate(-4deg);margin-bottom:6px}
-.tricolore{display:flex;height:5px;width:132px;border-radius:3px;overflow:hidden}
-.tricolore i{flex:1}
-.tricolore i:nth-child(1){background:#2a8a55}.tricolore i:nth-child(2){background:#eef0f4}.tricolore i:nth-child(3){background:#cc3328}
-.cover h1{font-family:var(--f-han);font-size:clamp(32px,5.6vw,50px);font-weight:700;letter-spacing:.02em}
-.cover .sub{font-size:19px;color:var(--muted);max-width:36em}
-.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
-@media (max-width:560px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.stats div{background:var(--sheet);padding:14px 16px;display:flex;flex-direction:column;gap:2px}
-.stats b{font-family:"Source Serif 4",Georgia,serif;font-size:34px;line-height:1;color:var(--cobalt);font-weight:600;font-variant-numeric:lining-nums}
-.stats span{font-family:var(--f-ui);font-size:13px;color:var(--muted)}
-.stats i{font-family:"Source Serif 4",Georgia,serif;font-size:13px}
-.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--f-ui);font-size:14px;color:var(--muted);align-items:baseline}
-.legend b{font-family:var(--f-body);font-size:17px}
-.note{font-family:var(--f-ui);font-size:14px;color:var(--muted);background:var(--glaze);border:1px dashed var(--grid);padding:12px 16px;border-radius:var(--r-sm)}
+.hero{padding-top:8px;display:grid;gap:22px}
+@media (min-width:1000px){.hero{padding-top:28px}}
+.hero-card{--c:var(--blue);--on:var(--on-blue);background:var(--blue);color:var(--on-blue);border-radius:34px;overflow:hidden;display:grid;grid-template-columns:1fr;position:relative}
+@media (min-width:720px){.hero-card{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:end}}
+.hero-text{padding:32px 26px 8px;display:flex;flex-direction:column;gap:14px;position:relative;z-index:1}
+@media (min-width:720px){.hero-text{padding:44px 8px 40px 40px}}
+.hero .eyebrow{font-family:var(--f-disp);font-weight:700;font-size:13px;letter-spacing:.14em;opacity:.85}
+.hero .ciao{font-family:var(--f-disp);font-weight:800;font-size:clamp(72px,15vw,128px);line-height:.85;letter-spacing:-.045em;color:var(--yellow)}
+.hero h1{font-family:var(--f-body);font-weight:900;font-size:clamp(30px,5vw,44px);letter-spacing:.02em;line-height:1.2}
+.hero .sub{font-size:17px;opacity:.9;max-width:30em}
+.cta{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;margin-top:6px;background:var(--yellow);color:#1a1720;font-family:var(--f-disp);font-weight:800;font-size:16px;text-decoration:none;padding:12px 22px;border-radius:999px;transition:transform .15s}
+.cta:hover{transform:translateY(-2px) rotate(-1deg)}
+.hero-art{display:block;width:100%;height:auto;max-height:330px}
+@media (min-width:720px){.hero-art{max-height:none}}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+@media (max-width:620px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.stats div{background:var(--c-soft);border-radius:var(--r-sm);padding:14px 16px;display:flex;flex-direction:column;gap:2px}
+.stats b{font-family:var(--f-disp);font-size:38px;line-height:1;font-weight:800;color:var(--c);letter-spacing:-.02em}
+.stats span{font-size:13px;color:var(--muted)}
+.stats i{font-family:var(--f-it);font-style:italic}
+.legend{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--muted);align-items:baseline}
+.legend b{font-size:16px}
+.note{font-size:14px;color:var(--muted);background:var(--sheet);border-radius:var(--r-sm);padding:12px 16px;box-shadow:var(--shadow)}
+
+/* mappa delle lezioni */
+.map{display:flex;flex-direction:column;gap:18px}
+.map h2{font-family:var(--f-disp);font-weight:800;font-size:clamp(26px,4vw,34px);letter-spacing:-.01em}
+.map h2 small{font-family:var(--f-it);font-weight:500;font-size:.55em;color:var(--muted);margin-left:10px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:12px}
+@media (max-width:420px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}}
+.tile{position:relative;overflow:hidden;background:var(--c);color:var(--on);border-radius:22px;padding:14px 14px 16px;min-height:150px;display:flex;flex-direction:column;justify-content:flex-end;gap:2px;text-decoration:none;transition:transform .18s}
+.tile:hover{transform:translateY(-3px) rotate(-1.2deg)}
+.tile:nth-child(even):hover{transform:translateY(-3px) rotate(1.2deg)}
+.tile .n{position:absolute;top:8px;left:14px;font-family:var(--f-disp);font-weight:800;font-size:44px;line-height:1;letter-spacing:-.04em}
+.tile svg{position:absolute;top:10px;right:10px;width:46px;height:46px}
+.tile b{font-size:15px;line-height:1.35;font-weight:900}
+.tile i{font-family:var(--f-it);font-size:13px;opacity:.85}
+.tile .sc{font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;min-height:1em}
+.tile .sc.done::before{content:"✓ "}
 
 /* lezioni */
 main{counter-reset:lez}
-section.lesson{display:flex;flex-direction:column;gap:24px;scroll-margin-top:24px}
+section.lesson{display:flex;flex-direction:column;gap:24px;scroll-margin-top:20px}
 section.lesson[id^="l"]{counter-increment:lez}
-.kicker{font-family:var(--f-ui);font-size:13px;letter-spacing:.1em;color:var(--seal);font-weight:600;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap}
-section.lesson[id^="l"]>.kicker::before{content:counter(lez,decimal-leading-zero);font-family:"Source Serif 4",Georgia,serif;font-style:italic;font-size:56px;line-height:.8;color:var(--cobalt);letter-spacing:0;font-weight:500;margin-right:4px}
-.kicker .itk{font-family:var(--f-disp);font-style:italic;letter-spacing:0;font-size:16px;color:var(--muted);font-weight:500}
-section.lesson>h2{font-family:var(--f-han);font-size:clamp(28px,4.6vw,40px);font-weight:700;letter-spacing:.01em}
-section.lesson>h2 small{display:block;font-family:var(--f-disp);font-style:italic;font-weight:500;font-size:.6em;color:var(--cobalt);margin-top:6px;letter-spacing:0}
-h3{font-family:var(--f-han);font-size:22px;font-weight:700;margin-top:14px}
-h4{font-family:var(--f-ui);font-size:14px;letter-spacing:.04em;color:var(--muted);margin:6px 0 -8px;font-weight:600}
-.lead{font-size:19px;color:var(--muted)}
+.lhead{background:var(--c);color:var(--on);border-radius:var(--r);padding:24px 22px 26px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:end;position:relative;overflow:hidden}
+.lhead::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:var(--on);opacity:.08;right:-60px;top:-90px}
+.lic{width:clamp(64px,14vw,96px);height:clamp(64px,14vw,96px);position:relative;z-index:1}
+.kicker{font-family:var(--f-disp);font-size:13px;letter-spacing:.12em;font-weight:700;display:flex;gap:12px;align-items:baseline;flex-wrap:wrap;opacity:.95}
+section.lesson[id^="l"] .kicker::before{content:counter(lez,decimal-leading-zero);font-size:58px;line-height:.8;font-weight:800;letter-spacing:-.05em;margin-right:2px}
+.kicker .itk{font-family:var(--f-it);font-style:italic;letter-spacing:0;font-size:15px;font-weight:500}
+.lhead h2{font-family:var(--f-body);font-size:clamp(26px,4.6vw,38px);font-weight:900;letter-spacing:.01em;margin-top:10px}
+.lhead h2 small{display:block;font-family:var(--f-it);font-weight:500;font-style:italic;font-size:.56em;margin-top:6px;letter-spacing:0;opacity:.92}
+.lhead .w{color:inherit;text-decoration-color:currentColor}
+.lhead .w:hover{background:rgba(255,255,255,.18)}
+h3{font-family:var(--f-body);font-size:22px;font-weight:900;margin-top:14px;display:flex;align-items:center;gap:10px}
+h3::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--c);flex:none}
+.rule h3::before,.speech h3::before,.dl-head h3::before,.map h3::before{display:none}
+h4{font-size:14px;letter-spacing:.04em;color:var(--muted);margin:6px 0 -8px;font-weight:700}
+.lead{font-size:19px;color:var(--muted);line-height:1.75}
 ul.plain{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:8px}
-ul.plain li::marker{color:var(--cobalt)}
-.partttl{display:flex;align-items:center;gap:16px;font-family:var(--f-ui);font-size:13px;letter-spacing:.16em;color:var(--cobalt);font-weight:600;margin-bottom:-44px;white-space:nowrap}
-.partttl::after{content:"";flex:1;height:28px;border-radius:6px;background-image:var(--tile);background-size:28px 28px;opacity:.55;
-  -webkit-mask-image:linear-gradient(90deg,#000,transparent);mask-image:linear-gradient(90deg,#000,transparent)}
+ul.plain li::marker{color:var(--c)}
+.partttl{display:flex;align-items:center;gap:12px;font-family:var(--f-disp);font-size:14px;letter-spacing:.16em;font-weight:800;margin-bottom:-52px}
+.partttl::before{content:"";width:46px;height:14px;flex:none;background:radial-gradient(circle 7px at 7px 7px,var(--red) 98%,transparent) ,radial-gradient(circle 7px at 23px 7px,var(--yellow) 98%,transparent),radial-gradient(circle 7px at 39px 7px,var(--blue) 98%,transparent)}
+.partttl::after{content:"";flex:1;height:2px;background:var(--line2);border-radius:2px}
 
-/* schede */
-.rule{position:relative;background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:30px 22px 20px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow)}
-.rule::before{content:attr(data-seal);position:absolute;top:-15px;left:20px;background:var(--seal);color:var(--seal-ink);font-family:var(--f-han);font-size:13px;font-weight:700;padding:5px 9px;letter-spacing:.14em;border-radius:5px;
-  box-shadow:inset 0 0 0 2px var(--seal),inset 0 0 0 3.5px var(--seal-ink);transform:rotate(-2.5deg)}
+/* riquadri */
+.rule{position:relative;background:var(--sheet);border-radius:var(--r);padding:34px 22px 22px;display:flex;flex-direction:column;gap:12px;box-shadow:var(--shadow)}
+.rule::before{content:attr(data-seal);position:absolute;top:-13px;left:20px;background:var(--c);color:var(--on);font-family:var(--f-body);font-size:13px;font-weight:900;padding:4px 14px;letter-spacing:.14em;border-radius:999px}
 .rule h3{margin:0;font-size:20px}
-.formula{font-family:var(--f-ui);font-weight:500;font-size:16px;background:var(--tint);color:var(--cobalt);padding:10px 14px;border-radius:var(--r-sm);overflow-x:auto}
-.warn{background:var(--warn-bg);border:1px solid color-mix(in srgb,var(--warn) 30%,transparent);border-radius:var(--r-sm);padding:14px 18px}
-.warn strong{font-family:var(--f-ui);font-size:12px;letter-spacing:.1em;color:var(--warn);display:block;margin-bottom:2px}
-.speech{position:relative;border-radius:var(--r);padding:30px 22px 20px;display:flex;flex-direction:column;gap:10px;background:var(--tint)}
-.speech::before{content:attr(data-seal);position:absolute;top:-15px;left:20px;background:var(--cobalt);color:var(--sheet);font-family:var(--f-han);font-size:13px;font-weight:700;padding:5px 9px;letter-spacing:.14em;border-radius:5px;
-  box-shadow:inset 0 0 0 2px var(--cobalt),inset 0 0 0 3.5px var(--sheet);transform:rotate(2deg)}
-.speech h3{margin:0;font-size:20px;color:var(--cobalt)}
+.formula{font-family:var(--f-disp);font-weight:700;font-size:16px;background:var(--c-soft);padding:10px 16px;border-radius:12px;overflow-x:auto}
+.warn{background:var(--yellow-soft);border-radius:var(--r-sm);padding:16px 18px;position:relative}
+.warn strong{font-size:13px;letter-spacing:.08em;color:var(--warn);display:flex;align-items:center;gap:8px;margin-bottom:2px;font-weight:900}
+.warn strong::before{content:"!";display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--yellow);color:#1a1720;font-family:var(--f-disp);font-size:13px}
+.speech{position:relative;border-radius:var(--r);padding:34px 22px 22px;display:flex;flex-direction:column;gap:10px;background:var(--c-soft)}
+.speech::before{content:attr(data-seal);position:absolute;top:-13px;left:20px;background:var(--ink);color:var(--paper);font-size:13px;font-weight:900;padding:4px 14px;letter-spacing:.14em;border-radius:999px}
+.speech h3{margin:0;font-size:20px}
+.xref{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ink);background:var(--sheet);border-radius:var(--r-sm);padding:12px 16px;box-shadow:var(--shadow);font-weight:700;transition:transform .15s}
+.xref:hover{transform:translateX(4px)}
+.xref svg{width:40px;height:40px;flex:none;color:var(--blue);--c:var(--blue-soft)}
+.xref span::after{content:" →";color:var(--blue)}
 
 /* esempi */
-.exs{display:flex;flex-direction:column;border-top:1px solid var(--line)}
-.ex{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 18px;align-items:center;padding:12px 4px;border-bottom:1px solid var(--line);border-radius:6px;transition:background .2s}
-.ex-body{min-width:0;display:flex;flex-direction:column;gap:2px}
-.it-l{font-size:20px;font-weight:500;line-height:1.45}
-.tr{color:var(--muted);font-size:16px}
-.ex.now{background:var(--tint);box-shadow:-10px 0 0 var(--tint),10px 0 0 var(--tint)}
+.exs{display:flex;flex-direction:column;gap:6px}
+.ex{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 16px;align-items:center;padding:10px 12px 10px 16px;background:var(--sheet);border-radius:var(--r-sm);transition:background .2s,box-shadow .2s}
+.rule .ex,.speech .ex{background:var(--paper)}
+.ex-body{min-width:0;display:flex;flex-direction:column;gap:1px}
+.it-l{font-size:21px;font-weight:500;line-height:1.4;letter-spacing:-.005em}
+.tr{color:var(--muted);font-size:15px}
+.ex.now{box-shadow:inset 0 0 0 2.5px var(--c);background:var(--c-soft)}
 body.no-tr .tr{display:none!important}
-.say{display:inline-grid;place-items:center;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:var(--sheet);cursor:pointer;flex:none;color:var(--cobalt);transition:background .15s,color .15s,border-color .15s,transform .15s}
-.say:hover{background:var(--cobalt);color:var(--sheet);border-color:var(--cobalt)}
+.say{display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;border:0;background:var(--c);color:var(--on);cursor:pointer;flex:none;transition:transform .15s,filter .15s}
+.say:hover{transform:scale(1.08)}
 .say:active{transform:scale(.94)}
 .say svg{width:15px;height:15px;margin-left:2px}
-.say.sm{width:30px;height:30px}
+.say.sm{width:32px;height:32px}
 .say.sm svg{width:12px;height:12px}
-.w{cursor:pointer;border-radius:4px;padding:0 1px;color:var(--it);text-decoration:underline dotted;text-decoration-color:color-mix(in srgb,var(--it) 55%,transparent);text-decoration-thickness:1.5px;text-underline-offset:4px;transition:background .12s,color .12s}
-.w:hover,.w:focus-visible,.w.on{background:var(--it-bg);text-decoration-style:solid}
-.m .w,.f .w,.w.m,.w.f{color:inherit;text-decoration-color:currentColor}
+.w{cursor:pointer;border-radius:5px;padding:0 1px;color:var(--it);text-decoration:underline dotted;text-decoration-color:color-mix(in srgb,var(--it) 55%,transparent);text-decoration-thickness:2px;text-underline-offset:5px;transition:background .12s}
+.w:hover,.w:focus-visible{background:var(--it-bg);text-decoration-style:solid}
+.m .w,.f .w{color:inherit;text-decoration-color:currentColor}
 .conj .end{text-decoration:none}
 
 /* tabelle */
-.tw{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--sheet)}
+.tw{overflow-x:auto;border-radius:var(--r-sm);background:var(--sheet);box-shadow:var(--shadow)}
+.rule .tw{box-shadow:none;border:1.5px solid var(--line)}
 table{border-collapse:collapse;width:100%;font-size:16px}
-th,td{text-align:left;padding:9px 14px;border-bottom:1px solid var(--line);vertical-align:top}
-th{font-family:var(--f-ui);font-size:12px;letter-spacing:.08em;color:var(--cobalt);font-weight:600;background:var(--tint)}
+th,td{text-align:left;padding:10px 14px;border-bottom:1.5px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.08em;color:var(--ink);font-weight:900;background:var(--c-soft)}
 tr:last-child td{border-bottom:0}
-td.big{font-family:"Source Serif 4",Georgia,serif;font-weight:600;font-size:19px;white-space:nowrap}
-td.itc{font-family:"Source Serif 4",Georgia,serif;font-size:18px}
-.grp td{background:var(--glaze);font-family:var(--f-ui);font-size:12px;letter-spacing:.08em;color:var(--seal);font-weight:600;padding:6px 14px}
-.conj td:first-child{color:var(--muted);font-family:var(--f-ui);font-size:14px;white-space:nowrap}
-.conj td{font-family:"Source Serif 4",Georgia,serif;font-size:18px}
-.conj .end{color:var(--seal);font-weight:700}
+td.big{font-family:var(--f-it);font-weight:700;font-size:20px;white-space:nowrap}
+td.itc{font-family:var(--f-it);font-size:18px}
+.grp td{background:var(--paper);font-size:12px;letter-spacing:.1em;color:var(--c);font-weight:900;padding:7px 14px}
+.t-yellow .grp td,.t-pink .grp td{color:var(--ink)}
+.conj td:first-child{color:var(--muted);font-size:14px;white-space:nowrap}
+.conj td{font-family:var(--f-it);font-size:18px}
+.conj .end,.cj-f .end{color:var(--red);font-weight:800}
 
 /* dialoghi */
-.dialog{background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:20px 20px 14px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow)}
-.dl-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.dialog{background:var(--c-soft);border-radius:var(--r);padding:20px 18px 18px;display:flex;flex-direction:column;gap:14px}
+.dl-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
 .dl-head h3{margin:0;font-size:22px}
-.dl-head h3 i{font-family:var(--f-disp);color:var(--cobalt);font-size:19px;margin-left:8px;font-weight:500}
+.dl-head h3 i{font-family:var(--f-it);font-size:18px;margin-left:8px;font-weight:500;color:var(--muted)}
 .dl-ctrl{display:flex;gap:8px;flex-wrap:wrap}
 .dl-ctrl .btn{display:inline-flex;align-items:center;gap:6px}
 .dl-ctrl svg,.lsp svg,.qtag svg{width:14px;height:14px}
-.dl-ctrl .dl-role[aria-pressed="true"]{border-color:var(--seal);color:var(--seal);background:var(--seal-soft)}
+.dl-ctrl .dl-role[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
 .dl-lines{display:flex;flex-direction:column;gap:10px}
-.dl{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:start;padding:0;border-radius:var(--r)}
-.dl .who{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:50%;font-family:var(--f-disp);font-style:italic;font-weight:700;font-size:16px;background:var(--tint);color:var(--cobalt);margin-top:6px}
-.dl.whoB .who{background:var(--seal);color:var(--seal-ink)}
-.dl-body{min-width:0;background:var(--glaze);border:1px solid var(--line);border-radius:4px 16px 16px 16px;padding:8px 14px 9px;transition:box-shadow .2s,border-color .2s}
-.dl.whoB .dl-body{background:var(--seal-soft);border-color:color-mix(in srgb,var(--seal) 18%,transparent);border-radius:16px 4px 16px 16px}
-.dl.whoB .who{order:3}.dl.whoB .say{order:1}.dl.whoB .dl-body{order:2}
-.dl.now .dl-body{border-color:var(--cobalt-2);box-shadow:0 0 0 3px color-mix(in srgb,var(--cobalt-2) 22%,transparent)}
+.dl{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:start}
+.dl .who{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;font-family:var(--f-disp);font-weight:800;font-size:16px;background:var(--sheet);color:var(--ink);margin-top:4px}
+.dl.whoB .who{background:var(--ink);color:var(--paper)}
+.dl-body{min-width:0;background:var(--sheet);border-radius:6px 20px 20px 20px;padding:9px 16px 11px;transition:box-shadow .2s}
+.dl.whoB .dl-body{background:var(--c);color:var(--on);border-radius:20px 6px 20px 20px}
+.dl.whoB .tr{color:inherit;opacity:.8}
+.dl.whoB .w{color:inherit;text-decoration-color:currentColor}
+.dl.whoB .w:hover{background:rgba(255,255,255,.2)}
+.dl.whoB .who{order:3}.dl.whoB .say{order:1;background:var(--sheet);color:var(--ink)}.dl.whoB .dl-body{order:2}
+.dl.now .dl-body{box-shadow:0 0 0 3px var(--ink)}
 .dl-turn{display:none;font-size:17px;flex-direction:column;align-items:flex-start;gap:8px}
+.dl-turn .btn.pri{background:var(--ink);color:var(--paper)}
 .dialog.role .dl.whoB:not(.open) .dl-text,.dialog.role .dl.whoB:not(.open) .say{display:none}
 .dialog.role .dl.whoB:not(.open) .dl-turn{display:flex}
-.dl .say{margin-top:4px}
+.dl .say{margin-top:2px}
 
 /* esercizi */
-.drill{background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:32px 22px 22px;position:relative;display:flex;flex-direction:column;gap:22px;box-shadow:var(--shadow)}
-.drill::before{content:"练习 Esercizi";position:absolute;top:-15px;left:20px;background:var(--cobalt);color:var(--sheet);font-family:var(--f-han);font-size:13px;font-weight:700;padding:5px 11px;letter-spacing:.1em;border-radius:999px}
-.dhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-family:var(--f-ui);font-size:13px;color:var(--muted);padding-bottom:14px;border-bottom:1px solid var(--line)}
-.score{font-variant-numeric:tabular-nums;font-weight:700;color:var(--cobalt);font-size:15px}
-.q{display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1px solid var(--line)}
+.drill{background:var(--sheet);border:2.5px solid var(--ink);border-radius:var(--r);padding:34px 20px 22px;position:relative;display:flex;flex-direction:column;gap:22px;box-shadow:7px 7px 0 var(--c)}
+.drill::before{content:"练习 Esercizi";position:absolute;top:-16px;left:18px;background:var(--ink);color:var(--paper);font-size:14px;font-weight:900;padding:4px 16px;letter-spacing:.08em;border-radius:999px}
+.dhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--muted);padding-bottom:14px;border-bottom:1.5px dashed var(--line2)}
+.score{font-family:var(--f-disp);font-variant-numeric:tabular-nums;font-weight:800;color:var(--ink);font-size:17px}
+.q{display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:1.5px dashed var(--line2)}
 .dhead+.q{border-top:0;padding-top:0}
 .qt{display:flex;gap:10px}
-.qn{font-family:"Source Serif 4",Georgia,serif;font-style:italic;font-weight:600;font-size:20px;line-height:1.4;color:var(--seal);min-width:1.6em;font-variant-numeric:lining-nums}
-.qtag{display:inline-flex;align-items:center;gap:4px;font-family:var(--f-ui);font-size:11px;letter-spacing:.04em;font-weight:600;color:var(--muted);background:var(--glaze);border:1px solid var(--line);border-radius:999px;padding:1px 8px;margin-right:8px;vertical-align:2px;line-height:1.6}
-.qtag.say-t{color:var(--seal);border-color:color-mix(in srgb,var(--seal) 40%,transparent);background:var(--seal-soft)}
-.qtag.ear-t{color:var(--cobalt);border-color:color-mix(in srgb,var(--cobalt) 35%,transparent);background:var(--tint)}
-.opts{display:flex;flex-wrap:wrap;gap:8px;padding-left:calc(1.6em + 10px)}
-.opt{border:1.5px solid var(--line);background:var(--glaze);padding:8px 16px;border-radius:999px;cursor:pointer;font-size:17px;text-align:left;transition:border-color .15s,background .15s,transform .1s}
+.qn{display:inline-grid;place-items:center;flex:none;width:30px;height:30px;border-radius:50%;background:var(--c);color:var(--on);font-family:var(--f-disp);font-weight:800;font-size:14px;margin-top:2px}
+.qtag{display:inline-flex;align-items:center;gap:4px;font-size:11px;letter-spacing:.04em;font-weight:900;color:var(--muted);background:var(--paper);border-radius:999px;padding:1px 9px;margin-right:8px;vertical-align:2px;line-height:1.7}
+.qtag.say-t{color:var(--red);background:var(--red-soft)}
+.qtag.ear-t{color:var(--blue);background:var(--blue-soft)}
+.opts{display:flex;flex-wrap:wrap;gap:8px;padding-left:40px}
+.opt{border:2px solid var(--line2);background:var(--sheet);padding:8px 18px;border-radius:999px;cursor:pointer;font-size:17px;text-align:left;transition:border-color .15s,transform .1s,background .15s}
 .opt[lang="it"]{font-size:18px}
-.opt:hover:not(:disabled){border-color:var(--cobalt-2);background:var(--sheet)}
-.opt:active:not(:disabled){transform:scale(.97)}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+.opt:active:not(:disabled){transform:scale(.96)}
 .opt:disabled{cursor:default}
-.opt.right{background:var(--ok-bg);border-color:var(--ok);color:var(--ok);font-weight:600}
+.opt.right{background:var(--ok-bg);border-color:var(--ok);color:var(--ok);font-weight:800}
 .opt.right::before{content:"✓ "}
 .opt.wrong{background:var(--bad-bg);border-color:var(--bad);color:var(--bad);text-decoration:line-through}
-.expl{padding-left:calc(1.6em + 10px);font-size:16px;color:var(--muted)}
+.expl{padding-left:40px;font-size:16px;color:var(--muted)}
 .expl b.ok{color:var(--ok)} .expl b.no{color:var(--bad)}
 .zp{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;color:var(--ink);font-size:18px;vertical-align:middle}
 .zp .it-l{font-size:19px}
 .sayans{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
 .sayn{font-size:15px}
-.sgq{font-family:var(--f-ui);font-size:14px;color:var(--muted);align-self:center}
-.lsh{font-family:var(--f-ui);font-size:13px;color:var(--muted);align-self:center}
+.sgq{font-size:14px;color:var(--muted);align-self:center}
+.lsh{font-size:13px;color:var(--muted);align-self:center}
 .lsp{display:inline-flex;align-items:center;gap:6px}
-.ordline,.ordpool{display:flex;flex-wrap:wrap;gap:8px;margin-left:calc(1.6em + 10px);min-height:52px;padding:8px;border-radius:var(--r-sm)}
-.ordline{border:1.5px dashed var(--grid);background:var(--glaze)}
-.tok{font-family:"Source Serif 4",Georgia,serif;font-size:18px;padding:6px 14px;border:1px solid var(--line);background:var(--sheet);border-radius:8px;cursor:pointer;box-shadow:0 1px 0 var(--line)}
-.tok:hover{border-color:var(--cobalt-2);color:var(--cobalt)}
-.acts{display:flex;gap:8px;flex-wrap:wrap;margin-left:calc(1.6em + 10px)}
-.btn{font-family:var(--f-ui);font-size:14px;font-weight:500;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);cursor:pointer;min-height:40px;transition:background .15s,border-color .15s,filter .15s}
-.btn:hover{border-color:var(--cobalt-2)}
-.btn.pri{background:var(--cobalt);color:var(--sheet);border-color:var(--cobalt)}
-.btn.pri:hover{filter:brightness(1.12)}
+.ordline,.ordpool{display:flex;flex-wrap:wrap;gap:8px;margin-left:40px;min-height:54px;padding:8px;border-radius:var(--r-sm)}
+.ordline{border:2px dashed var(--line2);background:var(--paper)}
+.tok{font-family:var(--f-it);font-size:18px;font-weight:600;padding:6px 16px;border:0;background:var(--c-soft);border-radius:12px;cursor:pointer;box-shadow:0 3px 0 var(--line2);transition:transform .1s}
+.tok:hover{transform:translateY(-2px)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-left:40px}
+.btn{font-family:var(--f-body);font-size:14px;font-weight:700;padding:9px 18px;border-radius:999px;border:2px solid var(--line2);background:var(--sheet);cursor:pointer;min-height:42px;transition:background .15s,border-color .15s,transform .1s}
+.btn:hover{border-color:var(--ink)}
+.btn:active{transform:scale(.97)}
+.btn.pri{background:var(--c);color:var(--on);border-color:var(--c)}
+.btn.pri:hover{filter:brightness(1.06);border-color:var(--c)}
 .btn:disabled{opacity:.45;cursor:default}
 
 /* flashcard */
-.seg{display:inline-flex;gap:4px;padding:4px;background:var(--tint);border-radius:999px;align-self:flex-start}
+.seg{display:inline-flex;gap:4px;padding:5px;background:var(--sheet);border-radius:999px;align-self:flex-start;box-shadow:var(--shadow);flex-wrap:wrap}
 .seg .btn{border:0;background:transparent;min-width:64px}
-.seg .btn[aria-pressed="true"]{background:var(--cobalt);color:var(--sheet)}
+.seg .btn[aria-pressed="true"]{background:var(--c);color:var(--on)}
 .fc{display:grid;gap:18px}
-.fc-card{position:relative;overflow:hidden;background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:44px 24px 28px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;min-height:290px;justify-content:center;box-shadow:var(--shadow)}
-.fc-card::before{content:"";position:absolute;inset:0 0 auto;height:22px;background-image:var(--tile);background-size:28px 28px;background-position:center -3px;opacity:.6}
-.fc-word{font-family:var(--f-disp);font-size:clamp(40px,10vw,60px);font-weight:600;line-height:1.1}
-.fc-word .art{font-weight:400;font-style:italic;opacity:.7}
-.fc-zh{font-family:var(--f-han);font-size:26px;font-weight:700}
-.fc-g{font-family:var(--f-ui);font-size:13px;color:var(--muted)}
-.fc-ear{display:grid;place-items:center;width:112px;height:112px;border-radius:50%;border:0;background:var(--cobalt);color:var(--sheet);cursor:pointer;box-shadow:0 0 0 8px var(--tint);transition:transform .15s}
-.fc-ear svg{width:40px;height:40px;margin-left:5px}
-.fc-ear:hover{transform:scale(1.04)}
-.fc-hint{color:var(--muted);font-family:var(--f-ui);font-size:14px}
-.fc-box{color:var(--muted);font-family:var(--f-ui);font-size:12px;letter-spacing:.08em}
-.boxes{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;font-family:var(--f-ui);font-size:12px;color:var(--muted);text-align:center}
+.fc-card{position:relative;overflow:hidden;background:var(--c);color:var(--on);border-radius:34px;padding:40px 24px 30px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;min-height:310px;justify-content:center}
+.fc-card::before,.fc-card::after{content:"";position:absolute;border-radius:50%;background:var(--on);opacity:.1}
+.fc-card::before{width:180px;height:180px;left:-60px;top:-60px}
+.fc-card::after{width:120px;height:120px;right:-30px;bottom:-40px}
+.fc-card>*{position:relative;z-index:1}
+.fc-word{font-family:var(--f-disp);font-size:clamp(44px,11vw,68px);font-weight:800;line-height:1.05;letter-spacing:-.03em}
+.fc-word .m,.fc-word .f{color:inherit}
+.fc-word .art{font-weight:500;opacity:.7}
+.fc-zh{font-size:28px;font-weight:900}
+.fc-g{font-size:13px;opacity:.85}
+.fc-ear{display:grid;place-items:center;width:116px;height:116px;border-radius:50%;border:0;background:var(--on);color:var(--c);cursor:pointer;box-shadow:0 0 0 10px rgba(255,255,255,.18);transition:transform .15s}
+.fc-ear svg{width:42px;height:42px;margin-left:6px}
+.fc-ear:hover{transform:scale(1.05)}
+.fc-hint{font-size:14px;opacity:.85}
+.fc-box{font-size:12px;letter-spacing:.1em;opacity:.8}
+.fc-card .btn{background:var(--on);color:var(--c);border-color:var(--on)}
+.fc-card .btn.pri{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.fc-card .say{background:var(--on);color:var(--c)}
+.boxes{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;font-size:12px;color:var(--muted);text-align:center}
 .boxes div{display:flex;flex-direction:column;gap:4px}
-.boxes .bar{height:52px;background:var(--tint);border-radius:8px;display:flex;align-items:flex-end;overflow:hidden}
-.boxes .bar i{display:block;width:100%;background:linear-gradient(var(--cobalt-2),var(--cobalt));border-radius:8px 8px 0 0}
-.boxes b{font-variant-numeric:tabular-nums;color:var(--ink);font-size:14px}
-.confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-family:var(--f-ui);font-size:14px}
+.boxes .bar{height:56px;background:var(--sheet);border-radius:12px;display:flex;align-items:flex-end;overflow:hidden;box-shadow:var(--shadow)}
+.boxes .bar i{display:block;width:100%;background:var(--c);border-radius:10px 10px 0 0}
+.boxes b{font-family:var(--f-disp);font-variant-numeric:tabular-nums;color:var(--ink);font-size:16px;font-weight:800}
+.confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:14px}
+
+/* verbi: passaggi e coniugatore */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:680px){.steps{grid-template-columns:1fr}}
+.step{background:var(--sheet);border-radius:var(--r-sm);padding:18px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow)}
+.step>b{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--c);color:var(--on);font-family:var(--f-disp);font-size:18px}
+.step p{font-size:15px}
+.step .demo{font-family:var(--f-it);font-size:22px;font-weight:700;line-height:1.35}
+.demo em{font-style:normal;color:var(--red)}
+.demo s{text-decoration:line-through;text-decoration-thickness:3px;opacity:.45}
+.conjugator{background:var(--sheet);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:16px;box-shadow:var(--shadow);border-top:10px solid var(--c)}
+.conjugator .seg{box-shadow:none;background:var(--paper)}
+.conjugator .seg .btn{min-width:0}
+.cj-controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.cj-controls label{font-weight:900;font-size:14px}
+.cj-select{appearance:none;-webkit-appearance:none;font-family:var(--f-it);font-weight:700;font-size:18px;background:var(--c-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='2' fill='none'/%3E%3C/svg%3E") no-repeat right 16px center/12px;border:0;border-radius:999px;padding:10px 44px 10px 18px;min-height:46px;color:var(--ink);cursor:pointer;max-width:100%}
+.cj-info{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;font-size:15px;color:var(--muted)}
+.cj-info .cj-inf{font-family:var(--f-disp);font-size:30px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.badge{display:inline-block;font-size:12px;font-weight:900;padding:1px 10px;border-radius:999px;background:var(--green-soft);color:var(--green)}
+.badge.irr{background:var(--red-soft);color:var(--red)}
+.cj-tip{font-size:14px;color:var(--muted);background:var(--paper);border-radius:12px;padding:10px 14px}
+.cj-table td{vertical-align:middle}
+.cj-table tr{transition:background .2s}
+.cj-table tr.now{background:var(--c-soft)}
+.cj-p{color:var(--muted);font-family:var(--f-it);font-size:15px;white-space:nowrap;width:1%}
+.cj-f{font-family:var(--f-it);font-size:21px;font-weight:600}
+.cj-f .cj-aux,.cj-f .cj-rf{color:var(--muted);font-weight:500}
+.cj-zh{color:var(--muted);font-size:15px}
+.cj-play{width:1%;text-align:right}
 
 /* barra in alto e tooltip */
-.topbar{position:fixed;z-index:50;top:calc(env(safe-area-inset-top,0px) + 12px);right:calc(env(safe-area-inset-right,0px) + 12px);display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end;max-width:calc(100vw - 24px);
-  padding:4px;border-radius:999px;background:color-mix(in srgb,var(--sheet) 82%,transparent);border:1px solid var(--line);box-shadow:var(--shadow);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
-.tb{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;min-height:36px;border-radius:999px;border:0;background:transparent;color:var(--ink);font-family:var(--f-ui);font-size:13px;font-weight:600;cursor:pointer;transition:background .15s}
-.tb:hover{background:var(--tint)}
+.topbar{position:fixed;z-index:50;top:calc(env(safe-area-inset-top,0px) + 12px);right:calc(env(safe-area-inset-right,0px) + 12px);display:flex;gap:2px;justify-content:flex-end;max-width:calc(100vw - 24px);
+  padding:4px;border-radius:999px;background:color-mix(in srgb,var(--sheet) 86%,transparent);box-shadow:var(--shadow),0 0 0 1px var(--line);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.tb{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;min-height:38px;min-width:38px;justify-content:center;border-radius:999px;border:0;background:transparent;color:var(--ink);font-family:var(--f-body);font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}
+.tb:hover{background:var(--paper)}
 #tbtr[aria-pressed="false"]{color:var(--muted)}
-#tbslow[aria-pressed="true"]{background:var(--tint);color:var(--cobalt)}
-.tb-top{background:var(--seal);color:var(--seal-ink)}
-.tb-top:hover{background:var(--seal);filter:brightness(1.1)}
-.tb svg{width:14px;height:14px}
-.tip{position:fixed;z-index:60;max-width:min(280px,calc(100vw - 16px));display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 16px;background:var(--ink);color:var(--paper);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25);pointer-events:none;text-align:center;font-family:var(--f-ui)}
-.tip-w{font-family:var(--f-disp);font-style:italic;font-size:24px;font-weight:600;line-height:1.2}
-.tip-m{font-size:15px;font-family:var(--f-han)}
-#reading{background:var(--sheet);border:1px solid var(--line);border-radius:var(--r);padding:4px 18px;box-shadow:var(--shadow)}
-#reading .ex:last-child{border-bottom:0}
+#tbslow[aria-pressed="true"],#tbtheme[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tb-top{background:var(--red);color:var(--on-red)}
+.tb-top:hover{background:var(--red);filter:brightness(1.08)}
+.tb svg{width:16px;height:16px;flex:none}
+@media (max-width:480px){.tb .tbl{display:none}.tb{padding:7px 10px}}
+.tip{position:fixed;z-index:60;max-width:min(280px,calc(100vw - 16px));display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 18px;background:var(--ink);color:var(--paper);border-radius:16px;box-shadow:0 10px 26px rgba(0,0,0,.28);pointer-events:none;text-align:center}
+.tip-w{font-family:var(--f-disp);font-size:24px;font-weight:800;line-height:1.2;color:var(--yellow)}
+.tip-m{font-size:15px}
+#reading{gap:6px}
 #reading.hide-it .it-l,#reading.hide-it .ex .say{visibility:hidden}
-.plan td:first-child{font-family:var(--f-disp);font-style:italic;font-weight:600;font-size:18px;color:var(--cobalt);white-space:nowrap}
-footer{font-family:var(--f-ui);font-size:13px;color:var(--muted);padding-top:28px;position:relative}
-footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;background-image:var(--tile);background-size:28px 28px;background-position:center -7px;opacity:.45}
+.plan td:first-child{font-family:var(--f-disp);font-weight:800;font-size:18px;color:var(--c);white-space:nowrap}
+footer{font-size:13px;color:var(--muted);padding-top:22px;border-top:2px solid var(--line2);display:flex;flex-direction:column;gap:6px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
 [hidden]{display:none!important}img{max-width:100%}
 </style>
 </head>
 <body>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-abc" viewBox="0 0 64 64" fill="currentColor"><rect x="6" y="8" width="52" height="40" rx="13"/><path d="M16 46 L12 58 L28 47Z"/><text x="32" y="37" text-anchor="middle" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="23" fill="var(--c)">Aa</text></symbol><symbol id="i-wave" viewBox="0 0 64 64" fill="currentColor"><path d="M4 38 C12 20 20 20 28 38 S44 56 52 38" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/><circle cx="46" cy="20" r="8"/><rect x="50" y="2" width="5" height="19" rx="2.5"/></symbol><symbol id="i-tag" viewBox="0 0 64 64" fill="currentColor"><rect x="6" y="14" width="52" height="40" rx="11"/><rect x="25" y="6" width="14" height="12" rx="4" fill-opacity=".55"/><circle cx="22" cy="33" r="7" fill="var(--c)"/><rect x="34" y="27" width="17" height="5" rx="2.5" fill="var(--c)"/><rect x="34" y="36" width="11" height="5" rx="2.5" fill="var(--c)"/></symbol><symbol id="i-book" viewBox="0 0 64 64" fill="currentColor"><path d="M5 14 Q19 7 31 14 V55 Q19 48 5 55Z"/><path d="M59 14 Q45 7 33 14 V55 Q45 48 59 55Z" fill-opacity=".55"/></symbol><symbol id="i-sun" viewBox="0 0 64 64" fill="currentColor"><g><rect x="29.5" y="2" width="5" height="11" rx="2.5" transform="rotate(0 32 32)"/><rect x="29.5" y="2" width="5" height="11" rx="2.5" transform="rotate(45 32 32)"/><rect x="29.5" y="2" width="5" height="11" rx="2.5" transform="rotate(90 32 32)"/><rect x="29.5" y="2" width="5" height="11" rx="2.5" transform="rotate(135 32 32)"/><rect x="29.5" y="2" width="5" height="11" rx="2.5" transform="rotate(180 32 32)"/><rect x="29.5" y="2" width="5" height="11" rx="2.5" transform="rotate(225 32 32)"/><rect x="29.5" y="2" width="5" height="11" rx="2.5" transform="rotate(270 32 32)"/><rect x="29.5" y="2" width="5" height="11" rx="2.5" transform="rotate(315 32 32)"/></g><circle cx="32" cy="32" r="14"/><circle cx="27" cy="29" r="2" fill="var(--c)"/><circle cx="37" cy="29" r="2" fill="var(--c)"/><path d="M26 35 Q32 41 38 35" stroke="var(--c)" stroke-width="3" fill="none" stroke-linecap="round"/></symbol><symbol id="i-chat" viewBox="0 0 64 64" fill="currentColor"><rect x="3" y="6" width="38" height="28" rx="11"/><path d="M11 33 L9 44 L22 34Z"/><rect x="23" y="26" width="38" height="26" rx="11" fill-opacity=".55"/><path d="M51 51 L55 60 L42 51Z" fill-opacity=".55"/></symbol><symbol id="i-q" viewBox="0 0 64 64" fill="currentColor"><circle cx="32" cy="32" r="28"/><text x="32" y="45" text-anchor="middle" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="38" fill="var(--c)">?</text></symbol><symbol id="i-cup" viewBox="0 0 64 64" fill="currentColor"><path d="M8 26 H46 V37 C46 49 38 55 27 55 C16 55 8 49 8 37Z"/><circle cx="48" cy="36" r="7" fill="none" stroke="currentColor" stroke-width="4.5"/><rect x="3" y="57" width="50" height="5" rx="2.5" fill-opacity=".55"/><path d="M21 8 c-5 4 5 8 0 13 M33 6 c-5 4 5 8 0 13" stroke="currentColor" stroke-width="3.5" fill="none" stroke-linecap="round"/></symbol><symbol id="i-phone" viewBox="0 0 64 64" fill="currentColor"><rect x="15" y="3" width="34" height="58" rx="9"/><rect x="20" y="11" width="24" height="36" rx="4" fill="var(--c)"/><circle cx="32" cy="53" r="3" fill="var(--c)"/></symbol><symbol id="i-ticket" viewBox="0 0 64 64" fill="currentColor"><path d="M5 17 H59 V27 A5 5 0 0 0 59 37 V47 H5 V37 A5 5 0 0 0 5 27Z"/><polygon points="32,21 35,28.5 43,29 37,34 39,42 32,37.5 25,42 27,34 21,29 29,28.5" fill="var(--c)"/></symbol><symbol id="i-clock" viewBox="0 0 64 64" fill="currentColor"><circle cx="32" cy="32" r="28"/><rect x="29.5" y="13" width="5" height="22" rx="2.5" fill="var(--c)"/><rect x="29.5" y="29.5" width="17" height="5" rx="2.5" fill="var(--c)"/><circle cx="32" cy="32" r="4" fill="currentColor"/></symbol><symbol id="i-umbrella" viewBox="0 0 64 64" fill="currentColor"><path d="M4 32 A28 24 0 0 1 60 32Z"/><path d="M18 32 A14 24 0 0 1 46 32Z" fill-opacity=".5"/><rect x="29.5" y="28" width="5" height="30" rx="2.5"/><ellipse cx="32" cy="59" rx="22" ry="4" fill-opacity=".5"/></symbol><symbol id="i-heart" viewBox="0 0 64 64" fill="currentColor"><path d="M32 57 C10 43 4 31 8 20 C12 10 26 8 32 21 C38 8 52 10 56 20 C60 31 54 43 32 57Z"/></symbol><symbol id="i-bag" viewBox="0 0 64 64" fill="currentColor"><path d="M9 22 H55 L51 59 H13Z"/><path d="M22 26 V18 A10 10 0 0 1 42 18 V26" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><circle cx="22" cy="30" r="3" fill="var(--c)"/><circle cx="42" cy="30" r="3" fill="var(--c)"/></symbol><symbol id="i-suitcase" viewBox="0 0 64 64" fill="currentColor"><rect x="5" y="18" width="54" height="40" rx="9"/><rect x="23" y="7" width="18" height="14" rx="5" fill="none" stroke="currentColor" stroke-width="4.5"/><rect x="17" y="18" width="5" height="40" fill="var(--c)"/><rect x="42" y="18" width="5" height="40" fill="var(--c)"/></symbol><symbol id="i-arch" viewBox="0 0 64 64" fill="currentColor"><path d="M3 58 V23 Q32 5 61 23 V58Z"/><path d="M8 37 v-6 a4.5 4.5 0 0 1 9 0 v6z" fill="var(--c)"/><path d="M8 54 v-8 a4.5 4.5 0 0 1 9 0 v8z" fill="var(--c)"/><path d="M20.5 37 v-6 a4.5 4.5 0 0 1 9 0 v6z" fill="var(--c)"/><path d="M20.5 54 v-8 a4.5 4.5 0 0 1 9 0 v8z" fill="var(--c)"/><path d="M33 37 v-6 a4.5 4.5 0 0 1 9 0 v6z" fill="var(--c)"/><path d="M33 54 v-8 a4.5 4.5 0 0 1 9 0 v8z" fill="var(--c)"/><path d="M45.5 37 v-6 a4.5 4.5 0 0 1 9 0 v6z" fill="var(--c)"/><path d="M45.5 54 v-8 a4.5 4.5 0 0 1 9 0 v8z" fill="var(--c)"/></symbol><symbol id="i-lemon" viewBox="0 0 64 64" fill="currentColor"><ellipse cx="29" cy="37" rx="23" ry="18" transform="rotate(-22 29 37)"/><path d="M44 15 Q56 3 61 14 Q51 23 44 15Z" fill-opacity=".55"/><circle cx="20" cy="41" r="2.5" fill="var(--c)"/><circle cx="30" cy="36" r="2.5" fill="var(--c)"/></symbol><symbol id="i-cards" viewBox="0 0 64 64" fill="currentColor"><rect x="6" y="14" width="30" height="42" rx="7" fill-opacity=".55" transform="rotate(-11 21 35)"/><rect x="25" y="8" width="30" height="42" rx="7" transform="rotate(8 40 29)"/><text x="40" y="36" text-anchor="middle" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="18" fill="var(--c)" transform="rotate(8 40 29)">ciao</text></symbol><symbol id="i-verb" viewBox="0 0 64 64" fill="currentColor"><rect x="5" y="9" width="22" height="11" rx="5.5"/><rect x="5" y="26" width="34" height="11" rx="5.5"/><rect x="5" y="43" width="46" height="11" rx="5.5"/><path d="M45 8 L60 20 L45 32Z" fill-opacity=".55"/></symbol><symbol id="i-bulb" viewBox="0 0 64 64" fill="currentColor"><circle cx="32" cy="25" r="19"/><rect x="23" y="44" width="18" height="14" rx="4" fill-opacity=".55"/><path d="M25 26 l7 7 l7 -7" stroke="var(--c)" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol></defs></svg>
 <div class="topbar" role="toolbar" aria-label="听力设置">
   <button class="tb" id="tbtr" type="button" aria-pressed="true" title="显示或隐藏中文翻译">译文 <span id="tbtrl">显示</span></button>
   <button class="tb" id="tbslow" type="button" aria-pressed="false" title="语速">语速 <span id="tbslowl">正常</span></button>
-  <button class="tb tb-top" id="totop" type="button" aria-label="回到顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>顶部</button>
+  <button class="tb" id="tbtheme" type="button" aria-pressed="false"></button>
+  <button class="tb tb-top" id="totop" type="button" aria-label="回到顶部"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg><span class="tbl">顶部</span></button>
 </div>
 <div class="book">
 <nav class="toc" aria-label="目录">
   <details id="tocd">
     <summary>目录 · Indice</summary>
     <ol>
-      <li><a href="#metodo">学习方法</a></li>
+      <li><a href="#mappa">课程地图</a></li>
+      <li><a class="t-green" href="#metodo"><span><i class="dot"></i>学习方法</span></a></li>
       <li class="part">第一部分 · 发音</li>
-      <li><a href="#l1"><span>1 · 字母与发音</span><span class="sc" data-sc="l1"></span></a></li>
-      <li><a href="#l2"><span>2 · 重音、语调与问候</span><span class="sc" data-sc="l2"></span></a></li>
+      <li><a class="t-red" href="#l1"><span><i class="dot"></i>1 · 字母与发音</span><span class="sc" data-sc="l1"></span></a></li>
+      <li><a class="t-blue" href="#l2"><span><i class="dot"></i>2 · 重音、语调与问候</span><span class="sc" data-sc="l2"></span></a></li>
       <li class="part">第二部分 · 基础会话</li>
-      <li><a href="#l3"><span>3 · 自我介绍：essere</span><span class="sc" data-sc="l3"></span></a></li>
-      <li><a href="#l4"><span>4 · 名词的性、数和冠词</span><span class="sc" data-sc="l4"></span></a></li>
-      <li><a href="#l5"><span>5 · 你好吗？avere 和形容词</span><span class="sc" data-sc="l5"></span></a></li>
-      <li><a href="#l6"><span>6 · 规则动词现在时</span><span class="sc" data-sc="l6"></span></a></li>
-      <li><a href="#l7"><span>7 · 提问</span><span class="sc" data-sc="l7"></span></a></li>
-      <li><a href="#l8"><span>8 · 在咖啡馆：数字和价格</span><span class="sc" data-sc="l8"></span></a></li>
+      <li><a class="t-yellow" href="#l3"><span><i class="dot"></i>3 · 自我介绍：essere</span><span class="sc" data-sc="l3"></span></a></li>
+      <li><a class="t-green" href="#l4"><span><i class="dot"></i>4 · 名词的性、数和冠词</span><span class="sc" data-sc="l4"></span></a></li>
+      <li><a class="t-pink" href="#l5"><span><i class="dot"></i>5 · 你好吗？avere 和形容词</span><span class="sc" data-sc="l5"></span></a></li>
+      <li><a class="t-red" href="#l6"><span><i class="dot"></i>6 · 规则动词现在时</span><span class="sc" data-sc="l6"></span></a></li>
+      <li><a class="t-blue" href="#l7"><span><i class="dot"></i>7 · 提问</span><span class="sc" data-sc="l7"></span></a></li>
+      <li><a class="t-yellow" href="#l8"><span><i class="dot"></i>8 · 在咖啡馆：数字和价格</span><span class="sc" data-sc="l8"></span></a></li>
       <li class="part">第三部分 · 进阶会话</li>
-      <li><a href="#l9"><span>9 · 打电话：地点和介词</span><span class="sc" data-sc="l9"></span></a></li>
-      <li><a href="#l10"><span>10 · 约朋友：情态动词</span><span class="sc" data-sc="l10"></span></a></li>
-      <li><a href="#l11"><span>11 · 时间和日常生活</span><span class="sc" data-sc="l11"></span></a></li>
-      <li><a href="#l12"><span>12 · 讲过去的事：近过去时</span><span class="sc" data-sc="l12"></span></a></li>
-      <li><a href="#l13"><span>13 · 喜欢和比较</span><span class="sc" data-sc="l13"></span></a></li>
-      <li><a href="#l14"><span>14 · 买东西：代词</span><span class="sc" data-sc="l14"></span></a></li>
-      <li><a href="#l15"><span>15 · 计划未来：将来时</span><span class="sc" data-sc="l15"></span></a></li>
-      <li><a href="#l16"><span>16 · 听力：李薇在罗马</span><span class="sc" data-sc="l16"></span></a></li>
+      <li><a class="t-green" href="#l9"><span><i class="dot"></i>9 · 打电话：地点和介词</span><span class="sc" data-sc="l9"></span></a></li>
+      <li><a class="t-pink" href="#l10"><span><i class="dot"></i>10 · 约朋友：情态动词</span><span class="sc" data-sc="l10"></span></a></li>
+      <li><a class="t-red" href="#l11"><span><i class="dot"></i>11 · 时间和日常生活</span><span class="sc" data-sc="l11"></span></a></li>
+      <li><a class="t-blue" href="#l12"><span><i class="dot"></i>12 · 讲过去的事：近过去时</span><span class="sc" data-sc="l12"></span></a></li>
+      <li><a class="t-yellow" href="#l13"><span><i class="dot"></i>13 · 喜欢和比较</span><span class="sc" data-sc="l13"></span></a></li>
+      <li><a class="t-green" href="#l14"><span><i class="dot"></i>14 · 买东西：代词</span><span class="sc" data-sc="l14"></span></a></li>
+      <li><a class="t-pink" href="#l15"><span><i class="dot"></i>15 · 计划未来：将来时</span><span class="sc" data-sc="l15"></span></a></li>
+      <li><a class="t-red" href="#l16"><span><i class="dot"></i>16 · 听力：李薇在罗马</span><span class="sc" data-sc="l16"></span></a></li>
       <li class="part">附录</li>
-      <li><a href="#frasi">A · 常用句</a></li>
-      <li><a href="#flash">B · 单词卡</a></li>
-      <li><a href="#vocab">C · 词汇表</a></li>
+      <li><a class="t-yellow" href="#frasi"><span><i class="dot"></i>A · 常用句</span></a></li>
+      <li><a class="t-pink" href="#flash"><span><i class="dot"></i>B · 单词卡</span></a></li>
+      <li><a class="t-green" href="#vocab"><span><i class="dot"></i>C · 词汇表</span></a></li>
+      <li><a class="t-blue" href="#verbi"><span><i class="dot"></i>D · 动词变位手册</span></a></li>
     </ol>
   </details>
 </nav>
 
 <main>
-<header class="cover">
-  <div class="cover-tiles" aria-hidden="true"></div>
-  <p class="cover-eyebrow">给中文母语者的意大利语课 · Corso di italiano</p>
-  <div class="cover-word"><span class="ciao" lang="it">Ciao!</span><span class="stamp" aria-hidden="true">你好</span></div>
-  <div class="tricolore" aria-hidden="true"><i></i><i></i><i></i></div>
-  <h1>意大利语入门课本</h1>
-  <p class="sub">十六课，从发音开始，到能讲述自己的生活。每课都有可以听、可以跟读、可以分角色练习的对话，还有自动批改的练习。</p>
+<header class="hero">
+  <div class="hero-card">
+    <div class="hero-text">
+      <p class="eyebrow">给中文母语者的意大利语课 · CORSO DI ITALIANO</p>
+      <p class="ciao" lang="it">Ciao!</p>
+      <h1>意大利语入门课本</h1>
+      <p class="sub">十六课，从发音开始，到能讲述自己的生活。可以听、可以跟读、可以分角色练习的对话，还有自动批改的练习。</p>
+      <a class="cta" href="#l1">从第一课开始 →</a>
+    </div>
+    <svg class="hero-art" viewBox="0 0 420 360" aria-hidden="true">
+      <circle cx="318" cy="98" r="74" fill="var(--yellow)"/>
+      <circle cx="70" cy="70" r="7" fill="var(--pink)"/><circle cx="112" cy="40" r="5" fill="var(--yellow)"/><circle cx="392" cy="214" r="6" fill="var(--pink)"/>
+      <rect x="0" y="300" width="420" height="60" fill="var(--pink)"/>
+      <ellipse cx="62" cy="290" rx="44" ry="31" fill="var(--yellow)" transform="rotate(-18 62 290)"/>
+      <path d="M92 262 q22 -26 50 -14 q-20 26 -50 14z" fill="var(--green)"/>
+      <path d="M140 140 L104 152 L110 214 L152 208" stroke="#1a1720" stroke-width="16" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+      <polygon points="140,300 240,300 228,222 152,222" fill="var(--red)"/>
+      <polygon points="170,300 188,300 186,222 172,222" fill="#fff" fill-opacity=".22"/>
+      <rect x="148" y="207" width="84" height="17" rx="3" fill="#1a1720"/>
+      <polygon points="152,208 228,208 248,124 132,124" fill="var(--red)"/>
+      <polygon points="172,208 188,208 192,124 166,124" fill="#fff" fill-opacity=".22"/>
+      <polygon points="246,124 282,110 274,134 244,142" fill="var(--red)"/>
+      <polygon points="134,120 246,120 232,100 148,100" fill="var(--red)"/>
+      <rect x="128" y="118" width="124" height="9" rx="4" fill="#1a1720"/>
+      <circle cx="190" cy="92" r="11" fill="#1a1720"/>
+      <ellipse cx="330" cy="300" rx="68" ry="12" fill="#fff"/>
+      <path d="M288 236 H372 V254 C372 282 354 296 330 296 C306 296 288 282 288 254 Z" fill="#fff"/>
+      <circle cx="377" cy="258" r="13" stroke="#fff" stroke-width="8" fill="none"/>
+      <ellipse cx="330" cy="237" rx="41" ry="6" fill="#6b3a22"/>
+      <path d="M318 222 c-12 -16 12 -26 0 -44 M342 222 c-12 -16 12 -26 0 -44" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
   <div class="stats">
-    <div><b>16</b><span>课 · <i>lezioni</i></span></div>
-    <div><b>14</b><span>段对话 · <i>dialoghi</i></span></div>
-    <div><b>144</b><span>道练习 · <i>esercizi</i></span></div>
-    <div><b>108</b><span>张单词卡 · <i>parole</i></span></div>
+    <div class="t-red"><b>16</b><span>课 · <i>lezioni</i></span></div>
+    <div class="t-blue"><b>14</b><span>段对话 · <i>dialoghi</i></span></div>
+    <div class="t-green"><b>38</b><span>个动词变位 · <i>verbi</i></span></div>
+    <div class="t-yellow"><b>2000+</b><span>条女声朗读 · <i>audio</i></span></div>
   </div>
   <div class="legend"><span>名词颜色：</span><b class="m">阳性 il libro</b><b class="f">阴性 la casa</b><span>· 下划线 = 重音：<b><span class="st">ca</span>sa</b></span><span>· <b style="color:var(--it);text-decoration:underline dotted;text-underline-offset:4px">绿色</b> = 意大利语：点一下，听发音、看意思</span></div>
   <p class="note" id="ttsnote">点 ▶ 听整句；所有<b style="color:var(--it)">绿色</b>的意大利语单词都可以点：会读出这个词，并显示它的中文意思。右上角可以隐藏中文翻译（只用耳朵练习）和放慢语速。朗读声音是意大利语女声 Sara（AI 合成）。</p>
 </header>
 
-<section class="lesson" id="metodo">
-  <div class="kicker"><span>开始之前</span><span class="itk">Il metodo</span></div>
-  <h2>学习方法：先用耳朵，再用嘴巴</h2>
+<section class="map" id="mappa" aria-label="课程地图">
+  <h2>课程地图<small lang="it">Le lezioni</small></h2>
+  <div class="tiles">
+    <a class="tile t-red" href="#l1"><span class="n">01</span><svg aria-hidden="true"><use href="#i-abc"/></svg><b>字母与发音</b><i lang="it">L'alfabeto e i suoni</i><span class="sc" data-sc="l1"></span></a>
+    <a class="tile t-blue" href="#l2"><span class="n">02</span><svg aria-hidden="true"><use href="#i-wave"/></svg><b>重音、语调与问候</b><i lang="it">Accento, intonazione e saluti</i><span class="sc" data-sc="l2"></span></a>
+    <a class="tile t-yellow" href="#l3"><span class="n">03</span><svg aria-hidden="true"><use href="#i-tag"/></svg><b>自我介绍：essere</b><i lang="it">Presentarsi</i><span class="sc" data-sc="l3"></span></a>
+    <a class="tile t-green" href="#l4"><span class="n">04</span><svg aria-hidden="true"><use href="#i-book"/></svg><b>名词的性、数和冠词</b><i lang="it">Nomi e articoli</i><span class="sc" data-sc="l4"></span></a>
+    <a class="tile t-pink" href="#l5"><span class="n">05</span><svg aria-hidden="true"><use href="#i-sun"/></svg><b>你好吗？avere 和形容词</b><i lang="it">Come stai?</i><span class="sc" data-sc="l5"></span></a>
+    <a class="tile t-red" href="#l6"><span class="n">06</span><svg aria-hidden="true"><use href="#i-chat"/></svg><b>规则动词现在时</b><i lang="it">Il presente</i><span class="sc" data-sc="l6"></span></a>
+    <a class="tile t-blue" href="#l7"><span class="n">07</span><svg aria-hidden="true"><use href="#i-q"/></svg><b>提问</b><i lang="it">Fare domande</i><span class="sc" data-sc="l7"></span></a>
+    <a class="tile t-yellow" href="#l8"><span class="n">08</span><svg aria-hidden="true"><use href="#i-cup"/></svg><b>在咖啡馆：数字和价格</b><i lang="it">Al bar</i><span class="sc" data-sc="l8"></span></a>
+    <a class="tile t-green" href="#l9"><span class="n">09</span><svg aria-hidden="true"><use href="#i-phone"/></svg><b>打电话：地点和介词</b><i lang="it">Dove sei?</i><span class="sc" data-sc="l9"></span></a>
+    <a class="tile t-pink" href="#l10"><span class="n">10</span><svg aria-hidden="true"><use href="#i-ticket"/></svg><b>约朋友：情态动词</b><i lang="it">Vuoi venire?</i><span class="sc" data-sc="l10"></span></a>
+    <a class="tile t-red" href="#l11"><span class="n">11</span><svg aria-hidden="true"><use href="#i-clock"/></svg><b>时间和日常生活</b><i lang="it">Che ore sono?</i><span class="sc" data-sc="l11"></span></a>
+    <a class="tile t-blue" href="#l12"><span class="n">12</span><svg aria-hidden="true"><use href="#i-umbrella"/></svg><b>讲过去的事：近过去时</b><i lang="it">Il passato prossimo</i><span class="sc" data-sc="l12"></span></a>
+    <a class="tile t-yellow" href="#l13"><span class="n">13</span><svg aria-hidden="true"><use href="#i-heart"/></svg><b>喜欢和比较</b><i lang="it">Mi piace</i><span class="sc" data-sc="l13"></span></a>
+    <a class="tile t-green" href="#l14"><span class="n">14</span><svg aria-hidden="true"><use href="#i-bag"/></svg><b>买东西：代词</b><i lang="it">Lo prendo!</i><span class="sc" data-sc="l14"></span></a>
+    <a class="tile t-pink" href="#l15"><span class="n">15</span><svg aria-hidden="true"><use href="#i-suitcase"/></svg><b>计划未来：将来时</b><i lang="it">Che cosa farai?</i><span class="sc" data-sc="l15"></span></a>
+    <a class="tile t-red" href="#l16"><span class="n">16</span><svg aria-hidden="true"><use href="#i-arch"/></svg><b>听力：李薇在罗马</b><i lang="it">Li Wei a Roma</i><span class="sc" data-sc="l16"></span></a>
+    <a class="tile t-blue" href="#verbi"><span class="n">D</span><svg aria-hidden="true"><use href="#i-verb"/></svg><b>动词变位手册</b><i lang="it">Coniugare i verbi</i><span class="sc" data-sc="verbi"></span></a>
+    <a class="tile t-pink" href="#flash"><span class="n">B</span><svg aria-hidden="true"><use href="#i-cards"/></svg><b>单词卡</b><i lang="it">Flashcard</i><span class="sc"></span></a>
+  </div>
+</section>
+
+<section class="lesson t-green" id="metodo">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>开始之前</span><span class="itk">Il metodo</span></div>
+  <h2>学习方法：先用耳朵，再用嘴巴</h2></div><svg class="lic" aria-hidden="true"><use href="#i-bulb"/></svg></header>
   <p class="lead">意大利语对中国人来说有两个好消息：字母怎么写就怎么读，而且没有声调。难点在别的地方：名词分阴阳性，动词要跟着人称变化，还有中文里没有的浊音和大舌音 r。这本书就是围绕这些难点设计的。</p>
   <div class="rule" data-seal="原则">
     <h3>五个原则</h3>
@@ -398,9 +522,9 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
 <div class="partttl">第一部分 · 发音</div>
 
 <!-- L1 -->
-<section class="lesson" id="l1">
-  <div class="kicker"><span>第一课</span><span class="itk">Lezione 1</span></div>
-  <h2>字母与发音<small>L'alfabeto e i suoni</small></h2>
+<section class="lesson t-red" id="l1">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>第一课</span><span class="itk">Lezione 1</span></div>
+  <h2>字母与发音<small>L'alfabeto e i suoni</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-abc"/></svg></header>
   <p class="lead">意大利语基本上「怎么写就怎么读」：几乎每个字母都发音，规则很少有例外。学会这一课的规则，你就能读出任何意大利语单词，哪怕还不知道它的意思。</p>
   <h3>字母表</h3>
   <p>意大利语字母表只有 21 个字母。J、K、W、X、Y 只出现在外来词里。点 ▶ 听字母的名字。</p>
@@ -484,9 +608,9 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
 </section>
 
 <!-- L2 -->
-<section class="lesson" id="l2">
-  <div class="kicker"><span>第二课</span><span class="itk">Lezione 2</span></div>
-  <h2>重音、语调与问候<small>Accento, intonazione e saluti</small></h2>
+<section class="lesson t-blue" id="l2">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>第二课</span><span class="itk">Lezione 2</span></div>
+  <h2>重音、语调与问候<small>Accento, intonazione e saluti</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-wave"/></svg></header>
   <h3>重音：意大利语的「声调」</h3>
   <p>意大利语没有声调，但每个词都有一个<b>重读音节</b>：读得更长、更响。重音放错了，意大利人可能听不懂，就像中文声调读错一样。本书用下划线标出重音。</p>
   <div class="rule" data-seal="规则">
@@ -540,9 +664,9 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
 <div class="partttl">第二部分 · 基础会话</div>
 
 <!-- L3 -->
-<section class="lesson" id="l3">
-  <div class="kicker"><span>第三课</span><span class="itk">Lezione 3</span></div>
-  <h2>自我介绍：动词 essere<small>Presentarsi</small></h2>
+<section class="lesson t-yellow" id="l3">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>第三课</span><span class="itk">Lezione 3</span></div>
+  <h2>自我介绍：动词 essere<small>Presentarsi</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-tag"/></svg></header>
   <div class="dialog" data-dlg="l3"></div>
   <h3>动词要跟着人称变</h3>
   <p>中文的「是」对谁都一样。意大利语的动词会根据<b>主语</b>改变形式。<i class="it">essere</i>「是」是最重要的动词，它是不规则的，要背下来：</p>
@@ -598,9 +722,9 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
 </section>
 
 <!-- L4 -->
-<section class="lesson" id="l4">
-  <div class="kicker"><span>第四课</span><span class="itk">Lezione 4</span></div>
-  <h2>名词的性、数和冠词<small>Nomi e articoli</small></h2>
+<section class="lesson t-green" id="l4">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>第四课</span><span class="itk">Lezione 4</span></div>
+  <h2>名词的性、数和冠词<small>Nomi e articoli</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-book"/></svg></header>
   <div class="dialog" data-dlg="l4"></div>
   <h3>每个名词都有性别</h3>
   <div class="rule" data-seal="规则">
@@ -647,9 +771,9 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
 </section>
 
 <!-- L5 -->
-<section class="lesson" id="l5">
-  <div class="kicker"><span>第五课</span><span class="itk">Lezione 5</span></div>
-  <h2>你好吗？avere 和形容词<small>Come stai?</small></h2>
+<section class="lesson t-pink" id="l5">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>第五课</span><span class="itk">Lezione 5</span></div>
+  <h2>你好吗？avere 和形容词<small>Come stai?</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-sun"/></svg></header>
   <div class="dialog" data-dlg="l5"></div>
   <h3>动词 avere「有」</h3>
   <div class="tw"><table class="conj">
@@ -696,9 +820,9 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
 </section>
 
 <!-- L6 -->
-<section class="lesson" id="l6">
-  <div class="kicker"><span>第六课</span><span class="itk">Lezione 6</span></div>
-  <h2>规则动词现在时<small>Il presente</small></h2>
+<section class="lesson t-red" id="l6">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>第六课</span><span class="itk">Lezione 6</span></div>
+  <h2>规则动词现在时<small>Il presente</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-chat"/></svg></header>
   <div class="dialog" data-dlg="l6"></div>
   <p>意大利语动词原形以 <b>-are、-ere、-ire</b> 结尾。去掉这个词尾，换上表示人称的词尾。三组的变化很相似：</p>
   <div class="tw"><table class="conj">
@@ -730,13 +854,14 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
     <li>夸别人：<i class="it">Parli benissimo!</i>「你说得太好了！」。谦虚的回答：<i class="it">Grazie, ma devo migliorare.</i>「谢谢，不过我还得进步。」</li>
     <li>听不懂时直接说 <i class="it">Non capisco, puoi ripetere?</i>「我没听懂，可以再说一遍吗？」意大利人很习惯。</li>
   </ul></div>
+  <a class="xref" href="#verbi"><svg aria-hidden="true"><use href="#i-verb"/></svg><span>全部变位规则、拼写小规则和 38 个动词的变位查询，见附录 D</span></a>
   <div class="drill" data-set="l6"></div>
 </section>
 
 <!-- L7 -->
-<section class="lesson" id="l7">
-  <div class="kicker"><span>第七课</span><span class="itk">Lezione 7</span></div>
-  <h2>提问<small>Fare domande</small></h2>
+<section class="lesson t-blue" id="l7">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>第七课</span><span class="itk">Lezione 7</span></div>
+  <h2>提问<small>Fare domande</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-q"/></svg></header>
   <div class="dialog" data-dlg="l7"></div>
   <h3>1. 一般疑问句：只靠语调</h3>
   <div class="rule" data-seal="规则">
@@ -778,9 +903,9 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
 </section>
 
 <!-- L8 -->
-<section class="lesson" id="l8">
-  <div class="kicker"><span>第八课</span><span class="itk">Lezione 8</span></div>
-  <h2>在咖啡馆：数字和价格<small>Al bar</small></h2>
+<section class="lesson t-yellow" id="l8">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>第八课</span><span class="itk">Lezione 8</span></div>
+  <h2>在咖啡馆：数字和价格<small>Al bar</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-cup"/></svg></header>
   <div class="dialog" data-dlg="l8"></div>
   <h3>数字</h3>
   <div class="tw"><table id="numeri"></table></div>
@@ -825,9 +950,9 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
 <div class="partttl">第三部分 · 进阶会话</div>
 
 <!-- L9 -->
-<section class="lesson" id="l9">
-  <div class="kicker"><span>第九课</span><span class="itk">Lezione 9</span></div>
-  <h2>打电话：地点和介词<small>Dove sei?</small></h2>
+<section class="lesson t-green" id="l9">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>第九课</span><span class="itk">Lezione 9</span></div>
+  <h2>打电话：地点和介词<small>Dove sei?</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-phone"/></svg></header>
   <div class="dialog" data-dlg="l9"></div>
   <h3>有：c'è 和 ci sono</h3>
   <div class="rule" data-seal="规则">
@@ -881,9 +1006,9 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
 </section>
 
 <!-- L10 -->
-<section class="lesson" id="l10">
-  <div class="kicker"><span>第十课</span><span class="itk">Lezione 10</span></div>
-  <h2>约朋友：情态动词和常用不规则动词<small>Vuoi venire?</small></h2>
+<section class="lesson t-pink" id="l10">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>第十课</span><span class="itk">Lezione 10</span></div>
+  <h2>约朋友：情态动词和常用不规则动词<small>Vuoi venire?</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-ticket"/></svg></header>
   <div class="dialog" data-dlg="l10"></div>
   <h3>想、能、必须</h3>
   <div class="tw"><table class="conj">
@@ -929,9 +1054,9 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
 </section>
 
 <!-- L11 -->
-<section class="lesson" id="l11">
-  <div class="kicker"><span>第十一课</span><span class="itk">Lezione 11</span></div>
-  <h2>时间和日常生活<small>Che ore sono?</small></h2>
+<section class="lesson t-red" id="l11">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>第十一课</span><span class="itk">Lezione 11</span></div>
+  <h2>时间和日常生活<small>Che ore sono?</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-clock"/></svg></header>
   <div class="dialog" data-dlg="l11"></div>
   <h3>几点了？</h3>
   <div class="exs">
@@ -977,9 +1102,9 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
 </section>
 
 <!-- L12 -->
-<section class="lesson" id="l12">
-  <div class="kicker"><span>第十二课</span><span class="itk">Lezione 12</span></div>
-  <h2>讲过去的事：近过去时<small>Il passato prossimo</small></h2>
+<section class="lesson t-blue" id="l12">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>第十二课</span><span class="itk">Lezione 12</span></div>
+  <h2>讲过去的事：近过去时<small>Il passato prossimo</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-umbrella"/></svg></header>
   <div class="dialog" data-dlg="l12"></div>
   <p>中文用「了」「过」表示过去，动词本身不变。意大利语要换动词的形式。口语里最常用的过去时是 <b>passato prossimo</b>（近过去时）。</p>
   <div class="rule" data-seal="规则">
@@ -1025,13 +1150,14 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
     <li>描述过去的状态（天气、心情、「以前常常」）要用另一个时态，未完成过去时：<i class="it">era bello</i>「（当时）很美」、<i class="it">faceva freddo</i>「（当时）很冷」。先听懂就够了。</li>
     <li><i class="it">Ce l'ho fatta!</i>「我做到了！」是很常用的感叹。</li>
   </ul></div>
+  <a class="xref" href="#verbi"><svg aria-hidden="true"><use href="#i-verb"/></svg><span>过去分词、助动词和每个动词的近过去时，见附录 D 的变位查询</span></a>
   <div class="drill" data-set="l12"></div>
 </section>
 
 <!-- L13 -->
-<section class="lesson" id="l13">
-  <div class="kicker"><span>第十三课</span><span class="itk">Lezione 13</span></div>
-  <h2>喜欢和比较<small>Mi piace</small></h2>
+<section class="lesson t-yellow" id="l13">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>第十三课</span><span class="itk">Lezione 13</span></div>
+  <h2>喜欢和比较<small>Mi piace</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-heart"/></svg></header>
   <div class="dialog" data-dlg="l13"></div>
   <h3>「我喜欢」= 「……让我喜欢」</h3>
   <div class="rule" data-seal="规则">
@@ -1074,9 +1200,9 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
 </section>
 
 <!-- L14 -->
-<section class="lesson" id="l14">
-  <div class="kicker"><span>第十四课</span><span class="itk">Lezione 14</span></div>
-  <h2>买东西：宾语代词<small>Lo prendo!</small></h2>
+<section class="lesson t-green" id="l14">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>第十四课</span><span class="itk">Lezione 14</span></div>
+  <h2>买东西：宾语代词<small>Lo prendo!</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-bag"/></svg></header>
   <div class="dialog" data-dlg="l14"></div>
   <h3>直接宾语代词：它、他、她</h3>
   <div class="rule" data-seal="规则">
@@ -1115,9 +1241,9 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
 </section>
 
 <!-- L15 -->
-<section class="lesson" id="l15">
-  <div class="kicker"><span>第十五课</span><span class="itk">Lezione 15</span></div>
-  <h2>计划未来：将来时和连接词<small>Che cosa farai?</small></h2>
+<section class="lesson t-pink" id="l15">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>第十五课</span><span class="itk">Lezione 15</span></div>
+  <h2>计划未来：将来时和连接词<small>Che cosa farai?</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-suitcase"/></svg></header>
   <div class="dialog" data-dlg="l15"></div>
   <h3>简单将来时</h3>
   <div class="tw"><table class="conj">
@@ -1153,13 +1279,14 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
     <li><i class="it">Magari!</i>「但愿如此！」是对美好计划最自然的回应。</li>
     <li>祝别人顺利：<i class="it">In bocca al lupo!</i>（字面：在狼嘴里），回答 <i class="it">Crepi!</i>，不要说 <i class="it">grazie</i>。</li>
   </ul></div>
+  <a class="xref" href="#verbi"><svg aria-hidden="true"><use href="#i-verb"/></svg><span>将来时和未完成过去时的完整变位，见附录 D</span></a>
   <div class="drill" data-set="l15"></div>
 </section>
 
 <!-- L16 -->
-<section class="lesson" id="l16">
-  <div class="kicker"><span>第十六课</span><span class="itk">Lezione 16</span></div>
-  <h2>听力：李薇在罗马<small>Li Wei a Roma</small></h2>
+<section class="lesson t-red" id="l16">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>第十六课</span><span class="itk">Lezione 16</span></div>
+  <h2>听力：李薇在罗马<small>Li Wei a Roma</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-arch"/></svg></header>
   <p>李薇是一个在罗马学习的中国学生，她讲述自己在意大利的生活。这段话用到了整本书的语法。分三步练习：</p>
   <ul class="plain">
     <li><b>1. 只用耳朵。</b>隐藏文字和翻译，点「全部播放」，然后回答下面的问题。</li>
@@ -1195,16 +1322,16 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
 
 <div class="partttl">附录</div>
 
-<section class="lesson" id="frasi">
-  <div class="kicker"><span>附录 A</span><span class="itk">Frasi utili</span></div>
-  <h2>常用句：要背下来的句子</h2>
+<section class="lesson t-yellow" id="frasi">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>附录 A</span><span class="itk">Frasi utili</span></div>
+  <h2>常用句：要背下来的句子</h2></div><svg class="lic" aria-hidden="true"><use href="#i-lemon"/></svg></header>
   <p>从第一天就可以用的句子，不需要先懂语法。把它们当作整体来记：听、大声跟读，然后遮住意大利语，看着中文说出来。</p>
   <div id="frasario"></div>
 </section>
 
-<section class="lesson" id="flash">
-  <div class="kicker"><span>附录 B</span><span class="itk">Flashcard</span></div>
-  <h2>单词卡：间隔重复</h2>
+<section class="lesson t-pink" id="flash">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>附录 B</span><span class="itk">Flashcard</span></div>
+  <h2>单词卡：间隔重复</h2></div><svg class="lic" aria-hidden="true"><use href="#i-cards"/></svg></header>
   <p>单词分在五个盒子里。答对了，单词升一个盒子，以后出现得少一些；答错了，回到第一个盒子。低号盒子里的单词出现得更频繁。目标：全部进入第 5 个盒子。</p>
   <p><b>听</b>模式：卡片上什么都不显示，只听声音，说出意思。<b>说</b>模式：看中文，大声说出带冠词的意大利语单词。<b>读</b>模式：看意大利语，说出意思。</p>
   <div class="seg" role="group" aria-label="单词卡模式">
@@ -1219,11 +1346,96 @@ footer::before{content:"";position:absolute;inset:0 0 auto;height:14px;backgroun
   </div>
 </section>
 
-<section class="lesson" id="vocab">
-  <div class="kicker"><span>附录 C</span><span class="itk">Vocabolario</span></div>
-  <h2>词汇表</h2>
+<section class="lesson t-green" id="vocab">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>附录 C</span><span class="itk">Vocabolario</span></div>
+  <h2>词汇表</h2></div><svg class="lic" aria-hidden="true"><use href="#i-book"/></svg></header>
   <p>本书用到的主要单词，按主题排列，和单词卡相同。<span class="m">蓝色</span>是阳性名词，<span class="f">红色</span>是阴性名词。</p>
   <div class="tw"><table id="vocabtbl"></table></div>
+</section>
+
+<section class="lesson t-blue" id="verbi">
+  <header class="lhead"><div class="lh-text"><div class="kicker"><span>附录 D</span><span class="itk">I verbi</span></div>
+  <h2>动词变位手册<small>Coniugare i verbi</small></h2></div><svg class="lic" aria-hidden="true"><use href="#i-verb"/></svg></header>
+  <p class="lead">中文的动词永远不变：我说、你说、他说、我说了。意大利语的动词要跟着「<b>谁</b>做」和「<b>什么时候</b>做」改变词尾，这就叫<b>变位</b>。好消息是：大部分动词都按同样的规律变，学会规律，就能变出几千个动词。</p>
+
+  <h3>三步变出任何规则动词</h3>
+  <div class="steps">
+    <div class="step"><b>1</b><p>看原形的最后三个字母，确定是哪一组。</p><p class="demo" lang="it">parl<em>are</em><br>prend<em>ere</em><br>dorm<em>ire</em></p></div>
+    <div class="step"><b>2</b><p>去掉 -are、-ere、-ire，剩下的是<b>词干</b>，词干不变。</p><p class="demo" lang="it">parl<s>are</s><br>prend<s>ere</s><br>dorm<s>ire</s></p></div>
+    <div class="step"><b>3</b><p>加上表示「谁」的<b>词尾</b>。下面的表就是所有词尾。</p><p class="demo" lang="it">parl<em>o</em><br>prend<em>i</em><br>dorm<em>iamo</em></p></div>
+  </div>
+
+  <h3>现在时：四种词尾</h3>
+  <p>红色部分是词尾。第三组里有一部分动词（capire、finire、preferire……）要在词干后加 <b>-isc-</b>，但 noi 和 voi 不加。</p>
+  <div class="tw"><table class="conj">
+    <tr><th>人称</th><th>-are · parlare 说</th><th>-ere · prendere 拿</th><th>-ire · dormire 睡</th><th>-ire · capire 懂</th></tr>
+    <tr><td>io</td><td>parl<span class="end">o</span></td><td>prend<span class="end">o</span></td><td>dorm<span class="end">o</span></td><td>cap<span class="end">isco</span></td></tr>
+    <tr><td>tu</td><td>parl<span class="end">i</span></td><td>prend<span class="end">i</span></td><td>dorm<span class="end">i</span></td><td>cap<span class="end">isci</span></td></tr>
+    <tr><td>lui / lei</td><td>parl<span class="end">a</span></td><td>prend<span class="end">e</span></td><td>dorm<span class="end">e</span></td><td>cap<span class="end">isce</span></td></tr>
+    <tr><td>noi</td><td>parl<span class="end">iamo</span></td><td>prend<span class="end">iamo</span></td><td>dorm<span class="end">iamo</span></td><td>cap<span class="end">iamo</span></td></tr>
+    <tr><td>voi</td><td>parl<span class="end">ate</span></td><td>prend<span class="end">ete</span></td><td>dorm<span class="end">ite</span></td><td>cap<span class="end">ite</span></td></tr>
+    <tr><td>loro</td><td>parl<span class="end">ano</span></td><td>prend<span class="end">ono</span></td><td>dorm<span class="end">ono</span></td><td>cap<span class="end">iscono</span></td></tr>
+  </table></div>
+  <div class="rule" data-seal="记忆">
+    <h3>六个窍门，记住所有词尾</h3>
+    <ul class="plain">
+      <li><b>io</b> 永远以 <b>-o</b> 结尾：parlo、prendo、dormo。</li>
+      <li><b>tu</b> 永远以 <b>-i</b> 结尾：parli、prendi、dormi。</li>
+      <li><b>noi</b> 永远以 <b>-iamo</b> 结尾，三组都一样：parliamo、prendiamo、dormiamo。</li>
+      <li><b>voi</b> = 原形去掉 -re，再加 <b>-te</b>：parla-te、prende-te、dormi-te。</li>
+      <li><b>lui / lei</b>：-are 动词以 <b>-a</b> 结尾，其他以 <b>-e</b> 结尾。</li>
+      <li><b>loro</b>：-are 动词以 <b>-ano</b> 结尾，其他以 <b>-ono</b> 结尾。重音在倒数第三个音节：<span class="it"><span class="st">par</span>lano</span>。</li>
+    </ul>
+  </div>
+
+  <h3>拼写小规则</h3>
+  <div class="rule" data-seal="规则">
+    <p><b>-care、-gare</b> 动词：在 i 和 e 前面加 <b>h</b>，保持「k」「g」的硬音。<b>-ciare、-giare、-iare</b> 动词：词干的 i 和词尾的 i 不要重复。</p>
+    <div class="exs">
+      <div data-it="cerco, cerchi, cerca, cerchiamo" data-zh="找：tu cerchi，不是 cerci"></div>
+      <div data-it="pago, paghi, paga, paghiamo" data-zh="付钱：tu paghi，不是 pagi"></div>
+      <div data-it="mangio, mangi, mangia, mangiamo" data-zh="吃：tu mangi，不是 mangii"></div>
+      <div data-it="studio, studi, studia, studiamo" data-zh="学习：tu studi，不是 studii"></div>
+    </div>
+  </div>
+
+  <h3>五个时态，一张表</h3>
+  <p>本书用到的时态。每个时态的完整变位，都可以在下面的「变位查询」里选择、收听。</p>
+  <div class="tw"><table>
+    <tr><th>时态</th><th>什么时候用</th><th>怎么变</th><th>例子</th></tr>
+    <tr><td><b>现在时</b><br><i class="it">presente</i></td><td>现在、习惯、不远的将来</td><td>词干 + o / i / a…</td><td class="itc">parlo</td></tr>
+    <tr><td><b>近过去时</b><br><i class="it">passato prossimo</i></td><td>已经完成的事（「了」「过」）</td><td>avere 或 essere + 过去分词</td><td class="itc">ho parlato</td></tr>
+    <tr><td><b>未完成过去时</b><br><i class="it">imperfetto</i></td><td>过去的状态、习惯（「以前常常」「那时」）</td><td>原形去掉 -re + vo / vi / va / vamo / vate / vano</td><td class="itc">parlavo</td></tr>
+    <tr><td><b>将来时</b><br><i class="it">futuro semplice</i></td><td>将来的计划、猜测</td><td>原形去掉 -e + ò / ai / à / emo / ete / anno（-are 的 a 变 e）</td><td class="itc">parlerò</td></tr>
+    <tr><td><b>条件式</b><br><i class="it">condizionale</i></td><td>礼貌地请求（现在只要会 vorrei）</td><td>固定说法</td><td class="itc">vorrei</td></tr>
+  </table></div>
+
+  <h3>过去分词和助动词</h3>
+  <div class="rule" data-seal="规则">
+    <div class="formula">-are → -ato　·　-ere → -uto　·　-ire → -ito</div>
+    <p>大多数动词用 <i class="it">avere</i>：<i class="it">ho mangiato</i>。表示移动或状态变化的动词（andare、venire、partire、arrivare、tornare、uscire、restare、rimanere、essere、stare）和所有反身动词用 <i class="it">essere</i>，这时分词要和主语一致：<i class="it">è andato</i>（他）、<i class="it">è andata</i>（她）、<i class="it">siamo andati</i>（我们）。</p>
+    <p>常用不规则分词：<i class="it">fatto, detto, preso, visto, letto, scritto, bevuto, venuto, rimasto, stato, vissuto</i>。</p>
+  </div>
+
+  <h3>变位查询</h3>
+  <p>选一个动词和一个时态，就能看到全部六个人称的形式。红色是词尾；点 ▶ 听每一个，或者点「全部播放」跟读。</p>
+  <div class="conjugator" id="conjugator">
+    <div class="cj-controls">
+      <label for="cjverb">动词</label>
+      <select id="cjverb" class="cj-select"></select>
+      <button class="btn pri" id="cjplay" type="button">▶ 全部播放</button>
+    </div>
+    <div class="seg" role="group" aria-label="时态" id="cjtense">
+      <button class="btn" type="button" data-t="pr" aria-pressed="true">现在时</button>
+      <button class="btn" type="button" data-t="pp" aria-pressed="false">近过去时</button>
+      <button class="btn" type="button" data-t="im" aria-pressed="false">未完成过去时</button>
+      <button class="btn" type="button" data-t="fu" aria-pressed="false">将来时</button>
+    </div>
+    <div class="cj-info" id="cjinfo"></div>
+    <div class="tw"><table class="cj-table" id="cjtable"></table></div>
+    <p class="cj-tip" id="cjtip"></p>
+  </div>
+  <div class="drill" data-set="verbi"></div>
 </section>
 
 <footer>意大利语入门课本 · Primo libro di italiano · 第一、二部分对应 A1 水平，第三部分对应 A2 水平的主要语法。继续学习：A2 会话课、意大利语播客、和意大利人语言交换。<br>朗读声音：Sara，由开源模型 Kokoro-82M（Apache-2.0）合成。</footer>
@@ -1427,6 +1639,22 @@ l15:[
  {t:"say",zh:"说「我先吃饭，然后学习。」",it:"Prima mangio, poi studio."},
  {t:"say",zh:"说「明年我会留在意大利。」",it:"L'anno prossimo resterò in Italia."}
 ],
+verbi:[
+ {q:"parlare 的 noi 形式（现在时）：",o:["parliamo","parlamo","parliate"],e:"noi 永远以 -iamo 结尾。"},
+ {q:"prendere 的 loro 形式（现在时）：",o:["prendono","prendano","prendeno"],e:"-ere 动词 loro → -ono。"},
+ {q:"capire 的 io 形式：",o:["capisco","capo","capio"],e:"capire 要加 -isc-：capisco。"},
+ {q:"cercare 的 tu 形式：",o:["cerchi","cerci","cercii"],e:"-care 动词在 i 前加 h，保持「k」音。"},
+ {q:"mangiare 的 tu 形式：",o:["mangi","mangii","mangie"],e:"-giare 动词不重复 i。"},
+ {q:"voi 形式 = 原形去掉 -re 再加 -te。dormire 的 voi 形式：",o:["dormite","dormate","dormete"],e:"dormi + te = dormite。"},
+ {q:"「我们去了罗马。」",o:["Siamo andati a Roma.","Abbiamo andato a Roma.","Siamo andato a Roma."],e:"andare 用 essere，主语复数 → andati。"},
+ {q:"「我会说意大利语。」（将来）",o:["Parlerò italiano.","Parlarò italiano.","Parlirò italiano."],e:"-are 动词的将来时：a 变 e → parlerò。"},
+ {q:"「以前我住在北京。」",o:["Abitavo a Pechino.","Abito a Pechino.","Abiterò a Pechino."],e:"过去的状态用未完成过去时：abita + vo。"},
+ {q:"听，选择动词原形：",au:"Hanno fame.",o:["avere","essere","andare"],e:"hanno 是 avere 的 loro 形式。"},
+ {q:"听，这是什么时态？",au:"Domani partirò.",o:["将来时","现在时","近过去时"],e:"-rò 结尾是将来时。"},
+ {t:"ord",q:"组句：「他们昨天出发了。」",w:["Sono","partiti","ieri."],a:["Sono partiti ieri."]},
+ {t:"say",zh:"大声说 parlare 现在时的六个形式",it:"io parlo, tu parli, lui parla, noi parliamo, voi parlate, loro parlano"},
+ {t:"say",zh:"说「明天我给你打电话。」（用将来时）",it:"Domani ti chiamerò."}
+],
 l16:[
  {q:"听问题，根据短文选择答案：",au:"Di dov'è Li Wei?",o:["北京","上海","罗马"],e:"«Sono cinese, di Pechino.»"},
  {q:"听问题，根据短文选择答案：",au:"Quando è venuta in Italia?",o:["去年","今年","上个月"],e:"«L'anno scorso sono venuta in Italia.»"},
@@ -1524,7 +1752,7 @@ function itHTML(text,plain){return String(text).split(/(\s+)/).map(function(tok)
   return esc(m[1])+(plain?esc(core):'<span class="w" tabindex="0" role="button" data-say="'+esc(core)+'">'+esc(core)+'</span>')+esc(m[3]);
 }).join("")}
 function norm(w){return w.toLowerCase().replace(/[’]/g,"'")}
-function meaning(w){var k=norm(w);if(DICT[k])return DICT[k];
+function meaning(w){var k=norm(w);if(DICT[k])return DICT[k];if(typeof CONJ_IDX!=="undefined"&&CONJ_IDX[k])return CONJ_IDX[k];
   var i=k.indexOf("'");if(i>0&&i<k.length-1){var a=k.slice(0,i+1),b=k.slice(i+1),ma=DICT[a],mb=DICT[b];if(ma||mb)return (ma||a)+" + "+(mb||b)}
   if(/^[A-Z]/.test(w)&&!DICT[k])return "专有名词";
   return ""}
@@ -1533,10 +1761,63 @@ function meaning(w){var k=norm(w);if(DICT[k])return DICT[k];
 /* ---------- parole italiane dentro il testo cinese ---------- */
 V.forEach(function(r){if(r.length===3&&!DICT[r[0]])DICT[r[0]]=r[1]});
 function wordSpan(say,inner){return '<span class="w" tabindex="0" role="button" data-say="'+esc(say)+'">'+inner+'</span>'}
-function linkable(w){if(w.replace(/'/g,"").length<2)return false;var m=meaning(w);return !!m&&m!=="专有名词"&&!/^英语单词|错误形式|^（读音）/.test(m)}
+function linkable(w){if(w.replace(/'/g,"").length<2||/^[A-Z]{2,}$/.test(w))return false;var m=meaning(w);return !!m&&m!=="专有名词"&&!/^英语单词|错误形式|^（读音）/.test(m)}
 function linkMixed(text){return String(text).split(/([A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ'’]*)/).map(function(t,i){
   if(i%2===0)return esc(t);var w=t.replace(/['’]+$/,function(q){return /^(un|l|d|dell|all|nell|dall|sull|anch|po|c|dov|com|cos|vent|quest|quell)$/i.test(t.slice(0,-q.length))?q:""});
   var rest=t.slice(w.length);return (linkable(w)?wordSpan(w,esc(w)):esc(w))+esc(rest)}).join("")}
+
+/* ---------- verbi: dati e regole di coniugazione ---------- */
+var PZ=["io","tu","lui / lei","noi","voi","loro"],PS=["io","tu","lui","noi","voi","loro"],PCN=["我","你","他／她","我们","你们","他们"],RF=["mi","ti","si","ci","vi","si"];
+var AV=["ho","hai","ha","abbiamo","avete","hanno"],ES=["sono","sei","è","siamo","siete","sono"];
+var ENDS={are:["o","i","a","iamo","ate","ano"],ere:["o","i","e","iamo","ete","ono"],ire:["o","i","e","iamo","ite","ono"],isc:["isco","isci","isce","iamo","ite","iscono"]};
+var FUT=["ò","ai","à","emo","ete","anno"],IMP=["vo","vi","va","vamo","vate","vano"];
+var GRP={irr:"最常用的不规则动词",are:"第一组 -are",ere:"第二组 -ere",ire:"第三组 -ire",isc:"第三组 -ire（加 -isc-）",rif:"反身动词"};
+var TN={pr:"现在时",pp:"近过去时",im:"未完成过去时",fu:"将来时"};
+var TIP={pr:"现在时：现在正在做的事、习惯，也可以表示不远的将来。",pp:"近过去时：已经完成的事，相当于中文的「了」「过」。",im:"未完成过去时：过去的状态和习惯，相当于「以前常常」「那时候」。",fu:"将来时：将来的计划，也可以表示猜测。口语里确定的近期计划常常直接用现在时。"};
+var VERBS=[
+ {i:"essere",z:"是",g:"ere",k:"irr",pr:["sono","sei","è","siamo","siete","sono"],fu:"sar",im:["ero","eri","era","eravamo","eravate","erano"],pp:"stato",es:1,st:1},
+ {i:"avere",z:"有",g:"ere",k:"irr",pr:["ho","hai","ha","abbiamo","avete","hanno"],fu:"avr",st:1},
+ {i:"stare",z:"待、（身体）状态",zz:"待",g:"are",k:"irr",pr:["sto","stai","sta","stiamo","state","stanno"],fu:"star",pp:"stato",es:1},
+ {i:"andare",z:"去",g:"are",k:"irr",pr:["vado","vai","va","andiamo","andate","vanno"],fu:"andr",es:1},
+ {i:"fare",z:"做",g:"are",k:"irr",pr:["faccio","fai","fa","facciamo","fate","fanno"],fu:"far",im:"face",pp:"fatto"},
+ {i:"venire",z:"来",g:"ire",k:"irr",pr:["vengo","vieni","viene","veniamo","venite","vengono"],fu:"verr",pp:"venuto",es:1},
+ {i:"volere",z:"想要",g:"ere",k:"irr",pr:["voglio","vuoi","vuole","vogliamo","volete","vogliono"],fu:"vorr",st:1},
+ {i:"potere",z:"能、可以",zz:"能",g:"ere",k:"irr",pr:["posso","puoi","può","possiamo","potete","possono"],fu:"potr",st:1},
+ {i:"dovere",z:"必须",g:"ere",k:"irr",pr:["devo","devi","deve","dobbiamo","dovete","devono"],fu:"dovr",st:1},
+ {i:"dire",z:"说、告诉",zz:"说",g:"ire",k:"irr",pr:["dico","dici","dice","diciamo","dite","dicono"],fu:"dir",im:"dice",pp:"detto"},
+ {i:"uscire",z:"出去",g:"ire",k:"irr",pr:["esco","esci","esce","usciamo","uscite","escono"],es:1},
+ {i:"sapere",z:"知道",g:"ere",k:"irr",pr:["so","sai","sa","sappiamo","sapete","sanno"],fu:"sapr",st:1},
+ {i:"bere",z:"喝",g:"ere",k:"irr",pr:["bevo","bevi","beve","beviamo","bevete","bevono"],fu:"berr",im:"beve",pp:"bevuto"},
+ {i:"dare",z:"给",g:"are",k:"irr",pr:["do","dai","dà","diamo","date","danno"],fu:"dar"},
+ {i:"rimanere",z:"留下",g:"ere",k:"irr",pr:["rimango","rimani","rimane","rimaniamo","rimanete","rimangono"],fu:"rimarr",pp:"rimasto",es:1},
+ {i:"parlare",z:"说（讲话）",zz:"说",g:"are"},{i:"abitare",z:"住",g:"are"},{i:"lavorare",z:"工作",g:"are"},{i:"studiare",z:"学习",g:"are"},{i:"mangiare",z:"吃",g:"are"},
+ {i:"cercare",z:"找",g:"are"},{i:"pagare",z:"付钱",g:"are"},{i:"comprare",z:"买",g:"are"},{i:"arrivare",z:"到达",g:"are",es:1},{i:"tornare",z:"回来",g:"are",es:1},
+ {i:"prendere",z:"拿、点（餐）",zz:"拿",g:"ere",pp:"preso"},{i:"vedere",z:"看见",g:"ere",fu:"vedr",pp:"visto"},{i:"leggere",z:"读",g:"ere",pp:"letto"},{i:"scrivere",z:"写",g:"ere",pp:"scritto"},{i:"vivere",z:"生活、住",zz:"生活",g:"ere",fu:"vivr",pp:"vissuto"},
+ {i:"dormire",z:"睡觉",g:"ire"},{i:"partire",z:"出发",g:"ire",es:1},{i:"sentire",z:"听见、感觉",zz:"听见",g:"ire"},
+ {i:"capire",z:"懂",g:"isc"},{i:"finire",z:"结束、完成",zz:"完成",g:"isc"},{i:"preferire",z:"更喜欢",g:"isc"},
+ {i:"alzarsi",b:"alzare",z:"起床",g:"are",k:"rif",es:1},{i:"chiamarsi",b:"chiamare",z:"叫（名字）",zz:"叫",g:"are",k:"rif",es:1,st:1}
+];
+function vbase(v){return v.b||v.i}
+function vstem(v){return vbase(v).slice(0,-3)}
+function futStem(v){if(v.fu)return v.fu;var b=vbase(v),s=b.slice(0,-3);
+  if(v.g==="are"){if(/[cg]$/.test(s))return s+"her";if(/[cg]i$/.test(s))return s.slice(0,-1)+"er";return s+"er"}
+  return b.slice(0,-1)}
+function ppOf(v){return v.pp||vstem(v)+{are:"ato",ere:"uto",ire:"ito",isc:"ito"}[v.g]}
+function cjForms(v,t){
+  if(t==="pr"){if(v.pr)return v.pr.map(function(f){return {h:esc(f),p:f}});
+    var s=vstem(v);return ENDS[v.g].map(function(x){var st=s;if(v.g==="are"&&/[cg]$/.test(st)&&/^[ie]/.test(x))st+="h";if(/i$/.test(st)&&/^i/.test(x))x=x.slice(1);return {h:esc(st)+'<b class="end">'+esc(x)+'</b>',p:st+x}})}
+  if(t==="fu"){var fs=futStem(v);return FUT.map(function(x){return {h:esc(fs)+'<b class="end">'+x+'</b>',p:fs+x}})}
+  if(t==="im"){if(Array.isArray(v.im))return v.im.map(function(f){return {h:esc(f),p:f}});
+    var is=typeof v.im==="string"?v.im:vbase(v).slice(0,-2);return IMP.map(function(x){return {h:esc(is)+'<b class="end">'+x+'</b>',p:is+x}})}
+  var pp=ppOf(v),aux=v.es?ES:AV;
+  return aux.map(function(a,i){var f=pp,d=pp;if(v.es){var r=pp.slice(0,-1);f=r+(i<3?"o":"i");d=r+(i<3?"o/a":"i/e")}return {h:'<span class="cj-aux">'+a+'</span> <b class="end">'+esc(d)+'</b>',p:a+" "+f}})}
+function cjSay(v,t,i,f){return PS[i]+" "+(v.k==="rif"?RF[i]+" ":"")+f.p}
+function cjZh(v,t,i){var z=v.zz||v.z,P=PCN[i];if(t==="pr")return P+z;if(t==="pp")return v.st?P+"曾经"+z:P+z+"了";if(t==="fu")return P+"会"+z;return P+"以前"+z}
+var CONJ_IDX={};if(!DICT.voi)DICT.voi="你们";if(!DICT.loro)DICT.loro="他们";
+VERBS.forEach(function(v){var z=v.zz||v.z;
+  [["pr","现在时"],["fu","将来时"],["im","未完成过去时"]].forEach(function(T){cjForms(v,T[0]).forEach(function(f,i){var k=f.p.toLowerCase();if(!CONJ_IDX[k])CONJ_IDX[k]=z+"（"+v.i+"）· "+PZ[i]+" · "+T[1]})});
+  if(!DICT[v.i]&&!CONJ_IDX[v.i])CONJ_IDX[v.i]=z+"（动词原形）";
+  var pp=ppOf(v);if(!CONJ_IDX[pp])CONJ_IDX[pp]=v.i+" 的过去分词（"+z+"）"});
 
 /* ---------- audio al clic ---------- */
 document.addEventListener("click",function(e){var b=e.target.closest("[data-say]");if(b)speak(b.getAttribute("data-say"))});
@@ -1700,10 +1981,40 @@ applyPrefs();
   var t=$("#tgtxt");t.onclick=function(){var h=$("#reading").classList.toggle("hide-it");t.textContent=h?"显示意大利语文字":"隐藏意大利语文字";t.setAttribute("aria-pressed",h?"true":"false")}})();
 
 
+/* ---------- coniugatore ---------- */
+(function(){var sel=$("#cjverb");if(!sel)return;var tense="pr",rows=[],groups={};
+  VERBS.forEach(function(v,i){var k=v.k||v.g;(groups[k]=groups[k]||[]).push(i)});
+  sel.innerHTML=["irr","are","ere","ire","isc","rif"].map(function(k){return '<optgroup label="'+GRP[k]+'">'+groups[k].map(function(i){return '<option value="'+i+'">'+VERBS[i].i+' · '+VERBS[i].z+'</option>'}).join("")+'</optgroup>'}).join("");
+  var btn=$("#cjplay");
+  var pl=Player(function(){return rows},{busy:function(){btn.textContent="■ 停止";btn.dataset.on="1"},idle:function(){btn.textContent="▶ 全部播放";btn.dataset.on=""}});
+  btn.onclick=function(){if(btn.dataset.on)pl.stop();else pl.play()};
+  function draw(){if(btn.dataset.on)pl.stop();var v=VERBS[+sel.value],F=cjForms(v,tense);
+    var irr=v.k==="irr"?'<span class="badge irr">不规则</span>':(v.pp||v.fu?'<span class="badge irr">部分不规则</span>':'<span class="badge">规则</span>');
+    $("#cjinfo").innerHTML='<span class="cj-inf" lang="it">'+v.i+'</span><span>'+v.z+'</span><span>'+GRP[v.k||v.g]+'</span>'+irr;
+    $("#cjtable").innerHTML='<tr><th>人称</th><th>'+TN[tense]+'</th><th>中文</th><th></th></tr>'+F.map(function(f,i){
+      var rf=v.k==="rif"?'<span class="cj-rf">'+RF[i]+'</span> ':"";
+      return '<tr><td class="cj-p" lang="it">'+PZ[i]+'</td><td class="cj-f" lang="it">'+rf+f.h+'</td><td class="cj-zh">'+cjZh(v,tense,i)+'</td><td class="cj-play"><button class="say sm" type="button" data-say="'+esc(cjSay(v,tense,i,f))+'" aria-label="播放">'+SPK+'</button></td></tr>'}).join("");
+    rows=$$("#cjtable tr").slice(1).map(function(tr){return {el:tr,say:$(".say",tr).getAttribute("data-say"),mine:false}});
+    $("#cjtip").textContent=TIP[tense]+(tense==="pp"?" 助动词："+(v.es?"essere":"avere")+"；过去分词："+ppOf(v)+(v.es?"（和主语性数一致）":"")+"。":"")}
+  sel.onchange=draw;
+  $$("#cjtense .btn").forEach(function(b){b.onclick=function(){tense=b.getAttribute("data-t");$$("#cjtense .btn").forEach(function(x){x.setAttribute("aria-pressed",x===b?"true":"false")});draw()}});
+  draw();
+})();
+
+/* ---------- tema chiaro / scuro ---------- */
+(function(){var b=$("#tbtheme");if(!b)return;var TK=KEY+"-theme",root=document.documentElement,mq=null;try{mq=matchMedia("(prefers-color-scheme: dark)")}catch(e){}
+  var MOON='<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1z"/></svg>';
+  function cur(){return root.getAttribute("data-theme")||(mq&&mq.matches?"dark":"light")}
+  function draw(){var d=cur()==="dark";b.setAttribute("aria-pressed",d?"true":"false");b.title=d?"深色模式：开":"深色模式：关";b.setAttribute("aria-label","深色模式");b.innerHTML=MOON+'<span class="tbl">深色</span>'}
+  b.onclick=function(){var n=cur()==="dark"?"light":"dark";root.setAttribute("data-theme",n);try{localStorage.setItem(TK,n)}catch(e){}draw()};
+  if(mq){try{mq.addEventListener("change",draw)}catch(e){}}
+  draw();
+})();
+
 /* ---------- tutte le parole italiane cliccabili ---------- */
 (function(){
   var MAIN=$("main");if(!MAIN)return;
-  var SKIP="button,.w,script,style,.tok,.opts,.fc-card,#fcboxes,.toc,.cover-word,.stats,.kicker,.tip,.legend,#alfabeto";
+  var SKIP="button,.w,script,style,.tok,.opts,.fc-card,#fcboxes,.toc,.stats,.kicker,.tip,.legend,#alfabeto,.conjugator,.demo,.map,.hero-card,.xref";
   function replaceText(node,html){var t=document.createElement("template");t.innerHTML=html;node.parentNode.replaceChild(t.content,node)}
   function textNodes(root){var out=[],tw=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,null),n;while((n=tw.nextNode())){if(!n.nodeValue.trim())continue;var p=n.parentElement;if(!p||p.closest(SKIP))continue;out.push(n)}return out}
   /* zone tutte in italiano: ogni parola diventa cliccabile */
@@ -1721,7 +2032,7 @@ applyPrefs();
       return}
     textNodes(el).forEach(function(n){replaceText(n,hasHan.test(n.nodeValue)?linkMixed(n.nodeValue):itHTML(n.nodeValue))});
   }
-  $$('.it,.itc,.conj td,td.big,section.lesson>h2 small,#vocabtbl td[lang="it"]',MAIN).forEach(italianZone);
+  $$('.it,.itc,.conj td,td.big,.lhead h2 small,#vocabtbl td[lang="it"]',MAIN).forEach(italianZone);
   /* testo cinese: solo le parole italiane riconosciute dal dizionario */
   textNodes(MAIN).forEach(function(n){if(/[A-Za-zÀ-ÿ]{2}/.test(n.nodeValue)&&!n.parentElement.closest('[lang="it"],.it,.itc,.it-l'))replaceText(n,linkMixed(n.nodeValue))});
 })();
