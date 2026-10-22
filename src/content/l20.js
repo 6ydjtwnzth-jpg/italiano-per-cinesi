@@ -12,7 +12,7 @@ EX.l20=[
  {t:"type",q:"填空：Sto ___ un libro.（leggere，正在）",a:["leggendo"],full:"Sto leggendo un libro."},
  {t:"dict",au:"Posso provarla?"},
  {t:"say",zh:"在商店说：「请问，这双鞋有 39 号的吗？我可以试一下吗？」",it:"Scusi, avete queste scarpe nel trentanove? Posso provarle?"},
- {t:"say",zh:"说你现在正在做什么。",it:"Sto studiando l'italiano e sto ascoltando la voce di Sara."}
+ {t:"say",zh:"说你现在正在做什么。",it:"Sto studiando l'italiano e sto ascoltando la musica."}
 ];
 VOC.l20=[
  ["giacca","夹克","f"],["maglietta","T 恤","f"],["camicia","衬衫","f"],["pantaloni","裤子（复数）",""],["gonna","裙子","f"],["vestito","连衣裙；衣服","m"],["scarpa","鞋","f"],["borsa","包","f"],

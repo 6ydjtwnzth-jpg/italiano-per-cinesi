@@ -14,6 +14,7 @@ var hasHan=/[一-鿿]/;
    Prima scelta: file audio registrati con la voce neurale "Sara" (audio/<hash>.mp3).
    Se un file manca o non si carica, si usa la sintesi vocale del dispositivo. */
 var voice=null,hasTTS=("speechSynthesis" in window),speakSeq=0,players=[];
+var PREFER_DEVICE=true;
 var AUD=null;try{AUD=new Audio();AUD.preload="auto"}catch(e){}
 function cyrb53(str){var h1=0xdeadbeef,h2=0x41c6ce57;for(var i=0,ch;i<str.length;i++){ch=str.charCodeAt(i);h1=Math.imul(h1^ch,2654435761);h2=Math.imul(h2^ch,1597334677)}
   h1=Math.imul(h1^(h1>>>16),2246822507);h1^=Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507);h2^=Math.imul(h1^(h1>>>13),3266489909);return 4294967296*(2097151&h2)+(h1>>>0)}
@@ -42,7 +43,8 @@ function speak(t,cb,opt){
   function fin(){if(done)return;done=true;if(cb&&my===speakSeq)cb()}
   function fallback(){if(fell||done||my!==speakSeq)return;fell=true;ttsSpeak(t,fin,!!cb)}
   stopAll();
-  if(!AUD){ttsSpeak(t,fin,!!cb);return}
+  /* Finché non ci sono le registrazioni nuove: voce italiana del dispositivo se esiste, file audio solo come riserva. */
+  if(!AUD||(PREFER_DEVICE&&voice)){ttsSpeak(t,fin,!!cb);return}
   try{
     AUD.onended=function(){if(my===speakSeq)fin()};
     AUD.onerror=fallback;
