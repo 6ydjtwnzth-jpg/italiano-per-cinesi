@@ -519,7 +519,7 @@ details.scopri>div{padding:0 0 14px;display:flex;flex-direction:column;gap:8px}
     <div class="t-yellow"><b>582</b><span>个单词 · <i>parole</i></span></div>
   </div>
   <div class="legend"><span>名词颜色：</span><b class="m">阳性 il libro</b><b class="f">阴性 la casa</b><span>· 下划线 = 重音：<b><span class="st">ca</span>sa</b></span><span>· <b style="color:var(--it);text-decoration:underline dotted;text-underline-offset:4px">绿色</b> = 意大利语：点一下，听发音、看意思</span></div>
-  <p class="note" id="ttsnote">点 ▶ 听整句；所有<b style="color:var(--it)">绿色</b>的意大利语单词都可以点：会读出这个词，并显示它的中文意思。右上角可以隐藏中文翻译（只用耳朵练习）和放慢语速。声音来自你设备上的意大利语语音。</p>
+  <p class="note" id="ttsnote">点 ▶ 听整句；所有<b style="color:var(--it)">绿色</b>的意大利语单词都可以点：会读出这个词，并显示它的中文意思。右上角可以隐藏中文翻译（只用耳朵练习）和放慢语速。朗读声音是意大利语女声 Sara（AI 合成）。</p>
 </header>
 
 <section class="map" id="mappa" aria-label="课程地图">
@@ -2591,7 +2591,7 @@ details.scopri>div{padding:0 0 14px;display:flex;flex-direction:column;gap:8px}
   <div class="drill" data-set="verbi"></div>
 
 </section>
-<footer>意大利语入门课本 · Primo libro di italiano · 第一、二部分对应 A1 水平，第三部分对应 A2 水平（参考欧洲语言共同参考框架和 CILS 考试大纲）。继续学习：A2 会话课、意大利语播客、和意大利人语言交换。</footer>
+<footer>意大利语入门课本 · Primo libro di italiano · 第一、二部分对应 A1 水平，第三部分对应 A2 水平（参考欧洲语言共同参考框架和 CILS 考试大纲）。继续学习：A2 会话课、意大利语播客、和意大利人语言交换。<br>朗读声音：Sara，由开源模型 Kokoro-82M（Apache-2.0）合成。</footer>
 
 </main>
 </div>
@@ -3265,8 +3265,8 @@ var hasHan=/[一-鿿]/;
    Prima scelta: file audio registrati con la voce neurale "Sara" (audio/<hash>.mp3).
    Se un file manca o non si carica, si usa la sintesi vocale del dispositivo. */
 var voice=null,hasTTS=("speechSynthesis" in window),speakSeq=0,players=[];
-/* Voce: sintesi vocale del dispositivo, come nella prima versione. I file in audio/ non vengono usati. */
-var USE_DEVICE_VOICE=true;
+/* Voce: file audio registrati con «Sara»; la sintesi del dispositivo resta come riserva se un file manca. */
+var USE_DEVICE_VOICE=false;
 var AUD=null;try{AUD=new Audio();AUD.preload="auto"}catch(e){}
 function cyrb53(str){var h1=0xdeadbeef,h2=0x41c6ce57;for(var i=0,ch;i<str.length;i++){ch=str.charCodeAt(i);h1=Math.imul(h1^ch,2654435761);h2=Math.imul(h2^ch,1597334677)}
   h1=Math.imul(h1^(h1>>>16),2246822507);h1^=Math.imul(h2^(h2>>>13),3266489909);h2=Math.imul(h2^(h2>>>16),2246822507);h2^=Math.imul(h1^(h1>>>13),3266489909);return 4294967296*(2097151&h2)+(h1>>>0)}

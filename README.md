@@ -22,6 +22,6 @@ Per modificare il corso: cambiare i file in `src/`, poi eseguire `python3 build.
 
 ## Audio
 
-Il sito usa la sintesi vocale del dispositivo (Web Speech API, prima voce italiana disponibile). La cartella `audio/` contiene registrazioni sperimentali (Kokoro, voce «Sara») che al momento non vengono usate: per riattivarle impostare `USE_DEVICE_VOICE=false` in `src/js/app.js`.
+Ogni frase e parola è pre-registrata in `audio/` con la voce femminile «Sara» (`if_sara`) del modello open source Kokoro-82M (Apache-2.0, versione completa fp32). Prima della sintesi i fonemi di espeak-ng vengono corretti per l'italiano (vocali i/u piene invece di ɪ/ʊ, consonanti doppie come consonanti lunghe, intonazione conclusiva sulle parole isolate). Il nome del file è l'hash cyrb53 del testo normalizzato (vedi `akey()` in `src/js/app.js`). Se un file manca, il sito usa la sintesi vocale del dispositivo.
 
 I progressi (punteggi, flashcard, «我能做到») restano nel browser dell'utente.
