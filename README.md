@@ -4,6 +4,16 @@ Corso di italiano per madrelingua cinesi, da zero ad A2: 23 lezioni, 3 ripassi (
 
 Il percorso segue la progressione A1.1 → A1.2 → A2 dei sillabi di riferimento e l'ordine di acquisizione dell'italiano L2 (presente → passato prossimo → imperfetto → futuro/condizionale), con attenzione alle difficoltà tipiche degli apprendenti sinofoni (articolo, accordo, morfologia verbale, sonore, r, doppie, nessi consonantici).
 
+## Percorso a livelli
+
+La pagina si apre con una mappa in tre «mondi» (A1.1, A1.2, A2). Ogni lezione è un'unità divisa in tappe brevi, ricavate dal testo della lezione: ascolto del dialogo (con quiz), parole (con quiz), regola (una o due parti, con esercizi), suono, cultura (2–3 schede con confronto Italia–Cina) e sfida finale.
+
+- La sfida si supera con almeno il 70 % e dà 1–3 stelle; superarla apre l'unità successiva.
+- Il ripasso di fine mondo vale anche come test per saltare al mondo successivo («跳级测试»).
+- Le lezioni intere restano sempre leggibili («阅读整课»).
+- Gioco leggero: stelle, obiettivo di 3 tappe al giorno, serie di giorni consecutivi, ripasso quotidiano delle parole (usa le scatole delle flashcard).
+- I progressi sono salvati nel browser (`localStorage`).
+
 ## Struttura
 
 Il sito pubblicato è un unico file statico, `index.html`, generato da `build.py` a partire da `src/`:
@@ -15,7 +25,10 @@ Il sito pubblicato è un unico file statico, `index.html`, generato da `build.py
 | `src/content/<id>.js` | dati della sezione: `DLG.<id>` dialoghi, `EX.<id>` esercizi, `VOC.<id>` parole |
 | `src/js/dict.js` | dizionario italiano → cinese per i tooltip |
 | `src/js/app.js` | logica: audio, dialoghi, esercizi, flashcard, coniugatore, tema |
-| `src/style.css`, `src/extra.css` | stile |
+| `src/js/path.js` | percorso a livelli: mappa, tappe, sblocchi, stelle, serie di giorni, ripasso del giorno |
+| `src/culture.js` | schede culturali (`CULT.<id>`): testo, confronto Italia–Cina, parole chiave, domanda |
+| `src/scenes.svg` | illustrazioni delle schede culturali |
+| `src/style.css`, `src/extra.css`, `src/path.css` | stile |
 | `audio/` | audio pre-registrati |
 
 Per modificare il corso: cambiare i file in `src/`, poi eseguire `python3 build.py` e pubblicare `index.html`.

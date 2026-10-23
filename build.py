@@ -56,12 +56,19 @@ ICONS = {
 'i-scroll':'<rect x="10" y="8" width="40" height="48" rx="6"/><rect x="40" y="4" width="16" height="12" rx="6" fill-opacity=".55"/><rect x="17" y="20" width="26" height="4" rx="2" fill="var(--c)"/><rect x="17" y="29" width="26" height="4" rx="2" fill="var(--c)"/><rect x="17" y="38" width="18" height="4" rx="2" fill="var(--c)"/>',
 'i-cross':'<rect x="4" y="4" width="56" height="56" rx="16"/><path d="M26 15 H38 V26 H49 V38 H38 V49 H26 V38 H15 V26 H26Z" fill="var(--c)"/>',
 'i-loop':'<path d="M32 8 A24 24 0 1 1 9 38" stroke="currentColor" stroke-width="8" fill="none" stroke-linecap="round"/><polygon points="32,0 44,9 32,18"/><circle cx="32" cy="32" r="8" fill-opacity=".55"/>',
+'i-lock':'<rect x="12" y="28" width="40" height="30" rx="8"/><path d="M21 29 V20 A11 11 0 0 1 43 20 V29" fill="none" stroke="currentColor" stroke-width="6"/>',
+'i-flame':'<path d="M32 60 C17 60 9 50 10 38 C11 27 20 22 21 10 C29 15 33 23 31 31 C35 28 37 23 37 18 C48 26 55 36 54 44 C53 54 45 60 32 60Z"/><path d="M32 56 C25 56 21 51 22 45 C23 40 28 37 29 31 C33 35 35 40 34 44 C37 42 38 40 39 37 C43 41 44 45 43 49 C41 54 37 56 32 56Z" fill-opacity=".45"/>',
+'i-check':'<path d="M12 33 L26 47 L53 18" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>',
+'i-ear':'<path d="M20 26 A14 14 0 0 1 48 26 C48 36 40 38 38 46 C36 54 30 58 24 56" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><path d="M28 27 A6 6 0 0 1 40 27 C40 31 36 33 35 36" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>',
+'i-trophy':'<path d="M16 6 H48 V24 A16 16 0 0 1 16 24Z"/><path d="M16 12 H6 V18 A10 10 0 0 0 16 28 M48 12 H58 V18 A10 10 0 0 1 48 28" fill="none" stroke="currentColor" stroke-width="4.5"/><rect x="28" y="38" width="8" height="12" fill-opacity=".55"/><rect x="18" y="50" width="28" height="9" rx="3"/>',
+'i-moka':'<path d="M18 30 H46 L52 60 H12Z"/><path d="M20 28 L24 10 H40 L44 28Z" fill-opacity=".55"/><rect x="28" y="3" width="8" height="8" rx="3"/><path d="M46 36 C56 36 58 48 50 52" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/><path d="M18 28 L8 22" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>',
 'i-star':'<polygon points="32,3 40,22 61,23 45,37 50,58 32,47 14,58 19,37 3,23 24,22"/>',
 }
 
 def sprite():
     return ('<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>' +
             ''.join(f'<symbol id="{k}" viewBox="0 0 64 64" fill="currentColor">{v}</symbol>' for k, v in ICONS.items()) +
+            (rd('scenes.svg') if os.path.exists(os.path.join(SRC, 'scenes.svg')) else '') +
             '</defs></svg>')
 
 # ---------- ordering, numbering, colours ----------
@@ -142,8 +149,11 @@ def js_data():
         p = os.path.join(SRC, 'content', it['id'] + '.js')
         if os.path.exists(p):
             parts.append(f'/* ---- {it["id"]} ---- */\n' + rd('content', it['id'] + '.js'))
-    lessons = [{'id': it['id'], 'n': it.get('n'), 'zh': it['zh'], 'kind': it['kind']} for it in items if it['kind'] != 'app']
-    return ('var DLG={},EX={},VOC={};\nvar LESSONS=' + json.dumps(lessons, ensure_ascii=False) + ';\n' + '\n'.join(parts))
+    worlds = [p for p in COURSE['parts'] if p.get('level')]
+    lessons = [{'id': it['id'], 'n': it.get('n'), 'zh': it['zh'], 'it': it['it'], 'kind': it['kind'], 'icon': it['icon'], 'color': it['color'],
+                'w': next(i for i, p in enumerate(worlds) if p['title'] == it['part']) + 1} for it in items if it['kind'] != 'app']
+    wl = [{'title': p['title'], 'level': p['level'], 'it': p['it']} for p in worlds]
+    return ('var DLG={},EX={},VOC={},CULT={};\nvar LESSONS=' + json.dumps(lessons, ensure_ascii=False) + ';\nvar WORLDS=' + json.dumps(wl, ensure_ascii=False) + ';\n' + '\n'.join(parts) + '\n' + rd('culture.js'))
 
 def stats(data_js):
     n_less = sum(1 for it in items if it['kind'] == 'lesson')
@@ -167,11 +177,11 @@ def main():
             body.append(f'<div class="partttl">{part["title"]}{lvl}</div>\n')
         body.append(section(it))
     footer = rd('footer.html')
-    page = (rd('head.html') + '<style>\n' + rd('style.css') + '\n' + rd('extra.css') + '\n</style>\n</head>\n<body>\n' +
+    page = (rd('head.html') + '<style>\n' + rd('style.css') + '\n' + rd('extra.css') + '\n' + rd('path.css') + '\n</style>\n</head>\n<body>\n' +
             sprite() + '\n' + rd('topbar.html') + '<div class="book">\n' + toc() + '\n\n<main>\n' + hero + '\n' +
             '<section class="lesson t-green" id="metodo" data-kind="intro">\n  <header class="lhead"><div class="lh-text"><div class="kicker"><span>开始之前</span><span class="itk">Il metodo</span></div>\n  <h2>学习方法：先用耳朵，再用嘴巴</h2></div><svg class="lic" aria-hidden="true"><use href="#i-bulb"/></svg></header>\n' + metodo + '\n</section>\n\n' +
             ''.join(body) + footer + '\n</main>\n</div>\n\n<script>\n(function(){\n"use strict";\n' +
-            rd('js', 'dict.js') + '\n' + data_js + '\n' + rd('js', 'app.js') + '\n})();\n</script>\n\n</body>\n</html>\n')
+            rd('js', 'dict.js') + '\n' + data_js + '\n' + rd('js', 'app.js') + '\n' + rd('js', 'path.js') + '\n})();\n</script>\n\n</body>\n</html>\n')
     with open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(page)
     print(f'index.html: {n_less} lessons, {n_dlg} dialogs, {n_ex} exercises, {n_voc} words, {len(page)//1024} KB')
